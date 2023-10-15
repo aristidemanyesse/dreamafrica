@@ -1,0 +1,424 @@
+{% extends 'base/vitrineBase.html' %}
+{% load static %}
+
+{% block "title" %}Juste une danse | Dream Team Africa{% endblock "title" %}
+
+{% block "body" %}
+
+<!-- Start Header -->
+<div class="fables-header fables-after-overlay overlay-lighter bg-rules"
+	style="background-image: url({% static 'images/Afro-Beatz.jpg' %});">
+	<div class="container overflow-hidden">
+		<div class="owl-carousel owl-theme default-carousel fables-sqr-nav dots-0 wow fadeInUpBig"
+			data-wow-duration="2s">
+			<div>
+				<h1 class="white-color bold-font mt-lg-5 mb-4 text-uppercase">Faîtes bouger l'afrique ...<br>
+					<span class="fables-second-text-color text-uppercase">qui est en vous</span>
+				</h1>
+				<p class="fables-third-text-color mt-3 mb-5 light-font fables-header-slider-details">
+					Un événement pour mettre en valeur l'artisanat africain.
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /End Header -->
+
+
+
+<div class="container-fluid my-3 text-center">
+	<div class="my-4 my-md-5">
+		<h2 class="font-35 font-weight-bold fables-second-text-color subtitle">Nous vous invitons pour ...</h2>
+		<h1 class="font-weight-bold fables-main-text-color display-3 title">Juste une danse</h1>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row ">
+		<div class="col-12 col-md-10 offset-md-1  text-center">
+			<br> <br>
+			<p class="fables-forth-text-color">
+				Plongez dans l'univers effervescent de la danse urbaine avec 'Juste une danse'. Cet événement dynamique est bien plus qu'un simple festival de danse. Il incarne la fusion parfaite entre le mouvement et l'expression artistique, revitalisant l'espace urbain pour offrir une expérience culturelle inoubliable.
+			</p>
+		</div>
+		<div class="col-12 col-sm-6 col-lg-4 pt-3 pt-md-5 mb-md-5 wow">
+			<div class="row text-center text-md-left">
+				<div class="col-12 col-md-3">
+					<span class="fables-iconhead-set-light fables-second-text-color fa-3x"></span>
+				</div>
+				<div class="col-12 col-md-9 pl-md-0">
+					<h2 class="fables-main-text-color font-20 my-2 mt-md-0 semi-font">Authenticité Culturelle</h2>
+					<div class="font-15 fables-forth-text-color">
+						Immersion authentique dans la culture africaine, avec des produits artisanaux, une cuisine
+						typique et des performances artistiques.
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="col-12 col-sm-6 col-lg-4 pt-3 pt-md-5 mb-md-5 wow">
+			<div class="row text-center text-md-left">
+				<div class="col-12 col-md-3">
+					<span class="fables-iconscreen fables-second-text-color fa-3x"></span>
+				</div>
+				<div class="col-12 col-md-9 pl-md-0">
+					<h2 class="fables-main-text-color font-20 my-2 mt-md-0 semi-font">Cadeaux Uniques</h2>
+					<div class="font-15 fables-forth-text-color">
+						Vous trouverez des cadeaux originaux et uniques, allant de l'artisanat traditionnel aux œuvres
+						d'art contemporaines, parfaits pour les achats de Noël
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-12 col-sm-6 col-lg-4 pt-3 pt-md-5 mb-md-5 wow">
+			<div class="row text-center text-md-left">
+				<div class="col-12 col-md-3">
+					<span class="fables-iconfile fables-second-text-color fa-3x"></span>
+				</div>
+				<div class="col-12 col-md-9 pl-md-0">
+					<h2 class="fables-main-text-color font-20 my-2 mt-md-0 semi-font">Esprit de Solidarité </h2>
+					<div class="font-15 fables-forth-text-color">
+						Ce marché soutient souvent des projets sociaux et caritatifs, offrant aux visiteurs l'occasion
+						de faire des achats tout en contribuant à des causes humanitaires.
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<div class="container mb-4 mb-md-5 mt-5"> 
+	<div class="gallery-filter">
+		<div class="portfolioContainer row filter-masonry"> 
+			{% for fichier in fichiers %}
+				<div class="drawings places col-sm-6 col-md-3 mb-2">
+					<div class="filter-img-block position-relative image-container translate-effect-right">
+						<img src="{% static fichier %}" alt="image" class="w-100">
+						<div class="img-filter-overlay fables-main-color-transparent row m-0">
+							<a data-fancybox="gallery" href="{% static fichier %}" class="gallery-filter-icon white-color fables-second-hover-color"><span class="fables-iconsearch-icon"></span></a>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div> 
+	</div> 
+</div>
+
+
+
+
+<div class="container-fluid">
+	<div class="row mt-3 mt-md-5">
+		<div class="col-12 col-lg-5 offset-lg-1 mb-4 mb-lg-0 overflow-hidden">
+			<h2 class="fables-second-text-color font-35 bold-font wow fadeInLeft">Un Rendez-vous de Trésors<span
+					class="fables-main-text-color"> Uniques pour les Fêtes</span></h2>
+			<p class="fables-forth-text-color mt-4 mb-4">
+				Explorez un marché festif où chaque coin recèle des trésors uniques, parfaits pour faire briller les
+				fêtes. Trouvez des cadeaux originaux, des bijoux étincelants, des objets de décoration exotiques et des
+				produits gastronomiques délicieux pour offrir à vos proches. Laissez-vous emporter par la magie des
+				fêtes et par la découverte de trouvailles exceptionnelles dans un cadre chaleureux et authentique.
+			</p>
+
+			<div id="accordion">
+				<div class="card border-0 mb-3">
+					<div class="card-header p-0 border bg-transparent rounded-0" id="headingOne">
+						<h5 class="mb-0 position-relative">
+							<span class="fables-second-background-color white-color d-inline-block 
+		position-absolute fables-lus-icon pt-2 text-center">
+								<i class="fas fa-plus"></i>
+							</span>
+							<button
+								class="btn fables-main-text-color bg-transparent font-18 focus-0 d-block position-relative z-index pl-6 pt-2 pb-2 w-100 text-left border-0 text-truncate"
+								data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+								aria-controls="collapseOne">
+								Clean and modern websites , Clean and modern websites
+							</button>
+						</h5>
+					</div>
+
+					<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+						<div class="card-body fables-forth-text-color font-14 py-1 py-xl-2 pl-6 pr-0">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos reiciendis cum aliquid quam,
+							consequatur. quisquam consectetur culpa commodi maxime in harum
+						</div>
+					</div>
+				</div>
+				<div class="card border-0 mb-3">
+					<div class="card-header bg-transparent p-0 border rounded-0" id="headingTwo">
+						<h5 class="mb-0 position-relative">
+							<span class="fables-second-background-color white-color d-inline-block 
+		position-absolute fables-lus-icon pt-2 text-center">
+								<i class="fas fa-plus"></i>
+							</span>
+							<button
+								class="btn fables-main-text-color bg-transparent font-18 focus-0 d-block position-relative z-index pl-6 pt-2 pb-2 w-100 text-left border-0 text-truncate collapsed"
+								data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+								aria-controls="collapseTwo">
+								Clean and modern websites
+							</button>
+						</h5>
+					</div>
+					<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+						<div class="card-body fables-forth-text-color font-14 py-1 py-xl-2 pl-6 pr-0">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos reiciendis cum aliquid quam,
+							consequatur. quisquam consectetur culpa commodi maxime in harum
+						</div>
+					</div>
+				</div>
+				<div class="card border-0 mb-3">
+					<div class="card-header p-0 border bg-transparent rounded-0" id="headingThree">
+						<h5 class="mb-0 position-relative">
+							<span class="fables-second-background-color white-color d-inline-block 
+		position-absolute fables-lus-icon pt-2 text-center">
+								<i class="fas fa-plus"></i>
+							</span>
+							<button
+								class="btn fables-main-text-color bg-transparent font-18 focus-0 d-block position-relative z-index pl-6 pt-2 pb-2 w-100 text-left border-0 text-truncate collapsed"
+								data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"
+								aria-controls="collapseThree">
+								Clean and modern websites
+							</button>
+						</h5>
+					</div>
+					<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+						<div class="card-body fables-forth-text-color font-14 py-1 py-xl-2 pl-6 pr-0">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos reiciendis cum aliquid quam,
+							consequatur. quisquam consectetur culpa commodi maxime in harum
+						</div>
+					</div>
+				</div>
+				<div class="card border-0 mb-3">
+					<div class="card-header p-0 border bg-transparent rounded-0" id="headingfour">
+						<h5 class="mb-0 position-relative">
+							<span class="fables-second-background-color white-color d-inline-block 
+		position-absolute fables-lus-icon pt-2 text-center">
+								<i class="fas fa-plus"></i>
+							</span>
+							<button
+								class="btn fables-main-text-color bg-transparent font-18 focus-0 d-block position-relative z-index pl-6 pt-2 pb-2 w-100 text-left border-0 text-truncate collapsed"
+								data-toggle="collapse" data-target="#collapseFour" aria-expanded="false"
+								aria-controls="collapseThree">
+								Clean and modern websites
+							</button>
+						</h5>
+					</div>
+					<div id="collapseFour" class="collapse" aria-labelledby="headingfour" data-parent="#accordion">
+						<div class="card-body fables-forth-text-color font-14 py-1 py-xl-2 pl-6 pr-0">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos reiciendis cum aliquid quam,
+							consequatur. quisquam consectetur culpa commodi maxime in harum
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-12 col-lg-5 offset-lg-1 p-0 text-right mb-lg-5">
+			<div class="choose-img-border-after fables-second-border-color position-relative">
+				<img src="{% static 'images/global/troupe.jpg' %}" alt="" class="w-100">
+			</div>
+		</div>
+	</div>
+</div><br>
+
+
+{% include "../partials/boutique.html" %}
+
+
+<div class="container text-center">
+
+	<div class="row overflow-hidden mb-lg-5">
+		<div class="col-12 col-sm-6 col-lg-4 text-center mb-4 mb-lg-0 wow  ">
+			<div class="table-block table-border-light py-5 fables-second-hover-border">
+				<h2 class="fables-second-text-color font-35 font-weight-bold position-relative subtitle">100+</h2>
+				<h2
+					class="fables-forth-text-color text-center font-weight-bold table-title fables-third-after position-relative subtitle font-17">
+					Artistes musiciens</h2>
+				<p class="fables-forth-text-color my-4 px-4 line-height-large font-15">
+					Rechercheurs de Cadeaux Originaux, Gourmets Curieux, Les Amateurs d'Art et de Culture, Amateurs de
+					Musique et de Divertissemen, etc..
+			</div>
+		</div>
+		<div class="col-12 col-sm-6 col-lg-4 text-center mb-4 mb-lg-0 wow ">
+			<div class="table-block table-border-light py-5 fables-second-hover-border">
+				<h2 class="fables-second-text-color font-35 font-weight-bold position-relative subtitle">250+</h2>
+				<h2
+					class="fables-forth-text-color text-center font-weight-bold table-title fables-third-after position-relative subtitle font-17">
+					Spectacles & Rencontres </h2>
+				<p class="fables-forth-text-color my-4 px-4 line-height-large font-15">
+					Bijoux Artisanaux, Textiles Colorés, Artisanat d'Art, Produits Gastronomiques Africains, etc...
+				</p>
+			</div>
+		</div>
+		<div class="col-12 col-sm-6 col-lg-4 text-center mb-4 mb-lg-0 wow ">
+			<div class="table-block table-border-light py-5 fables-second-hover-border">
+				<h2 class="fables-second-text-color font-35 font-weight-bold position-relative subtitle">1500+</h2>
+				<h2
+					class="fables-forth-text-color text-center font-weight-bold table-title fables-third-after position-relative subtitle font-17">
+					Visiteurs</h2>
+				<p class="fables-forth-text-color my-4 px-4 line-height-large font-15">
+					Les jeunes talents de la danse, les curieux culturels, les amateurs d'art et les amoureux de la créativité , etc...
+				</p>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<br>
+
+<div class="container-fluid">
+	<div class="row mt-3 mt-md-5">
+		<div class="col-12 col-lg-5 offset-lg-1 p-0 text-right mb-lg-5">
+			<div class="choose-img-border-after fables-second-border-color position-relative">
+				<img src="{% static 'images/global/Afro-Beatz.jpg' %}" alt="" class="w-100">
+			</div>
+		</div>
+		<div class="col-12 col-lg-5 offset-lg-1 mb-4 mb-lg-0 overflow-hidden">
+			<h2 class="fables-second-text-color font-35 bold-font wow fadeInLeft">Découvrez une variété  <span class="fables-main-text-color">de styles de danseé</span></h2>
+			<p class="fables-forth-text-color mt-4 mb-4">
+				Plongez au cœur d'un marché vibrant, où les couleurs éclatantes et les traditions fascinantes de
+				l'Afrique prennent vie. Découvrez une mosaïque enchanteresse d'artisanat, de mode, de gastronomie et
+				d'art qui célèbre la richesse culturelle du continent africain. C'est une expérience immersive où
+				l'authenticité et la créativité se rencontrent pour émerveiller vos sens et vous transporter dans un
+				voyage inoubliable.
+			</p>
+			<div class="row">
+				<div class="col-12 col-sm-6 mb-4 mb-sm-3 wow">
+					<div class="border p-3 p-md-4 text-center text-lg-left">
+						<div class="row">
+							<div class="col-12">
+								<h2 class="fables-second-text-color font-20 semi-font mb-3 about-block-heading">Afrobeats</h2>
+								<div class="font-15 fables-forth-text-color">
+									L'Afrobeats est un genre musical en plein essor qui mélange des rythmes africains traditionnels avec des influences modernes telles que le hip-hop et la musique électronique. Ses rythmes entraînants et ses mélodies vibrantes créent une atmosphère festive et énergique.
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-12 col-sm-6 mb-4 mb-sm-3 wow">
+					<div class="border p-3 p-md-4 text-center text-lg-left">
+						<div class="row">
+							<div class="col-12">
+								<h2 class="fables-second-text-color font-20 semi-font mb-3 about-block-heading">Hip-hop</h2>
+								<div class="font-15 fables-forth-text-color">
+                  La musique hip-hop est rythmée par des beats percutants, des basses profondes et des paroles souvent engagées. Elle est le moteur de la danse hip-hop, apportant une énergie contagieuse aux performances, permettant aux danseurs d'exprimer leur créativité et de défier la gravité avec des mouvements impressionnants.
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-12 col-sm-6 mb-4 mb-sm-3 wow">
+					<div class="border p-3 p-md-4 text-center text-lg-left">
+						<div class="row">
+							<div class="col-12">
+								<h2 class="fables-second-text-color font-20 semi-font mb-3 about-block-heading">Modern-jazz</h2>
+								<div class="font-15 fables-forth-text-color">
+									Une fusion musicale entre le jazz traditionnel et la contemporanéité, offrant des rythmes sophistiqués et des mélodies évocatrices pour les performances de danse modern-jazz, incitant les danseurs à explorer la créativité de leurs mouvements.
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-12 col-sm-6 mb-4 mb-sm-3 wow">
+					<div class="border p-3 p-md-4 text-center text-lg-left">
+						<div class="row">
+							<div class="col-12">
+								<h2 class="fables-second-text-color font-20 semi-font mb-3 about-block-heading">Soul et R&B </h2>
+								<div class="font-15 fables-forth-text-color">
+									La musique soul et R&B offre des rythmes sensuels et émotionnels qui peuvent mettre en valeur la grâce et l'expression des danseurs. Les chansons de cette catégorie sont souvent choisies pour des performances plus expressives et émotionnelles.
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div><br><br>
+
+
+{% include "../partials/boutique.html" %}
+
+
+<div class="fables-testimonial fables-after-overlay fables-about-caption py-5 bg-rules"
+	style="background-image: url({% static 'assets/custom/images/index2-overlay.jpg' %});">
+	<div class="container">
+		<div class="row">
+			<div class="position-relative z-index col-12 col-md-8 offset-md-2 text-center wow zoomIn"
+				data-wow-duration="2s">
+				<h3 class=" white-color mb-3 font-25 font-weight-bold">Réservez votre Ticket !</h3>
+				<p class="font-weight-light fables-third-text-color">
+					Vivez une expérience inoubliable aux événements Dream Team Africa !
+					Réservez dès maintenant pour ne pas manquer cette célébration extraordinaire de la culture africaine
+					!
+				</p>
+				<a href="{% url 'vitrineApp:billetterie' %}"
+					class="btn fables-second-background-color white-color white-color-hover fables-btn-rounded  mt-4 py-2 px-5">Réserver
+					dès maintenant</a>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+<div class="fables-light-background-color py-3 py-md-4">
+	<div class="container">
+		<div class="owl-carousel owl-theme nav-0 carousel-items-6 dots-0">
+			<div>
+				<img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template"
+					class="border-hover fables-partner-carousel-img">
+			</div>
+			<div>
+				<img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template"
+					class="border-hover fables-partner-carousel-img">
+			</div>
+			<div>
+				<img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template"
+					class="border-hover fables-partner-carousel-img">
+			</div>
+			<div>
+				<img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template"
+					class="border-hover fables-partner-carousel-img">
+			</div>
+			<div>
+				<img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template"
+					class="border-hover fables-partner-carousel-img">
+			</div>
+			<div>
+				<img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template"
+					class="border-hover fables-partner-carousel-img">
+			</div>
+			<div>
+				<img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template"
+					class="border-hover fables-partner-carousel-img">
+			</div>
+			<div>
+				<img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template"
+					class="border-hover fables-partner-carousel-img">
+			</div>
+			<div>
+				<img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template"
+					class="fborder-hover ables-partner-carousel-img">
+			</div>
+			<div>
+				<img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template"
+					class="border-hover fables-partner-carousel-img">
+			</div>
+			<div>
+				<img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template"
+					class="border-hover fables-partner-carousel-img">
+			</div>
+			<div>
+				<img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template"
+					class="fborder-hover ables-partner-carousel-img">
+			</div>
+
+		</div>
+	</div>
+</div>
+
+{% endblock "body" %}

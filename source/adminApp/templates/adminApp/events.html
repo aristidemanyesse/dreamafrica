@@ -1,0 +1,255 @@
+{% extends 'base/adminBase.html' %}
+{% load myfilters %}
+{% load static %}
+{% load i18n %} 
+
+{% block "content" %}
+		<!-- begin #content -->
+		<div id="content" class="content">
+			<!-- begin breadcrumb -->
+			{% comment %} <ol class="breadcrumb pull-right">
+				<li><a href="javascript:;">Home</a></li>
+				<li class="active">Gallery</li>
+			</ol> {% endcomment %}
+			<!-- end breadcrumb -->
+			<!-- begin page-header -->
+			<h1 class="page-header">Evenement de la #FAP <small>...</small></h1>
+			<!-- end page-header -->
+			
+            <div id="options" class="m-b-10">
+                <span class="gallery-option-set" id="filter" data-option-key="filter">
+                    <a href="#show-all" class="btn btn-default btn-sm active" data-option-value="*">
+                        Voir Tous
+                    </a>
+                    {% for jour in jours %}
+                        <div class="btn-group">
+                            <a href="#{{jour.id}}" type="button" class="btn btn-default btn-sm" data-option-value=".{{jour.id}}">{{jour.edition.name}} - {{jour.name}}</a>
+                        </div>
+                    {% endfor %}
+                </span>
+            </div>
+            <div id="gallery" class="gallery">
+
+                {% for event in events %}
+                    <div class="image {{event.jour.id}}">
+                        <div class="image-inner">
+                            <a href="{{event.image.url}}" data-lightbox="{{event.jour.id}}">
+                                <img src="{{event.image.url}}" style="width: 100%; height: inherit" alt="" />
+                            </a>
+                            <p class="image-caption">
+                                #{{event.jour.name}}
+                            </p>
+                        </div>
+                        <div class="image-info">
+                            <h5 class="title m-b-0">{{event.name}}</h5>
+                            <div class="">
+                                <small>à</small> <a href="javascript:;">{{event.time}}</a>
+                            </div><br>
+                            <div class="desc">{{event.description}}</div>
+                            <br>
+                            <div class="">
+                                <div class="pull-left">
+                                    <div class="btn-group">
+                                        <button type="button" data-toggle="modal" data-target="#modal-code-event-{{event.id}}" class="btn btn-success btn-sm"><i class="fa fa-file"></i> Ecrire un article là-dessus</button>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="btn-group">
+                                        <button type="button" onclick="delete_password('EvenementForm', '{{evenement.id}}')" class="btn btn-danger btn-sm"><i class="fa fa-close"></i></button>
+                                        <button type="button" data-toggle="modal" data-target="#modal-update-event-{{event.id}}" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                <div class="image {% for jour in jours %}{{jour.id}} {% endfor %} ">
+                    <div data-toggle="modal" data-target="#modal-add-event" class="bouton btn btn-default text-center">
+                        <i class="fa fa-plus"></i>
+                    </div>
+                </div>
+            </div>
+		</div>
+		<!-- end #content -->
+
+
+
+        <div class="modal fade" id="modal-add-event" >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title">Nouvel evenement</h4>
+                    </div>
+                    <form method="POST" class="formShamman" classname="EvenementForm">
+                        {% csrf_token %}
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>{% translate "Titre de l'evenement" %} </label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" value="{{element.name}}" name="name" required>
+                                    </div>
+                                </div> 
+                                <div class="col-sm-6">
+                                    <label>{% translate "Jour" %} </label>
+                                    <div class="form-group">
+                                        {% include 'extra/select.html' with name='jour' instances=jours  %}   
+                                    </div>
+                                </div>                    
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label>{% translate "Description" %} </label>
+                                    <textarea class="form-control" rows="4" name="description"></textarea>
+                                </div>             
+                            </div><br>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>{% translate "Heure" %} </label>
+                                    <div class="form-group">
+                                        <input type="time" class="form-control" value="{{element.time}}" name="time" required>
+                                    </div>
+                                </div> 
+                                <div class="col-sm-6">
+                                    <label>{% translate "Photo d'illustration" %} </label>
+                                    <div class="">
+                                        <img style="width: 100px;" src="{{element.image.url}}" class="img-thumbnail logo">
+                                        <input class="hide" type="file" name="image">
+                                        <button type="button" class="btn btn-sm bg-purple pull-right btn_image"><i class="fa fa-image"></i> {% translate "Ajouter une image" %}</button>
+                                    </div>
+                                </div>                
+                            </div><br>
+                            
+                        </div>
+                        <div class="modal-footer">
+                            <input type="hidden" value="{{element.id}}" name="id">
+                            <button class="btn dim btn-primary"><i class="fa fa-refresh"></i> {% translate "Valider le formulaire" %}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+        {% for element in events %}
+        <div class="modal fade" id="modal-update-event-{{element.id}}" >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title">Modification de l'oeuvre</h4>
+                    </div>
+                    <form method="POST" class="formShamman" classname="EvenementForm">
+                        {% csrf_token %}
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>{% translate "Titre de l'evenement" %} </label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" value="{{element.name}}" name="name" required>
+                                    </div>
+                                </div> 
+                                <div class="col-sm-6">
+                                    <label>{% translate "Jour" %} </label>
+                                    <div class="form-group">
+                                        {% include 'extra/select.html' with name='jour' obj=element.jour instances=jours  %}   
+                                    </div>
+                                </div>                    
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label>{% translate "Description" %} </label>
+                                    <textarea class="form-control" rows="4" name="description">{{element.description}}</textarea>
+                                </div>             
+                            </div><br>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>{% translate "Heure" %} </label>
+                                    <div class="form-group">
+                                        <input type="time" class="form-control" value="{{element.time}}" name="time" required>
+                                    </div>
+                                </div> 
+                                <div class="col-sm-6">
+                                    <label>{% translate "Photo d'illustration" %} </label>
+                                    <div class="">
+                                        <img style="width: 100px;" src="{{element.image.url}}" class="img-thumbnail logo">
+                                        <input class="hide" type="file" name="image">
+                                        <button type="button" class="btn btn-sm bg-purple pull-right btn_image"><i class="fa fa-image"></i> {% translate "Ajouter une image" %}</button>
+                                    </div>
+                                </div>                
+                            </div><br>
+                         
+                        </div>
+                        <div class="modal-footer">
+                            <input type="hidden" value="{{element.id}}" name="id">
+                            <button class="btn dim btn-primary"><i class="fa fa-refresh"></i> {% translate "Valider le formulaire" %}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+
+        {% for element in events %}
+            <div class="modal fade" id="modal-code-event-{{element.id}}" >
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content modal-lg">
+                        <form method="POST" class="formShamman" classname="EvenementForm">
+                            {% csrf_token %}
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="panel panel-inverse m-b-0">
+                                            <div class="panel-heading">
+                                                <div class="panel-heading-btn">
+                                                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-dismiss="modal" ><i class="fa fa-times"></i></a>
+                                                </div>
+                                                <h4 class="panel-title">Rédigez votre article ici - Ce que vous voyez sera le resultat obtenu !</h4>
+                                            </div>
+                                            <div class="panel-body p-0">
+                                                <textarea class="summernote" name="code">{{element.code}}</textarea>
+                                                <input type="hidden" class="form-control" value="{{element.time}}" name="time" required>
+                                            </div>
+                                        </div>
+                                    </div>             
+                                </div><br>
+                            </div>
+                            <div class="modal-footer">
+                                <input type="hidden" value="{{element.id}}" name="id">
+                                <button class="btn dim btn-primary"><i class="fa fa-refresh"></i> {% translate "Valider l'article" %}</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+
+
+        <style>
+            .bouton{
+                width: 100px;
+                height: 100px;
+                font-size: 50px;
+                padding-top: 15px;
+                border-radius: 10px;
+                margin: 10px 0 0 10px;
+                cursor: pointer;
+            }
+        </style>
+
+{% endblock "content" %}
+
+
+{% block "scriptjs" %}
+    <script>
+        $(document).ready(function() {
+            Gallery.init();
+            FormSummernote.init(); 
+        });
+    </script>
+{% endblock "scriptjs" %}

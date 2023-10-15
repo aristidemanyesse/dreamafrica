@@ -1,0 +1,56 @@
+@font-face {
+    font-family: 'SuezOne';
+    src:  url('../fonts/SuezOne-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'CarterOne';
+    src:  url('../fonts/CarterOne-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'montana';
+    src:  url('../fonts/Montana.otf');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+
+  @font-face {
+    font-family: 'belgiano';
+    src:  url('../fonts/Belgiano Serif 2.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'cream_cake';
+    src:  url('../fonts/Cream Cake.otf');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+
+  @font-face {
+    font-family: 'brave_gates';
+    src:  url('../fonts/Brave Gates.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+
+
+  h1.title{
+    font-family: "brave_gates" !important;
+    letter-spacing: 5px !important;
+    font-size: 60px !important;
+
+  }
+  h2.subtitle{
+    font-family: "CarterOne" !important;
+
+  }

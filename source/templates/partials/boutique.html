@@ -1,0 +1,44 @@
+{% load static %}  
+        
+    <div class="fables-index-products large-mb fables-after-overlay py-4 py-md-5 mt-md-5 bg-rules" style="background-image: url({% static 'assets/custom/images/index-products-overlay.jpg' %});">
+        <div class="container z-index position-relative overflow-hidden"> 
+            <div class="row">
+                <div class="col-12 col-md-7 wow fadeInLeft">
+                    <h2 class="fables-second-text-color font-35 font-weight-bold subtitle">#FAB2023 <span class="white-color">Boutique</span></h2>
+                    <p class="fables-third-text-color mt-4 mb-md-5">
+                        Explorez notre boutique exquise à la Foire Africaine de Paris et trouvez des trésors uniques, alliant authenticité et artisanat raffiné, pour emporter avec vous un morceau de l'Afrique.
+                    </p>
+                </div>
+                <div class="col-12 col-md-5 col-lg-3 text-right offset-lg-2 my-4 my-md-0 mt-md-5 mt-lg-0 text-center">
+                    <a href="{% url "boutiqueApp:main" %}" class="btn fables-second-background-color white-color white-color-hover fables-btn-rounded px-5 py-2">Voir tous nos produits</a>
+                </div>
+            </div>   
+            <div class="owl-carousel owl-theme dots-0 circle-nav carousel-items-4"> 
+                  
+                {% for produit in produits %}
+                <div class="card rounded-0 mb-4 border-light wow fadeIn" data-wow-delay="1.2s">
+                    <div class="row">
+                        <div class="fables-product-img col-12">
+                           <img class="card-img-top rounded-0 w-100" src="{{ produit.image1.url }}" alt="{{produit.name}}">
+                           <div class="fables-img-overlay">                                          
+                               <ul class="nav fables-product-btns pr-3 mt-5 vertical-store-btns">
+                                   <li><a href="{% url 'boutiqueApp:produit' produit.id %}" class="fables-product-btn"><span class="fables-iconeye"></span></a></li>
+                               </ul>
+                           </div>
+                       </div>
+                       <div class="card-body col-12">
+                         <h5 class="card-title mx-3">
+                             <a href="{% url 'boutiqueApp:produit' produit.id %}" class="fables-main-text-color fables-store-product-title fables-second-hover-color">{{produit.name}}</a>
+                         </h5>
+                         <p class="card-text fables-fifth-text-color font-15 mx-3">{{produit.description|truncatewords:6}}</p>
+                         <p class="font-weight-bold fables-second-text-color my-2 mb-3 mx-3">{{produit.price}} Fcfa</p>
+                         <p class="fables-product-info"><a href="" class="btn fables-second-border-color fables-second-text-color fables-btn-rouned fables-hover-btn-color font-14 px-4 py-2">
+                         <span class="fables-iconcart"></span> 
+                         <span class="fables-btn-value">Ajouter au panier</span></a></p>
+                       </div>
+                    </div>
+         </div>  
+            {% endfor %} 
+             </div>  
+        </div>
+    </div>

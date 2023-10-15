@@ -1,0 +1,55 @@
+{% load static %}
+
+<div id="sidebar" class="sidebar">
+    <!-- begin sidebar scrollbar -->
+    <div data-scrollbar="true" data-height="100%">
+        <!-- begin sidebar user -->
+        <ul class="nav">
+            <li class="nav-profile">
+                <div class="image">
+                    <a href="javascript:;"><img src="{% static 'admin/dist/img/user-13.jpg' %}" alt="" /></a>
+                </div>
+                <div class="info">
+                    {{request.respo.first_name}} {{request.respo.last_name}}
+                    <small>Responsable</small>
+                </div>
+            </li>
+        </ul>
+        <!-- end sidebar user -->
+        <!-- begin sidebar nav -->
+
+        <ul class="nav">
+            <li><a href="{% url 'adminApp:dashboard' %}"><i class="fa fa-windows"></i> <span>Tableau de Bord</span></a></li>
+
+            {% comment %} <li page="informations"><a href="{% url 'adminApp:events' %}"><i class="fa fa-info"></i> <span>Evenements</span></a></li> {% endcomment %}
+            {% comment %} <li page="informations"><a href="{% url 'adminApp:participants' %}"><i class="fa fa-users"></i> <span>Participants</span></a></li> {% endcomment %}
+            {% comment %} <li page="informations"><a href="{% url 'adminApp:actualites' %}"><i class="fa fa-file"></i> <span>Actualités</span></a></li> {% endcomment %}
+            {% comment %} <li page="informations"><a href="{% url 'adminApp:galerie' %}"><i class="fa fa-image"></i> <span>Galerie</span></a></li> {% endcomment %}
+
+            <li class="has-sub " module="adminApp">
+                <a href="javascript:;">
+                    <b class="caret pull-right"></b>
+                    <i class="fa fa-university"></i>
+                    <span>La Boutique</span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="" page="liste"><a href="{% url 'adminApp:produits' %}">Produits</a></li>
+                    <li page="map"><a href="{% url 'adminApp:dashboard' %}">Commandes</a></li>
+                </ul>
+            </li>
+            
+            <li page="informations"><a href="{% url 'adminApp:stands' %}"><i class="fa fa-handshake-o"></i> <span>Inscription Stands</span></a></li>
+            {% comment %} <li page="informations"><a href="{% url 'adminApp:dashboard' %}"><i class="fa fa-info"></i> <span>Informations</span></a></li> {% endcomment %}
+
+            {% comment %} <li page="parametres"><a href="{% url 'produitApp:medicaments' %}"><i class="fa fa-cogs"></i> <span>Paramètres</span></a></li> {% endcomment %}
+
+            <!-- begin sidebar minify button -->
+            <li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
+            <!-- end sidebar minify button -->
+        </ul>
+        <!-- end sidebar nav -->
+    </div>
+    <!-- end sidebar scrollbar -->
+</div>
+
+<div class="sidebar-bg"></div>

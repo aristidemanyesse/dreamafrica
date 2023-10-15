@@ -1,0 +1,286 @@
+{% extends 'base/vitrineBase.html' %}
+{% load static %}
+
+{% block "title" %}#FAP2023 - Reserver votre stand{% endblock "title" %}
+
+{% block "body" %}
+
+<!-- Start Header -->
+<div class="fables-header fables-after-overlay">
+    <div class="container"> 
+      <h2 class="fables-page-title fables-second-border-color"><span class="fables-second-text-color">#FAP2023</span> Reserver votre stand</h2>
+    </div>
+</div>  
+<!-- /End Header -->
+     
+
+
+
+<div class="container">
+    <div class="my-4 my-md-5 overflow-hidden">
+       
+        <div class="text-center mb-5 wow fadeInDown" data-wow-delay="1s">
+            <h3 class="fables-about-top-head fables-forth-text-color font-15 semi-font d-inline-block bg-white position-relative">
+                <span class="mx-4">#FAP2023 - Stands</span>
+            </h3>
+            <h2 class="fables-second-text-color mt-3 font-30 font-weight-bold text-center">Participez à un événement d'envergure où se rassemblent les participants de toute l'Afrique.</h2> 
+        </div> 
+            
+        <div class="row">
+            <div class="col-12 col-md-4 mb-4 mb-md-0 wow fadeInDown" data-wow-delay=".3s">
+                <div class="fables-about-icon-style"> 
+                    <span class="fables-iconmobileApp-icon fables-second-text-color fa-3x"></span>
+                    <h2 class="fables-second-text-color fables-about-icon-head mt-3 mb-2 font-18 semi-font">Exposition </h2>
+                    <span class="fables-title-border fables-second-background-color"></span>
+                    <div class="fables-forth-text-color mt-3 font-14">
+                      Explorez une exposition riche et variée mettant en avant la diversité culturelle de l'Afrique.
+                    </div>
+
+                </div>
+            </div>  
+            <div class="col-12 col-md-4 mb-4 mb-md-0 wow fadeInDown" data-wow-delay=".6s">
+               <div class="fables-about-icon-style">
+                   <span class="fables-icondevelopment-icon fables-second-text-color fa-3x"></span>
+                   <h2 class="fables-second-text-color fables-about-icon-head mt-3 mb-2 font-18 semi-font">Découverte</h2>
+                   <span class="fables-title-border fables-second-background-color"></span>
+                   <div class="fables-forth-text-color mt-3 font-14">
+                    Découvrez les trésors cachés de l'Afrique à travers les produits uniques et les créations artistiques présentés dans nos stands.
+                    </div>
+                </div> 
+            </div>
+            <div class="col-12 col-md-4 mb-4 mb-md-0 wow fadeInDown" data-wow-delay=".9s">
+               <div class="fables-about-icon-style"> 
+                    <span class="fables-iconwebDesign-icon fables-second-text-color fa-3x"></span>
+                   <h2 class="fables-second-text-color fables-about-icon-head mt-3 mb-2 font-18 semi-font">Interaction </h2>
+                   <span class="fables-title-border fables-second-background-color"></span>
+                    <div class="fables-forth-text-color mt-3 font-14">
+                      Rencontrez les exposants passionnés, échangez des idées et établissez des liens inestimables lors de votre visite.
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="bg-rules mb-4 mb-lg-0 py-3 py-lg-0" style="background-image: url({% static 'assets/custom/images/mission-img.jpg' %})">  
+  <div class="container-fluid">             
+       <div class="row overflow-hidden">    
+           <div class="col-12 col-lg-6 offset-lg-6 p-lg-0">  
+               <div class="fables-vision-overlay fables-after-overlay bg-rules">
+                   <h2 class="fables-main-text-color my-0 font-30 font-weight-bold position-relative z-index wow fadeInRight" data-wow-duration="2s">Nous aimons ce que nous faisons <br> & nous le faisons avec passion!</h2>
+                   <p class="fables-fifth-text-color position-relative z-index mt-4 mb-4 mb-md-5 wow fadeInRight" data-wow-duration="2s">
+                     Vous êtes un créateur, un entrepreneur ou un artisan passionné par la culture africaine ? Ne manquez pas l'occasion de participer à la prestigieuse Foire Africaine de Paris.<br> <br>
+                     Cet événement annuel offre une plateforme exceptionnelle pour mettre en valeur vos produits, votre art ou vos spécialités culinaires inspirées de l'Afrique. En réservant votre stand, vous serez au cœur de l'action, entouré d'une audience curieuse et diverse, prête à découvrir et à apprécier vos créations. C'est l'occasion idéale de rencontrer des professionnels, d'établir des partenariats commerciaux fructueux et de partager votre passion pour la culture africaine avec un public engagé. 
+                   </p>
+                   <a href="#standform" class="btn fables-second-border-color white-color fables-btn-rouned fables-hover-btn-color font-19 px-5 py-2 position-relative z-index wow fadeInRight" data-wow-duration="2s"><span>Reserver votre stand</span></a>
+               </div>
+
+           </div>
+       </div>
+ </div>
+</div>
+<div class="bg-rules mb-4 py-3 py-lg-0" style="background-image: url({% static 'assets/custom/images/vision-img.jpg' %})"> 
+    <div class="container-fluid">
+      <div class="row overflow-hidden"> 
+       <div class="col-12 col-lg-6 p-lg-0"> 
+           <div class="fables-vision-overlay fables-after-overlay fables-light-overlay bg-rules">
+               <h2 class="fables-second-text-color my-0 font-30 font-weight-bold position-relative z-index wow fadeInLeft" data-wow-duration="2s">À chaque coin, la richesse et la diversité <br> des exposants se révèlent</h2>
+               <p class="fables-forth-text-color position-relative z-index mt-4 mb-4 mb-md-5 wow fadeInLeft" data-wow-duration="2s">
+                 Plongez au cœur d'une expérience immersive et émerveillez-vous devant la mosaïque éblouissante de stands variés qui s'animent à la Foire Africaine de Paris. À chaque coin, la richesse et la diversité des exposants se révèlent dans une symphonie culturelle enchanteresse, où l'artisanat, la mode, la gastronomie et les innovations africaines prennent vie sous les feux des projecteurs. Explorez ce vibrant marché, entre traditions ancestrales et créations contemporaines, et laissez-vous transporter dans un voyage sensoriel captivant qui célèbre avec éclat la beauté, l'authenticité et l'esprit de l'Afrique.
+               </p>
+               <a href="" class="btn fables-second-border-color fables-second-text-color fables-btn-rouned fables-hover-btn-color font-19 px-5 py-2 position-relative z-index wow fadeInLeft" data-wow-duration="2s"><span>Reserver votre stand</span></a>
+           </div>                    
+       </div>
+
+   </div>
+</div>  
+</div> 
+
+
+
+<div class="fables-counter-no-background my-4 my-md-5 overflow-hidden">
+   <div class="container">
+       <div class="fables-about-head-style">
+            <div class="row wow fadeInDown" data-wow-delay=".5s">
+                <div class="col-12 text-center">
+                    <h3 class="fables-about-top-head fables-forth-text-color font-15 semi-font d-inline-block bg-white position-relative">
+                        <span class="mx-4"></span>
+                    </h3>
+                    <h2 class="fables-second-text-color mt-3 font-30 font-weight-bold text-center subtitle">Exposition, Découverte, Interaction.</h2>  
+                </div>
+                <div class="col-12 col-md-10 offset-md-1 mt-3 mb-5">
+                    <p class="fables-forth-text-color text-center">
+                      Découvrez une mosaïque éblouissante de stands à la Foire Africaine de Paris, reflétant la richesse et la diversité des exposants, des produits et des créations inspirées du continent africain.
+                    </p>
+                </div> 
+            </div>
+        </div>
+       
+       <div class="row wow fadeIn" data-wow-delay=".8s">
+           <div class="col-6 col-md-3">
+               <div class="fables-counter">
+                   <h2 class="fables-counter-value font-40 font-weight-bold mb-3 fables-forth-text-color" data-count="307">0</h2>
+                   <h3 class="font-14 semi-font fables-forth-text-color">Artisanat Culture Gastronomie</h3>
+               </div>
+           </div>
+           <div class="col-6 col-md-3">
+               <div class="fables-counter">
+                   <h2 class="fables-counter-value font-40 font-weight-bold mb-3 fables-forth-text-color" data-count="95">0</h2>
+                   <h3 class="font-14 semi-font fables-forth-text-color">Mode et Accessoires</h3>
+               </div>
+           </div>
+           <div class="col-6 col-md-3">
+               <div class="fables-counter">
+                   <h2 class="fables-counter-value font-40 font-weight-bold mb-3 fables-forth-text-color" data-count="55">0</h2>
+                   <h3 class="font-14 semi-font fables-forth-text-color">Innovations et Échanges</h3>
+               </div>
+           </div>
+           <div class="col-6 col-md-3">
+               <div class="fables-counter">
+                   <h2 class="fables-counter-value font-40 font-weight-bold mb-3 fables-forth-text-color" data-count="16">0</h2>
+                   <h3 class="font-14 semi-font fables-forth-text-color">Presse, TV, Radios</h3>
+               </div>
+           </div>
+       </div>
+   </div>
+</div>
+
+<div class="fables-history-section mb-4 mb-md-5">
+   <div class="container">
+       <div class="fables-about-head-style">
+            <div class="row wow fadeInDown" data-wow-delay=".5s">
+                <div class="col-12 text-center">
+                    <h3 class="fables-about-top-head fables-forth-text-color font-15 semi-font d-inline-block bg-white position-relative">
+                    </h3>
+                    <div class="col-12 col-md-10 offset-md-1">
+                        <p class="fables-forth-text-color mt-3 mb-4 mb-md-5">
+                          Rejoignez-nous pour une expérience immersive de partage, de découverte et d'échange au sein de la vibrante Foire Africaine de Paris. Réservez votre stand dès maintenant et prenez part à cette aventure culturelle unique en son genre !
+                        </p>
+                    </div>
+                </div> 
+            </div>
+        </div>
+       
+        <div class="item">
+          <div class="row">
+              <div class="col-12 col-sm-4 mb-4 mb-md-0">
+                  <div class="card">
+                     <img class="card-img-top rounded-0 w-100" src="{% static 'assets/custom/images/img2.jpg' %}" alt="Fables Template">
+                     <div class="card-body">
+                       <h5 class="card-title fables-second-text-color">2010</h5>
+                       <p class="card-text fables-forth-text-color d-sm-none d-md-block font-15">It is a long established fact that a reader will be distracted by the readable content of a page when </p> 
+                     </div>
+                   </div>
+              </div>
+              <div class="col-12 col-sm-4 mb-4 mb-md-0">
+                  <div class="card">
+                     <img class="card-img-top rounded-0 w-100" src="{% static 'assets/custom/images/history-img.jpg' %}" alt="Fables Template">
+                     <div class="card-body">
+                       <h5 class="card-title fables-second-text-color">2010</h5>
+                       <p class="card-text fables-forth-text-color d-sm-none d-md-block font-15">It is a long established fact that a reader will be distracted by the readable content of a page when </p> 
+                     </div>
+                   </div>
+              </div>
+              <div class="col-12 col-sm-4 mb-4 mb-md-0">
+                  <div class="card">
+                     <img class="card-img-top rounded-0 w-100" src="{% static 'assets/custom/images/img3.jpg' %}" alt="Fables Template">
+                     <div class="card-body">
+                       <h5 class="card-title fables-second-text-color">2010</h5>
+                       <p class="card-text fables-forth-text-color d-sm-none d-md-block font-15">It is a long established fact that a reader will be distracted by the readable content of a page when </p> 
+                     </div>
+                   </div>
+              </div>
+              
+          </div>
+     </div>
+   </div>
+</div>
+
+<div class="container-fluid m-b-lg"> 
+  <div class="row overflow-hidden">
+      <div class="col-12 col-sm-6 col-md-4 p-sm-0 mb-3 mb-md-0 image-container translate-effect-right wow fadeInLeft" data-wow-durationn="2.5s">
+          <img src="{% static 'assets/custom/images/hp_innovacion2.jpg' %}" alt="Fables Template" class="img-fluid">
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 p-sm-0 image-container translate-effect-right wow fadeInRight" data-wow-durationn="2.5s">
+          <img src="{% static 'images/stands.jpg' %}" alt="Fables Template" class="img-fluid">
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 p-sm-0 image-container translate-effect-right wow fadeInRight" data-wow-durationn="2.5s">
+        <img src="{% static 'images/stands.jpg' %}" alt="Fables Template" class="img-fluid">
+    </div>
+  </div>
+</div>
+
+<br><br><br><br>
+
+<div class="fables-team m-t-lg"  id="standform">             
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-10 offset-md-1">
+              <div class="col-12 text-center">
+                <h2 class="fables-second-text-color mt-3 font-30 font-weight-bold text-center"></h2>  
+                <h3 class="fables-about-top-head fables-forth-text-color font-15 semi-font d-inline-block bg-white position-relative">
+                  
+                </h3>
+                <h2 class="fables-second-text-color mt-3 font-30 font-weight-bold text-center"></h2>  
+            </div>
+            <br>
+                <div class="text-center">
+                 <h2 class="font-35 font-weight-bold fables-second-text-color subtitle">Remplissez ce formulaire ...</h2>
+                 <h1 class="font-weight-bold fables-main-text-color display-3 title">Reserver votre stand !</h1> 
+                 <br>
+                    <p class="fables-forth-text-color">
+                      Laissez-vous envoûter par l'Afrique à la #FAP2023 !
+                    </p>
+                </div>
+            </div>
+        </div>   <br> <br>
+        
+        <div class="row">
+            <div class="col-12 wow fadeInLeft">
+                <form class="fables-contact-form">
+                  <div class="form-row">
+                      <div class="form-group col-md-6">
+                          <input type="text" class="form-control p-3 fables-rounded"  placeholder="First Name">   
+                      </div>
+                      <div class="form-group col-md-6">
+                          <input type="text" class="form-control p-3 fables-rounded"  placeholder="Last Name">  
+                      </div> 
+                  </div>
+                  <div class="form-row">
+                      <div class="form-group col-md-6">
+                          <input type="email" class="form-control p-3 fables-rounded" placeholder="Email"> 
+                      </div>
+                      <div class="form-group col-md-6">
+                          <input type="text" class="form-control p-3 fables-rounded" placeholder="Subject"> 
+                      </div> 
+                  </div> 
+                  <div class="form-row">
+                      <div class="form-group col-md-6">
+                          <input type="email" class="form-control p-3 fables-rounded" placeholder="Email"> 
+                      </div>
+                      <div class="form-group col-md-6">
+                          <input type="text" class="form-control p-3 fables-rounded" placeholder="Subject"> 
+                      </div> 
+                  </div> 
+                  <div class="form-row"> 
+                       <div class="form-group col-md-12">
+                           <textarea class="form-control p-3 fables-rounded" placeholder="Message" rows="4"></textarea>
+                      </div> 
+                  </div>
+                  <div class="form-row">
+                    <div class="col-md-12 text-center">
+                        <button type="submit" class="btn fables-second-background-color 
+                         text-white fables-btn-rounded px-7 py-2 font-20">Reserver mon stand</button>
+                    </div>
+                  </div>
+                </form>
+            </div>
+                
+        </div> 
+    </div> 
+</div>       
+
+<br>
+
+{% endblock "body" %}

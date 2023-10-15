@@ -1,0 +1,290 @@
+{% extends 'base/adminBase.html' %}
+{% load myfilters %}
+{% load static %}
+{% load i18n %} 
+
+{% block "content" %}
+		<!-- begin #content -->
+		<div id="content" class="content">
+			<!-- begin breadcrumb -->
+			{% comment %} <ol class="breadcrumb pull-right">
+				<li><a href="javascript:;">Home</a></li>
+				<li class="active">Gallery</li>
+			</ol> {% endcomment %}
+			<!-- end breadcrumb -->
+			<!-- begin page-header -->
+			<h1 class="page-header">Les Participants <small>Tous vos participants...</small></h1>
+			<!-- end page-header -->
+			
+            <div id="options" class="m-b-10">
+                <span class="gallery-option-set" id="filter" data-option-key="filter">
+                    <a href="#show-all" class="btn btn-default btn-sm active" data-option-value="*">
+                        Voir Tous
+                    </a>
+                    {% for type in types %}
+                        <div class="btn-group">
+                            <a href="#{{type.id}}" type="button" class="btn btn-default btn-sm" data-option-value=".{{type.id}}">{{type.name}}</a>
+                            <button type="button" onclick="delete_password('TypeParticipant', '{{type.id}}')" class="btn btn-danger btn-xs" style="margin-left: -5px;"><i class="fa fa-close"></i></button>
+                            <button type="button" data-toggle="modal" data-target="#modal-update-type-{{type.id}}" class="btn btn-primary btn-xs" style="margin-left: -5px;"><i class="fa fa-pencil"></i></button>
+                        </div>
+                    {% endfor %}
+                   
+
+                    <button data-toggle="modal" data-target="#modal-add-type" class="btn btn-success btn-sm pull-right">
+                        <i class="fa fa-plus"></i> Ajouter un type
+                    </button>
+                </span>
+            </div>
+            <div id="gallery" class="gallery">
+
+                {% for participant in participants %}
+                    <div class="image {{participant.type.id}}">
+                        <div class="image-inner">
+                            <a href="{{participant.photo.url}}" data-lightbox="{{participant.type.id}}">
+                                <img src="{{participant.photo.url}}" style="width: 100%; height: inherit" alt="" />
+                            </a>
+                            <p class="image-caption">
+                                #{{participant.type.name}}
+                            </p>
+                        </div>
+                        <div class="image-info">
+                            <h5 class="title m-b-0">{{participant.fullname}}</h5>
+                            <p class="">{{participant.fonction}}</p>
+                            <p class="">{{participant.email}}</p>
+                            <p class="">{{participant.contact}}</p>
+                            <div class="text-right">
+                                <div class="btn-group">
+                                    <button type="button" onclick="delete_password('Participant', '{{participant.id}}')" class="btn btn-danger btn-sm"><i class="fa fa-close"></i></button>
+                                    <button type="button" data-toggle="modal" data-target="#modal-update-participant-{{participant.id}}" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                <div class="image {% for item in types %}{{item.id}} {% endfor %} *">
+                    <div data-toggle="modal" data-target="#modal-add-item" class="bouton btn btn-default text-center">
+                        <i class="fa fa-plus"></i>
+                    </div>
+                </div>
+            </div>
+		</div>
+		<!-- end #content -->
+
+
+
+
+        <div class="modal fade" id="modal-add-type" >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title">Ajout d'un nouveau type de participants</h4>
+                    </div>
+                    <form method="POST" class="formShamman" classname="TypeParticipantForm">
+                        {% csrf_token %}
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <label>{% translate "Nom du type" %} </label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" value="{{element.name}}" name="name" required>
+                                    </div>
+                                </div>                     
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn dim btn-primary"><i class="fa fa-refresh"></i> {% translate "Valider le formulaire" %}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        {% for element in types %}
+            <div class="modal fade" id="modal-update-type-{{element.id}}">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h4 class="modal-title">Modifier le type</h4>
+                        </div>
+                        <form method="POST" class="formShamman" classname="TypeParticipantForm">
+                            {% csrf_token %}
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                        <label>{% translate "Nom du type" %} </label>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" value="{{element.name}}" name="name" required>
+                                        </div>
+                                    </div>                     
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <input type="hidden" value="{{element.id}}" name="id">
+                                <button class="btn dim btn-primary"><i class="fa fa-refresh"></i> {% translate "Valider le formulaire" %}</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+
+
+        <div class="modal fade" id="modal-add-item" >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title">Ajout d'une nouveau participant</h4>
+                    </div>
+                    <form method="POST" class="formShamman" classname="ParticipantForm">
+                        {% csrf_token %}
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>{% translate "Type de participant" %} </label>
+                                    <div class="form-group">
+                                        {% include 'extra/select.html' with name='type' instances=types  %}   
+                                    </div>
+                                </div>    
+                                <div class="col-sm-6">
+                                    <label>{% translate "Nom complet" %} </label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="fullname" required>
+                                    </div>
+                                </div>                  
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>{% translate "Fonction" %} </label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="fonction" required>
+                                    </div>
+                                </div>    
+                                <div class="col-sm-6">
+                                    <label>{% translate "Contacts" %} </label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="contact">
+                                    </div>
+                                </div>             
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-7">
+                                    <label>{% translate "Adresse email" %} </label>
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" name="email">
+                                    </div>
+                                </div> 
+                                <div class="col-sm-">
+                                    <label>{% translate "Photo" %} </label>
+                                    <div class="">
+                                        <img style="width: 100px;" src="" class="img-thumbnail logo">
+                                        <input class="hide" type="file" name="photo">
+                                        <button type="button" class="btn btn-sm bg-purple pull-right btn_image"><i class="fa fa-image"></i> {% translate "Ajouter une image" %}</button>
+                                    </div>
+                                </div>                
+                            </div><br>
+                            
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn dim btn-primary"><i class="fa fa-refresh"></i> {% translate "Valider le formulaire" %}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+        {% for element in participants %}
+        <div class="modal fade" id="modal-update-participant-{{element.id}}" >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title">Modification des informations du participant</h4>
+                    </div>
+                    <form method="POST" class="formShamman" classname="ParticipantForm">
+                        {% csrf_token %}
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>{% translate "Type de participant" %} </label>
+                                    <div class="form-group">
+                                        {% include 'extra/select.html' with obj=element.type name='type' instances=types  %}   
+                                    </div>
+                                </div>    
+                                <div class="col-sm-6">
+                                    <label>{% translate "Nom complet" %} </label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" value="{{element.fullname}}" name="fullname" required>
+                                    </div>
+                                </div>                  
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>{% translate "Fonction" %} </label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" value="{{element.fonction}}" name="fonction" required>
+                                    </div>
+                                </div>    
+                                <div class="col-sm-6">
+                                    <label>{% translate "Contacts" %} </label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" value="{{element.contact}}" name="contact" >
+                                    </div>
+                                </div>             
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-7">
+                                    <label>{% translate "Adresse email" %} </label>
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" name="email" value="{{element.email}}" >
+                                    </div>
+                                </div> 
+                                <div class="col-sm-5">
+                                    <label>{% translate "Photo" %} </label>
+                                    <div class="">
+                                        <img style="width: 100px;" src="{{element.image.url}}" class="img-thumbnail logo">
+                                        <input class="hide" type="file" name="photo">
+                                        <button type="button" class="btn btn-sm bg-purple pull-right btn_image"><i class="fa fa-image"></i> {% translate "Ajouter une image" %}</button>
+                                    </div>
+                                </div>                
+                            </div><br>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="hidden" value="{{element.id}}" name="id">
+                            <button class="btn dim btn-primary"><i class="fa fa-refresh"></i> {% translate "Valider le formulaire" %}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+        <style>
+            .bouton{
+                width: 100px;
+                height: 100px;
+                font-size: 50px;
+                padding-top: 15px;
+                border-radius: 10px;
+                margin: 10px 0 0 10px;
+                cursor: pointer;
+            }
+        </style>
+
+{% endblock "content" %}
+
+
+{% block "scriptjs" %}
+    <script>
+        $(document).ready(function() {
+            Gallery.init();
+    
+        });
+    </script>
+{% endblock "scriptjs" %}

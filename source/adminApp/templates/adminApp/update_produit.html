@@ -1,0 +1,109 @@
+{% extends 'base/adminBase.html' %}
+{% load myfilters %}
+{% load static %}
+{% load i18n %} 
+
+{% block "content" %}
+	
+				<!-- begin #content -->
+                <div id="content" class="content">
+                   
+                    <h1 class="page-header">Modification du produit <small>...</small></h1>
+                    <!-- end page-header -->
+                    <br>
+                    <!-- begin row -->
+                    <form method="POST" id="summer" class="formShamman" classname="ProduitForm">
+                        {% csrf_token %}
+                        <div class="row">
+
+                            <div class="col-md-3">
+                                <div class="">
+                                    <label>{% translate "Nom du produit" %} </label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" value="{{produit.name}}" name="name">
+                                    </div>
+                                </div> <br>
+                                <div class="">
+                                    <label>{% translate "Description breve du produit" %} </label>
+                                    <div class="form-group">
+                                        <textarea rows="4" class="form-control"  name="description">{{produit.description}}</textarea>
+                                    </div>
+                                </div> <br>
+                                <div class="">
+                                    <label>{% translate "Prix" %} </label>
+                                    <div class="form-group">
+                                        <input type="number" class="form-control" value="{{produit.price}}" name="price">
+                                    </div>
+                                </div> <br>
+                                <div class="">
+                                    <label>{% translate "Photo d'illustration 1" %} </label>
+                                    <div class="">
+                                        <img style="width: 100px;" src="{{produit.image1.url}}" class="img-thumbnail logo">
+                                        <input class="hide" type="file" name="image1">
+                                        <button type="button" class="btn btn-sm bg-purple pull-right btn_image"><i class="fa fa-image"></i></button>
+                                    </div>
+                                </div> <br>
+                                <div class="">
+                                    <label>{% translate "Photo d'illustration 2" %} </label>
+                                    <div class="">
+                                        <img style="width: 100px;" src="{{produit.image2.url}}" class="img-thumbnail logo">
+                                        <input class="hide" type="file" name="image2">
+                                        <button type="button" class="btn btn-sm bg-purple pull-right btn_image"><i class="fa fa-image"></i></button>
+                                    </div>
+                                </div> <br>
+                                <div class="">
+                                    <label>{% translate "Photo d'illustration 3" %} </label>
+                                    <div class="">
+                                        <img style="width: 100px;" src="{{produit.image3.url}}" class="img-thumbnail logo">
+                                        <input class="hide" type="file" name="image3">
+                                        <button type="button" class="btn btn-sm bg-purple pull-right btn_image"><i class="fa fa-image"></i></button>
+                                    </div>
+                                </div> <br>
+                                
+                                <br>
+                                <div class="text-right">
+                                    <button class="btn dim btn-primary"><i class="fa fa-refresh"></i> {% translate "Valider le formulaire" %}</button>
+                                </div>
+                            </div>
+
+                            <!-- begin col-10 -->
+                            <div class="col-md-9">
+                                <div class="panel panel-inverse m-b-0">
+                                    <div class="panel-heading">
+                                        <div class="panel-heading-btn">
+                                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
+                                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+                                        </div>
+                                        <h4 class="panel-title">Rédigez plus d'infos sur le produit - Ce que vous voyez sera le resultat obtenu !</h4>
+                                    </div>
+                                    <div class="panel-body p-0">
+                                        <form action="" method="POST" name="summernote_form">
+                                            <textarea class="summernote" name="code">{{produit.code}}</textarea>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end col-10 -->
+                            <!-- begin col-2 -->
+                          
+                            <!-- end col-2 -->
+                            <input type="hidden" name="id" value="{{produit.id}}" >
+
+                        </div>
+                    </form>
+                    <!-- end row -->
+                </form>
+                <!-- end #content -->
+
+{% endblock "content" %}
+
+
+{% block "scriptjs" %}
+    <script>
+        $(document).ready(function() {
+            FormSummernote.init(); 
+        });
+    </script>
+{% endblock "scriptjs" %}

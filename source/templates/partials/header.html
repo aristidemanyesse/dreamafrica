@@ -1,0 +1,127 @@
+{% load static %}
+
+<!-- Start Top Header -->
+<div class="fables-forth-background-color fables-top-header-signin">
+    <div class="container">
+        <div class="row" id="top-row">
+            <div class="col-12 col-sm-2 col-lg-2">                
+            </div>
+            <div class="col-12 col-sm-5 col-lg-5 text-right">
+                <p class="fables-third-text-color font-13"><span class="fables-iconphone"></span> Téléphone :  (+33) 7 82 80 18 52</p>
+            </div>
+            <div class="col-12 col-sm-5 col-lg-5 text-right">
+                <p class="fables-third-text-color font-13"><span class="fables-iconemail"></span> Email: service-client@dreamteamafrica.com</p>
+            </div>
+            
+        </div>
+    </div>
+</div>
+ 
+<!-- /End Top Header -->
+
+
+<div class="fables-navigation fables-main-background-color py-3 py-lg-0">
+    <div class="container">
+           <div class="row">
+               <div class="col-12 col-md-10 pr-md-0">                       
+                   <nav class="navbar navbar-expand-md btco-hover-menu py-lg-2">
+
+                        <a class="navbar-brand fables-logo-brand pl-0" href="{% url 'vitrineApp:main' %}"><img src="{% static 'assets/custom/images/fables-logo.png' %}" alt="Fables Template" class="fables-logo"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#fablesNavDropdown" aria-controls="fablesNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="fables-iconmenu-icon text-white font-16"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="fablesNavDropdown"> 
+
+                            <ul class="navbar-nav mx-auto fables-nav">   
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="{% url "vitrineApp:main" %}" id="sub-nav1" >Acceuil</a>
+                                </li>
+
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="sub-nav2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Evènements
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="sub-nav2">                                       
+                                        <li><a class="dropdown-item" href="{% url "vitrineApp:fap" %}">Foire Africaine de Paris</a></li>
+                                        <li><a class="dropdown-item" href="{% url "vitrineApp:mna" %}">Marché de Noël d'Afrique</a></li>
+                                        <li><a class="dropdown-item" href="{% url "vitrineApp:afc" %}">African Fashion Cook</a></li>
+                                        <li><a class="dropdown-item" href="{% url "vitrineApp:fwa" %}">Fashion West Africa</a></li>
+                                        <li><a class="dropdown-item" href="{% url "vitrineApp:juste" %}">Juste Une Danse</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="{% url "boutiqueApp:main" %}" >
+                                        Boutique
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="{% url "vitrineApp:billetterie" %}" >
+                                        Billetterie
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="{% url "vitrineApp:faq" %}" >
+                                        FAQ
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="{% url "vitrineApp:contacts" %}" aria-haspopup="true" aria-expanded="false">
+                                        Contacts
+                                    </a> 
+                                </li>
+                                
+                            </ul> 
+
+                </div>
+            </nav>
+               </div>
+               <div class="col-5 col-md-2 pr-md-0 icons-header-mobile">
+
+                   <div class="fables-header-icons pt-lg-2 text-right">
+                        <div class="dropdown d-inline-block float-left float-md-none"> 
+                                      <a href="#_" class="fables-third-text-color dropdown-toggle px-4 fables-second-hover-color fables-mega-menu-btn position-relative" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                           <span class="fables-iconcart-icon"></span>
+                                           <span class="fables-cart-number fables-second-background-color text-center">3</span>
+                                        </a>
+
+                                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                         <div class="p-3 cart-block">
+                                             <p class="fables-second-text-color semi-font mb-4 font-17">(2) Items in my cart</p>
+                                             <div class="row mx-0 mb-3">
+                                                 <div class="col-4 p-0">
+                                                     <a href="#"><img src="{% static 'assets/custom/images/sml1.jpg' %}" alt="" class="w-100"></a>
+                                                 </div>
+                                                 <div class="col-8">
+                                                     <h2><a href="#" class="fables-main-text-color font-13 d-block fables-main-hover-color">LUIS LEATHER DRIVING</a></h2>
+                                                     <p class="fables-second-text-color font-weight-bold">$ 100.00</p>
+                                                     <p class="fables-forth-text-color">QTY : 1</p>
+                                                 </div>
+                                             </div>
+                                             <div class="row mx-0 mb-3">
+                                                 <div class="col-4 p-0">
+                                                     <a href="#"><img src="{% static 'assets/custom/images/sml1.jpg' %}" alt="" class="w-100"></a>
+                                                 </div>
+                                                 <div class="col-8">
+                                                     <h2><a href="#" class="fables-main-text-color font-13 d-block fables-main-hover-color">LUIS LEATHER DRIVING</a></h2>
+                                                     <p class="fables-second-text-color font-weight-bold">$ 100.00</p>
+                                                     <p class="fables-forth-text-color">QTY : 1</p>
+                                                 </div>
+                                             </div>
+                                             <span class="font-16 semi-font fables-main-text-color">TOTAL</span>
+                                             <span class="font-14 semi-font fables-second-text-color float-right">$200.00</span>
+                                             <hr>
+                                             <div class="text-center">
+                                                 <a href="#" class="fables-second-background-color fables-btn-rounded  text-center white-color py-2 px-3 font-14 bg-hover-transparent border fables-second-border-color fables-second-hover-color">View my cart</a> 
+                                                <a href="#" class="fables-second-text-color border fables-second-border-color fables-btn-rounded text-center white-color p-2 px-4 font-14 fables-second-hover-background-color">Checkout</a>
+                                             </div>
+                                        </div>
+                                      </div>
+                             </div>
+
+
+                   </div>
+
+               </div>
+           </div>
+    </div>
+</div>

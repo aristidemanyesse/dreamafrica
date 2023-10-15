@@ -1,0 +1,696 @@
+{% extends 'base/vitrineBase.html' %}
+{% load static %}
+
+{% block "title" %}Foire Africaine de Paris{% endblock "title" %}
+
+{% block "body" %}
+
+<!-- Start Header -->
+<div class="fables-header fables-after-overlay overlay-lighter index-traingle bg-rules" style="background-image: url({% static 'images/Afro-Beatz.jpg' %});">
+    <div class="container">  
+        <div class="row">
+            <div class="col-md-10 mr-auto index-carousel">
+                  <div class="owl-carousel owl-theme default-carousel nav-0 z-index mt-md-4 mt-xl-5 pt-md-4 pt-xl-5 dots-0 pb-md-5">
+                      <div class="pt-0 mt-0 pt-xl-5 mt-xl-5 wow slideInUp" data-wow-duration="2s" data-wow-delay=".4s">
+                          <h5 class="fables-main-text-color font-weight-bold mb-1 fables-second-text-color">#FAP2023 </h5>  
+                        <h1 class="font-weight-bold mb-1 fables-white-text-color display-3">Quand la culture nous rassemble...</h1>  
+                        <h1 class="font-weight-bold mb-1 fables-main-text-color">de partout ! </h1>  
+                        <h1 class="font-weight-bold mb-1 fables-second-text-color">Du 14 au 16 Août 2023 </h1>  
+                        
+                        <br>
+                          <a href="{% url 'vitrineApp:fap' %}" class="btn fables-second-background-color fables-second-border-color white-color rounded-0 mr-4 px-3 px-md-4 py-2 bg-hover-transparent fables-second-hover-color">Découvrez le programme 2023</a>
+                      </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>  
+<!-- /End Header -->
+     
+
+
+<div class="container" >
+    <div class="row my-4 my-md-5" >
+        <div class="col-12 col-md-10 offset-md-1  text-center">
+                <h2 class="font-35 font-weight-bold fables-second-text-color subtitle">Connaissez-vous la...</h2>
+                <h1 class="font-weight-bold fables-main-text-color display-3 title">Foire Africaine de Paris</h1> 
+                <br> <br> 
+                <p class="fables-forth-text-color">
+                    La Foire Africaine de Paris est un événement culturel et commercial annuel qui met en avant la diversité et la richesse de la culture africaine à travers des expositions, des spectacles, des débats, et des stands présentant des produits et innovations du continent. C'est une occasion de promouvoir les échanges interculturels et de créer des réseaux professionnels entre l'Afrique et l'Europe.
+                </p>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4 pt-3 pt-md-5 mb-md-5 wow zoomIn" data-wow-delay=".4s" data-wow-duration="1.5s"> 
+                    <div class="row text-center text-md-left">
+                        <div class="col-12 col-md-3"> 
+                            <span class="fables-iconhead-set-light fables-second-text-color fa-3x"></span>
+                        </div>
+                        <div class="col-12 col-md-9 pl-md-0">
+                            <h2 class="fables-main-text-color font-20 my-2 mt-md-0 semi-font">Promotion de la culture africaine</h2>
+                            <div class="font-15 fables-forth-text-color">
+                                célébration culturelle, musique, danse, art, cuisine, artisanat, traditions, interculturalité, échange de connaissances.  
+                            </div>
+
+                        </div>
+                    </div> 
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4 pt-3 pt-md-5 mb-md-5 wow zoomIn" data-wow-delay=".8s" data-wow-duration="1.5s">  
+                    <div class="row text-center text-md-left">
+                        <div class="col-12 col-md-3">
+                            <span class="fables-iconscreen fables-second-text-color fa-3x"></span>
+                        </div>
+                        <div class="col-12 col-md-9 pl-md-0">
+                           <h2 class="fables-main-text-color font-20 my-2 mt-md-0 semi-font">Promotion commerciale</h2>
+                           <div class="font-15 fables-forth-text-color">
+                            Accédez à un vaste marché en présentant vos produits/services uniques aux visiteurs curieux. 
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4 pt-3 pt-md-5 mb-md-5 wow zoomIn" data-wow-delay="1.2s" data-wow-duration="1.5s"> 
+                    <div class="row text-center text-md-left">
+                        <div class="col-12 col-md-3">
+                            <span class="fables-iconfile fables-second-text-color fa-3x"></span>
+                        </div>
+                        <div class="col-12 col-md-9 pl-md-0">
+                           <h2 class="fables-main-text-color font-20 my-2 mt-md-0 semi-font">Diversité culturelle</h2>
+                            <div class="font-15 fables-forth-text-color">
+                                Célébrez la richesse de l'Afrique en partageant sa culture, sa musique et sa cuisine authentique.
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4 pt-3 pt-md-5 mb-md-5 wow zoomIn" data-wow-delay="1.6s" data-wow-duration="1.5s"> 
+                    <div class="row text-center text-md-left">
+                        <div class="col-12 col-md-3">
+                            <span class="fables-iconhead-set-light fables-second-text-color fa-3x"></span>
+                        </div>
+                        <div class="col-12 col-md-9 pl-md-0">
+                            <h2 class="fables-main-text-color font-20 my-2 mt-md-0 semi-font">Exposition médiatique</h2>
+                            <div class="font-15 fables-forth-text-color">
+                                Bénéficiez d'une couverture médiatique accrue pour accroître la notoriété de votre entreprise et de ses activités.  
+                            </div>
+
+                        </div>
+                    </div> 
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4 pt-3 pt-md-5 mb-md-5 wow zoomIn" data-wow-delay="2s" data-wow-duration="1.5s"> 
+                    <div class="row text-center text-md-left">
+                        <div class="col-12 col-md-3">
+                            <span class="fables-iconscreen fables-second-text-color fa-3x"></span>
+                        </div>
+                        <div class="col-12 col-md-9 pl-md-0">
+                           <h2 class="fables-main-text-color font-20 my-2 mt-md-0 semi-font">Insights stratégiques</h2>
+                           <div class="font-15 fables-forth-text-color">
+                            Participez à des conférences et des ateliers pour apprendre des leaders d'opinion et améliorer vos compétences. 
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4 pt-3 pt-md-5 mb-md-5 wow zoomIn" data-wow-delay="2.4s" data-wow-duration="1.5s"> 
+                    <div class="row text-center text-md-left">
+                        <div class="col-12 col-md-3">
+                            <span class="fables-iconfile fables-second-text-color fa-3x"></span>
+                        </div>
+                        <div class="col-12 col-md-9 pl-md-0">
+                           <h2 class="fables-main-text-color font-20 my-2 mt-md-0 semi-font">Opportunités </h2>
+                            <div class="font-15 fables-forth-text-color">
+                                Identifiez des projets et des opportunités d'affaires prometteuses pour élargir votre portefeuille d'investissements.  
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+        </div> 
+    </div>
+
+
+
+
+
+    <div class="container-fluid">
+        <div class="row mt-3 mt-md-5">
+            <div class="col-12 col-lg-5 offset-lg-1 mb-4 mb-lg-0 overflow-hidden"> 
+                <h2 class="fables-second-text-color font-35 bold-font wow fadeInLeft"> POURQUOI,  <span class="fables-main-text-color">LA FOIRE AFRICAINE DE PARIS</span></h2>
+                <p class="fables-forth-text-color mt-4 mb-4">
+                    Participer à la Foire Africaine de Paris peut être une opportunité unique et enrichissante pour diverses raisons.
+                     Voici six raisons pour lesquelles cela pourrait être intéressant :
+                </p>  
+                <div class="position-relative mb-3 wow bounceInDown" data-wow-delay=".3s"> 
+                    <p class="fables-fifth-text-color fables-dots-text">
+                         <span class="fables-dots-circle fables-second-before fables-second-border-color"></span>
+                         Promotion de la culture africaine.
+                    </p>
+                </div>
+                <div class="position-relative mb-3 wow bounceInDown" data-wow-delay=".6s">
+                    <p class="fables-fifth-text-color fables-dots-text">
+                         <span class="fables-dots-circle fables-second-before fables-second-border-color"></span>
+                         Développement de réseaux professionnels 
+                    </p>
+                </div>
+                <div class="position-relative mb-3 wow bounceInDown" data-wow-delay=".9s">
+                    <p class="fables-fifth-text-color fables-dots-text">
+                         <span class="fables-dots-circle fables-second-before fables-second-border-color"></span>
+                         Découverte de produits et innovations africaines.
+                    </p>
+                </div>
+                <div class="position-relative mb-3 wow bounceInDown" data-wow-delay="1.2s">
+                    <p class="fables-fifth-text-color fables-dots-text">
+                         <span class="fables-dots-circle fables-second-before fables-second-border-color"></span>
+                         Sensibilisation sur les enjeux et défis africains.
+                    </p>
+                </div>
+                <div class="position-relative mb-3 wow bounceInDown" data-wow-delay="1.5s">
+                    <p class="fables-fifth-text-color fables-dots-text">
+                         <span class="fables-dots-circle fables-second-before fables-second-border-color"></span>
+                         Célébration de la diversité africaine
+                    </p>
+                </div>
+                <div class="position-relative mb-3 wow bounceInDown" data-wow-delay="1.8s">
+                    <p class="fables-fifth-text-color fables-dots-text">
+                         <span class="fables-dots-circle fables-second-before fables-second-border-color"></span>
+                         Plus de 12 pays partenaires
+                    </p>
+                </div>
+     
+                <div class="row">
+                    <div class="col-sm-2 position-relative mb-3 wow bounceInRight" data-tooltip="Algérie" data-wow-delay="2.2s">
+                        <img src="{% static 'flags/Algeria.png' %}" alt="">
+                    </div>
+                    <div class="col-sm-2 position-relative mb-3 wow bounceInDown" data-tooltip="Algérie" data-wow-delay="4.2s">
+                        <img src="{% static 'flags/Benin.png' %}" alt="">
+                    </div>
+                    <div class="col-sm-2 position-relative mb-3 wow bounceInUp" data-tooltip="Algérie" data-wow-delay="3.2s">
+                        <img src="{% static 'flags/Burkina-Faso.png' %}" alt="">
+                    </div>
+                    <div class="col-sm-2 position-relative mb-3 wow bounceInUp" data-tooltip="Algérie" data-wow-delay="2.2s">
+                        <img src="{% static 'flags/Cameroon.png' %}" alt="">
+                    </div>
+                    <div class="col-sm-2 position-relative mb-3 wow bounceInLeft" data-tooltip="Algérie" data-wow-delay="3.5s">
+                        <img src="{% static 'flags/Comoros.png' %}" alt="">
+                    </div>
+                    <div class="col-sm-2 position-relative mb-3 wow bounceInDown" data-tooltip="Algérie" data-wow-delay="3.7s">
+                        <img src="{% static 'flags/Cote-dIvoire.png' %}" alt="">
+                    </div>
+                    <div class="col-sm-2 position-relative mb-3 wow bounceInDown" data-tooltip="Algérie" data-wow-delay="2.9s">
+                        <img src="{% static 'flags/Democratic-Republic-of-the-Congo.png' %}" alt="">
+                    </div>
+                    <div class="col-sm-2 position-relative mb-3 wow bounceInRight" data-tooltip="Algérie" data-wow-delay="3.0s">
+                        <img src="{% static 'flags/Egypt.png' %}" alt="">
+                    </div>
+                    <div class="col-sm-2 position-relative mb-3 wow bounceInUp" data-tooltip="Algérie" data-wow-delay="2.9s">
+                        <img src="{% static 'flags/Ethiopia.png' %}" alt="">
+                    </div>
+                    <div class="col-sm-2 position-relative mb-3 wow bounceInLeft" data-tooltip="Algérie" data-wow-delay="2.5s">
+                        <img src="{% static 'flags/France.png' %}" alt="">
+                    </div>
+                    <div class="col-sm-2 position-relative mb-3 wow bounceInDown" data-tooltip="Algérie" data-wow-delay="2.3s">
+                        <img src="{% static 'flags/Gabon.png' %}" alt="">
+                    </div>
+                    <div class="col-sm-2 position-relative mb-3 wow bounceInRight" data-tooltip="Algérie" data-wow-delay="2.5s">
+                        <img src="{% static 'flags/Ghana.png' %}" alt="">
+                    </div>
+                    <div class="col-sm-2 position-relative mb-3 wow bounceInUp" data-tooltip="Algérie" data-wow-delay="2.7s">
+                        <img src="{% static 'flags/Nigeria.png' %}" alt="">
+                    </div>
+                    <div class="col-sm-2 position-relative mb-3 wow bounceInLeft" data-tooltip="Algérie" data-wow-delay="4.5s">
+                        <img src="{% static 'flags/Senegal.png' %}" alt="">
+                    </div>
+                    <div class="col-sm-2 position-relative mb-3 wow bounceInDown" data-tooltip="Algérie" data-wow-delay="3.2s">
+                        <img src="{% static 'flags/Niger.png' %}" alt="">
+                    </div>
+                    <div class="col-sm-2 position-relative mb-3 wow bounceInUp" data-tooltip="Algérie" data-wow-delay="2.2s">
+                        <img src="{% static 'flags/Togo.png' %}" alt="">
+                    </div>
+                    <div class="col-sm-2 position-relative mb-3 wow bounceInUp" data-tooltip="Algérie" data-wow-delay="4.0s">
+                        <img src="{% static 'flags/Tunisia.png' %}" alt="">
+                    </div>
+                    <div class="col-sm-2 position-relative mb-3 wow bounceInLeft" data-tooltip="Algérie" data-wow-delay="3.2s">
+                        <img src="{% static 'flags/United-Kingdom.png' %}" alt="">
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-12 col-lg-5 offset-lg-1 p-0 text-right mb-lg-5">  
+                 <div class="choose-img-border-after fables-second-border-color position-relative">
+                      <img src="{% static 'images/african-why.jpg' %}" alt="" class="w-100">  
+                 </div>
+            </div>
+         </div>
+    </div><br><br>
+
+
+    <div class="fables-testimonial fables-after-overlay py-4 py-md-5 half-width-testimonial bg-rules">
+        <div class="container z-index position-relative"> 
+            <div class="row">
+                <div class="col-12 col-md-6 wow fadeIn" data-wow-duration="2.5s" data-wow-delay=".4s">  
+                       <p class="white-color font-15 mb-2">Une vision, un idéal...</p>
+                    <h2 class="fables-second-text-color font-35 font-weight-bold subtitle">Rassembler <span class="white-color">la culture</span></h2>
+                    <p class="fables-third-text-color mt-4 mb-4">
+                        We care, we take a personalized approach to each customer, and our management team is never more than a phone call or email away. 
+                    </p> 
+                    <div class="owl-carousel owl-theme dots-0 nav-default" id="fables-testimonial-carousel">
+                        <div class="text-center"> 
+                            <div>
+                                <div class="image-container shine-effect d-inline-block rounded-circle">
+                                    <img src="{% static 'assets/custom/images/testimonial-img.png' %}" alt="Fables Template" class="fables-testimonial-carousel-img my-0 mx-auto rounded-circle">  
+                                </div>
+                                <h3 class="font-14 semi-font  white-color mt-3">Israël Coulibaly</h3>
+                                <h3 class="font-13 font-italic white-color mt-2 mb-4">Fondateur de la Foire Africaine de Paris</h3>
+                            </div>
+                            <div class="fables-testimonial-carousel-item fables-rounded p-3">
+                                <div class="fables-testimonial-detail font-15 font-italic white-color position-relative"> 
+                                    La Foire Africaine de Paris est née de notre passion commune pour célébrer la diversité, la créativité et la richesse culturelle de l'Afrique. Notre objectif est de créer un pont entre les cultures, d'inspirer l'échange de connaissances et de favoriser des opportunités d'affaires pour un avenir plus solidaire entre l'Afrique et le monde.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 wow fadeIn mt-4 mt-md-5 mt-lg-0" data-wow-duration="2.5s" data-wow-delay=".4s">
+                   <div class="position-relative image-container zoomIn-effect"> 
+                          <img src="{% static 'assets/custom/images/index-video.jpg' %}" alt="" class="img-fluid">
+                          <div class="demo-gallery-poster fables-main-gradient">
+                            <a data-fancybox href="https://www.youtube.com/watch?v=meBbDqAXago">
+                               <img src="{% static 'assets/custom/images/play-button.png' %}" alt="play button" class="img-fluid">
+                            </a> 
+                         </div> 
+                    </div>  
+                     
+                </div>
+            </div>
+           
+        </div>
+   </div>
+
+   <div class="container text-center">
+    <h2 class="font-35 font-weight-bold fables-second-text-color subtitle">Qui sera de la partie pour...</h2>
+                <h1 class="font-weight-bold fables-main-text-color display-3 title">l'Edition 2023 ?</h1> 
+    <p class="fables-main-text-color text-center mb-4 mb-md-5 font-19"></p>
+    <div class="row overflow-hidden mb-lg-5">
+
+        <div class="col-12 col-sm-6 col-lg-4 text-center mb-4 mb-lg-0 wow bounceInDown" data-wow-duration="2s" data-wow-delay=".4s">
+           <div class="table-block table-border-light py-5 fables-second-hover-border">
+               <h2 class="fables-second-text-color font-35 font-weight-bold position-relative subtitle">17</h2>
+               <h2 class="fables-forth-text-color text-center font-weight-bold table-title fables-third-after position-relative subtitle font-17">Exposants</h2> 
+               <p class="fables-forth-text-color my-4 px-4 line-height-large font-15">
+                    Wordpress ThemeFree 
+                     Theme InstallationFree 
+                     24/7 SupportFree
+               </p>
+               <a href="{% url "vitrineApp:fap" %}" class="btn fables-second-background-color white-color white-color-hover fables-btn-rounded px-5 py-2  btn-bg-hover ">
+                   <span class="white-color-hover">En savoir plus</span>
+               </a>
+           </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-4 text-center mb-4 mb-lg-0 wow bounceInDown" data-wow-duration="2s" data-wow-delay=".8s">
+            <div class="table-block table-border-light py-5 fables-second-hover-border">
+                <h2 class="fables-second-text-color font-35 font-weight-bold position-relative subtitle">25</h2>
+               <h2 class="fables-forth-text-color text-center font-weight-bold table-title fables-third-after position-relative subtitle font-17">Artistes</h2> 
+               <p class="fables-forth-text-color my-4 px-4 line-height-large font-15">
+                    Wordpress ThemeFree 
+                     Theme InstallationFree 
+                     24/7 SupportFree
+               </p>
+               <a href="{% url "vitrineApp:fap" %}" class="btn fables-second-background-color white-color white-color-hover fables-btn-rounded px-5 py-2">En savoir plus</a>
+                
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-4 text-center mb-4 mb-lg-0 wow bounceInDown" data-wow-duration="2s" data-wow-delay="1.2s">
+            <div class="table-block table-border-light py-5 fables-second-hover-border">
+                <h2 class="fables-second-text-color font-35 font-weight-bold position-relative subtitle">11</h2>
+               <h2 class="fables-forth-text-color text-center font-weight-bold table-title fables-third-after position-relative subtitle font-17">Partenaires</h2> 
+               <p class="fables-forth-text-color my-4 px-4 line-height-large font-15">
+                    Wordpress ThemeFree 
+                     Theme InstallationFree 
+                     24/7 SupportFree
+               </p>
+               <a href="{% url "vitrineApp:fap" %}" class="btn fables-second-background-color white-color white-color-hover fables-btn-rounded px-5 py-2">En savoir plus</a>
+            </div>
+        </div>
+    </div>
+</div> 
+<div class="fables-testimonial fables-after-overlay fables-about-caption py-5 bg-rules" style="background-image: url({% static 'assets/custom/images/index2-overlay.jpg' %});">
+    <div class="container">
+        <div class="row">
+            <div class="position-relative z-index col-12 col-md-8 offset-md-2 text-center wow zoomIn" data-wow-duration="2s"> 
+                    <h3 class=" white-color mb-3 font-25 font-weight-bold">Exposez vos créations au cœur de la #FAP2023 </h3> 
+                    <p class="font-weight-light fables-third-text-color">
+                        Découvrez une opportunité unique d'exposer vos produits et créations au cœur de la Foire Africaine de Paris, et rejoignez-nous pour une célébration culturelle inoubliable !
+                    </p>
+                    <a href="{% url "vitrineApp:main" %}" class="btn fables-second-background-color white-color white-color-hover fables-btn-rounded  mt-4 py-2 px-5">Réserver mon stand</a>   
+            </div> 
+        </div>
+        
+    </div>
+</div>
+       
+       <div class="container mb-4 mb-md-5 mt-5"> 
+            <div class="row">
+               <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+                   <div class="text-center">
+                    <h2 class="font-35 font-weight-bold fables-second-text-color subtitle">Visitez...</h2>
+                    <h1 class="font-weight-bold fables-main-text-color display-3 title">Notre Galerie !</h1> 
+                    <br> <br>
+                       <p class="fables-forth-text-color">
+                        Explorez la galerie captivante de la Foire Africaine de Paris, où l'art, 
+                        la créativité et la diversité culturelle s'entrelacent pour vous offrir une expérience visuelle envoûtante.
+                       </p>
+                   </div>
+               </div>
+           </div> 
+                 
+               <div class="gallery-filter">
+                    <div class="portfolioFilter my-3 clearfix">
+                      <a href="#" data-filter="*" class="current">ALL</a>
+                      <a href="#" data-filter=".webDesign" class="fables-forth-text-color">Web design</a>
+                      <a href="#" data-filter=".appDesign" class="fables-forth-text-color">App design</a>
+                      <a href="#" data-filter=".brand" class="fables-forth-text-color">Brand</a>
+                      <a href="#" data-filter=".development" class="fables-forth-text-color">Development</a>
+                    </div> 
+                    <div class="portfolioContainer row filter-masonry"> 
+                          <div class="drawings places col-sm-6 col-md-3 mb-2">
+                            <div class="filter-img-block position-relative image-container translate-effect-right">
+                                 <img src="{% static 'assets/custom/images/index-testimonial1.jpg' %}" alt="image" class="w-100">
+                                 <div class="img-filter-overlay fables-main-color-transparent row m-0">
+                                     <a href="#" class="gallery-filter-icon white-color fables-second-hover-color"><span class="fables-iconlink"></span></a>
+                                     <a data-fancybox="gallery" href="assets/custom/images/index-testimonial1.jpg" class="gallery-filter-icon white-color fables-second-hover-color"><span class="fables-iconsearch-icon"></span></a>
+                                 </div>
+                             </div>
+                          </div>
+
+                          <div class="webDesign food col-sm-6 col-md-3 mb-2">
+                            <div class="filter-img-block position-relative image-container translate-effect-right">
+                                 <img src="{% static 'assets/custom/images/index-testimonial2.jpg' %}" alt="image" class="w-100">
+                                 <div class="img-filter-overlay fables-main-color-transparent row m-0">
+                                     <a href="#" class="gallery-filter-icon white-color fables-second-hover-color"><span class="fables-iconlink"></span></a>
+                                     <a data-fancybox="gallery" href="assets/custom/images/index-testimonial2.jpg" class="gallery-filter-icon white-color fables-second-hover-color"><span class="fables-iconsearch-icon"></span></a>
+                                 </div>
+                             </div>
+                          </div>
+                         <div class="webDesign objects col-sm-6 col-md-3 mb-2">
+                             <div class="filter-img-block position-relative image-container translate-effect-right"> 
+                                 <img src="{% static 'assets/custom/images/index-testimonial3.jpg' %}" alt="image" class="w-100"> 
+                                 <div class="img-filter-overlay fables-main-color-transparent row m-0">
+                                     <a href="#" class="gallery-filter-icon white-color fables-second-hover-color"><span class="fables-iconlink"></span></a>
+                                     <a  data-fancybox="gallery" href="assets/custom/images/index-testimonial3.jpg" class="gallery-filter-icon white-color fables-second-hover-color"><span class="fables-iconsearch-icon"></span></a>
+                                 </div>
+                             </div>
+
+                          </div>    
+                          <div class="appDesign brand col-sm-6 col-md-3 mb-2">
+                            <div class="filter-img-block position-relative image-container translate-effect-right">
+                                 <img src="{% static 'assets/custom/images/index-testimonial4.jpg' %}" alt="image" class="w-100">
+                                 <div class="img-filter-overlay fables-main-color-transparent row m-0">
+                                     <a href="#" class="gallery-filter-icon white-color fables-second-hover-color"><span class="fables-iconlink"></span></a>
+                                     <a data-fancybox="gallery" href="assets/custom/images/index-testimonial4.jpg" class="gallery-filter-icon white-color fables-second-hover-color"><span class="fables-iconsearch-icon"></span></a>
+                                 </div>
+                             </div>
+                          </div>
+
+                          <div class="webDesign col-sm-6 col-md-3 mb-2">
+                            <div class="filter-img-block position-relative image-container translate-effect-right">
+                                 <img src="{% static 'assets/custom/images/index-testimonial5.jpg' %}" alt="image" class="w-100">
+                                 <div class="img-filter-overlay fables-main-color-transparent row m-0">
+                                     <a href="#" class="gallery-filter-icon white-color fables-second-hover-color"><span class="fables-iconlink"></span></a>
+                                     <a data-fancybox="gallery" href="assets/custom/images/index-testimonial5.jpg" class="gallery-filter-icon white-color fables-second-hover-color"><span class="fables-iconsearch-icon"></span></a>
+                                 </div>
+                             </div>
+                          </div> 
+                          <div class="webDesign col-sm-6 col-md-3 mb-2">
+                            <div class="filter-img-block position-relative image-container translate-effect-right">
+                                 <img src="{% static 'assets/custom/images/index-testimonial5.jpg' %}" alt="image" class="w-100">
+                                 <div class="img-filter-overlay fables-main-color-transparent row m-0">
+                                     <a href="#" class="gallery-filter-icon white-color fables-second-hover-color"><span class="fables-iconlink"></span></a>
+                                     <a data-fancybox="gallery" href="assets/custom/images/index-testimonial5.jpg" class="gallery-filter-icon white-color fables-second-hover-color"><span class="fables-iconsearch-icon"></span></a>
+                                 </div>
+                             </div>
+                          </div> 
+                          
+                       
+                    </div> 
+                    <div class="text-center">
+                        <a href="#" class="btn fables-main-border-color fables-main-text-color mt-md-4 px-5 py-2 fables-btn-rounded fables-main-hover-background-color white-color-hover">Au plus près des oeuvres </a>
+                    </div>
+               </div> 
+       </div>
+
+          
+       <div class="fables-index-products large-mb fables-after-overlay py-4 py-md-5 mt-md-5 bg-rules" style="background-image: url({% static 'assets/custom/images/index-products-overlay.jpg' %});">
+        <div class="container z-index position-relative overflow-hidden"> 
+            <div class="row">
+                <div class="col-12 col-md-7 wow fadeInLeft">
+                    <h2 class="fables-second-text-color font-35 font-weight-bold subtitle">#FAB2023 <span class="white-color">Boutique</span></h2>
+                    <p class="fables-third-text-color mt-4 mb-md-5">
+                        Explorez notre boutique exquise à la Foire Africaine de Paris et trouvez des trésors uniques, alliant authenticité et artisanat raffiné, pour emporter avec vous un morceau de l'Afrique.
+                    </p>
+                </div>
+                <div class="col-12 col-md-5 col-lg-3 text-right offset-lg-2 my-4 my-md-0 mt-md-5 mt-lg-0 text-center">
+                    <a href="{% url "boutiqueApp:main" %}" class="btn fables-second-background-color white-color white-color-hover fables-btn-rounded px-5 py-2">Voir tous nos produits</a>
+                </div>
+            </div>   
+            <div class="owl-carousel owl-theme dots-0 circle-nav carousel-items-4"> 
+                  <div class="card rounded-0 mb-4 border-light wow fadeIn" data-wow-delay=".4s">
+                    <div class="row">
+                        <div class="fables-product-img col-12">
+                           <img class="card-img-top w-100 rounded-0" src="{% static 'assets/custom/images/index-product1.jpg' %}" alt="dress fashion">
+                           <div class="fables-img-overlay">                                          
+                               <ul class="nav fables-product-btns pr-3 mt-5 vertical-store-btns">
+                                   <li><a href="" class="fables-product-btn"><span class="fables-iconeye"></span></a></li>
+                                   <li><a href="" class="fables-product-btn"><span class="fables-iconcompare"></span></a></li>
+                                   <li><button class="fables-product-btn"><span class="fables-iconheart"></span></button></li>
+                               </ul>
+                           </div>
+                       </div>
+                       <div class="card-body col-12">
+                         <h5 class="card-title mx-3">
+                             <a href="#" class="fables-main-text-color fables-store-product-title fables-second-hover-color">dress fashion</a>
+                         </h5>
+                         <p class="card-text fables-fifth-text-color font-15 mx-3">LUIS LEATHER DRIVING MOCCASINS FROM ... DOUBLE</p>
+                         <p class="font-weight-bold fables-second-text-color my-2 mb-3 mx-3">$ 98.00</p>
+                         <p class="fables-product-info"><a href="#" class="btn fables-second-border-color fables-second-text-color fables-btn-rouned fables-hover-btn-color font-14 px-4 py-2">
+                         <span class="fables-iconcart"></span> 
+                         <span class="fables-btn-value">Ajouter au panier</span></a></p>
+                       </div>
+                    </div>
+                  </div>  
+                  <div class="card rounded-0 mb-4 border-light wow fadeIn" data-wow-delay=".8s">
+                    <div class="row">
+                        <div class="fables-product-img col-12">
+                           <img class="card-img-top rounded-0 w-100" src="{% static 'assets/custom/images/index-product2.jpg' %}" alt="dress fashion">
+                           <div class="fables-img-overlay">                                          
+                               <ul class="nav fables-product-btns pr-3 mt-5 vertical-store-btns">
+                                   <li><a href="" class="fables-product-btn"><span class="fables-iconeye"></span></a></li>
+                                   <li><a href="" class="fables-product-btn"><span class="fables-iconcompare"></span></a></li>
+                                   <li><button class="fables-product-btn"><span class="fables-iconheart"></span></button></li>
+                               </ul>
+                           </div>
+                       </div>
+                       <div class="card-body col-12">
+                         <h5 class="card-title mx-3">
+                             <a href="#" class="fables-main-text-color fables-store-product-title fables-second-hover-color">dress fashion</a>
+                         </h5>
+                         <p class="card-text fables-fifth-text-color font-15 mx-3">LUIS LEATHER DRIVING MOCCASINS FROM ... DOUBLE</p>
+                         <p class="font-weight-bold fables-second-text-color my-2 mb-3 mx-3">$ 98.00</p>
+                         <p class="fables-product-info"><a href="#" class="btn fables-second-border-color fables-second-text-color fables-btn-rouned fables-hover-btn-color font-14 px-4 py-2">
+                         <span class="fables-iconcart"></span> 
+                         <span class="fables-btn-value">Ajouter au panier</span></a></p>
+                       </div>
+                    </div>
+                 </div> 
+                  <div class="card rounded-0 mb-4 border-light wow fadeIn" data-wow-delay="1.2s">
+                            <div class="row">
+                                <div class="fables-product-img col-12">
+                                   <img class="card-img-top rounded-0 w-100" src="{% static 'assets/custom/images/index-product1.jpg' %}" alt="dress fashion">
+                                   <div class="fables-img-overlay">                                          
+                                       <ul class="nav fables-product-btns pr-3 mt-5 vertical-store-btns">
+                                           <li><a href="" class="fables-product-btn"><span class="fables-iconeye"></span></a></li>
+                                           <li><a href="" class="fables-product-btn"><span class="fables-iconcompare"></span></a></li>
+                                           <li><button class="fables-product-btn"><span class="fables-iconheart"></span></button></li>
+                                       </ul>
+                                   </div>
+                               </div>
+                               <div class="card-body col-12">
+                                 <h5 class="card-title mx-3">
+                                     <a href="#" class="fables-main-text-color fables-store-product-title fables-second-hover-color">dress fashion</a>
+                                 </h5>
+                                 <p class="card-text fables-fifth-text-color font-15 mx-3">LUIS LEATHER DRIVING MOCCASINS FROM ... DOUBLE</p>
+                                 <p class="font-weight-bold fables-second-text-color my-2 mb-3 mx-3">$ 98.00</p>
+                                 <p class="fables-product-info"><a href="#" class="btn fables-second-border-color fables-second-text-color fables-btn-rouned fables-hover-btn-color font-14 px-4 py-2">
+                                 <span class="fables-iconcart"></span> 
+                                 <span class="fables-btn-value">Ajouter au panier</span></a></p>
+                               </div>
+                            </div>
+                 </div>  
+                  <div class="card rounded-0 mb-4 border-light wow fadeIn" data-wow-delay="1.6s">
+                            <div class="row">
+                                <div class="fables-product-img col-12">
+                                   <img class="card-img-top rounded-0 w-100" src="{% static 'assets/custom/images/index-product2.jpg' %}" alt="dress fashion">
+                                   <div class="fables-img-overlay">                                          
+                                       <ul class="nav fables-product-btns pr-3 mt-5 vertical-store-btns">
+                                           <li><a href="" class="fables-product-btn"><span class="fables-iconeye"></span></a></li>
+                                           <li><a href="" class="fables-product-btn"><span class="fables-iconcompare"></span></a></li>
+                                           <li><button class="fables-product-btn"><span class="fables-iconheart"></span></button></li>
+                                       </ul>
+                                   </div>
+                               </div>
+                               <div class="card-body col-12">
+                                 <h5 class="card-title mx-3">
+                                     <a href="#" class="fables-main-text-color fables-store-product-title fables-second-hover-color">dress fashion</a>
+                                 </h5>
+                                 <p class="card-text fables-fifth-text-color font-15 mx-3">LUIS LEATHER DRIVING MOCCASINS FROM ... DOUBLE</p>
+                                 <p class="font-weight-bold fables-second-text-color my-2 mb-3 mx-3">$ 98.00</p>
+                                 <p class="fables-product-info"><a href="#" class="btn fables-second-border-color fables-second-text-color fables-btn-rouned fables-hover-btn-color font-14 px-4 py-2">
+                                 <span class="fables-iconcart"></span> 
+                                 <span class="fables-btn-value">Ajouter au panier</span></a></p>
+                               </div>
+                            </div>
+                     </div>   
+                  <div class="card rounded-0 mb-4 border-light">
+                            <div class="row">
+                                <div class="fables-product-img col-12">
+                                   <img class="card-img-top rounded-0 w-100" src="assets/custom/images/index-product1.jpg' %}" alt="dress fashion">
+                                   <div class="fables-img-overlay">                                          
+                                       <ul class="nav fables-product-btns pr-3 mt-5 vertical-store-btns">
+                                           <li><a href="" class="fables-product-btn"><span class="fables-iconeye"></span></a></li>
+                                           <li><a href="" class="fables-product-btn"><span class="fables-iconcompare"></span></a></li>
+                                           <li><button class="fables-product-btn"><span class="fables-iconheart"></span></button></li>
+                                       </ul>
+                                   </div>
+                               </div>
+                               <div class="card-body col-12">
+                                 <h5 class="card-title mx-3">
+                                     <a href="#" class="fables-main-text-color fables-store-product-title fables-second-hover-color">dress fashion</a>
+                                 </h5>
+                                 <p class="card-text fables-fifth-text-color font-15 mx-3">LUIS LEATHER DRIVING MOCCASINS FROM ... DOUBLE</p>
+                                 <p class="font-weight-bold fables-second-text-color my-2 mx-3">$ 98.00</p>
+                                 <p class="fables-product-info"><a href="#" class="btn fables-second-border-color fables-second-text-color fables-btn-rouned fables-hover-btn-color font-14 px-4 py-2">
+                                 <span class="fables-iconcart"></span> 
+                                 <span class="fables-btn-value">Ajouter au panier</span></a></p>
+                               </div>
+                            </div>
+                         </div>  
+                  
+             </div>  
+        </div>
+    </div>
+        <div class="fables-light-background-color py-3 py-md-4 py-lg-5">
+            <div class="container">
+                <div class="owl-carousel owl-theme nav-0 carousel-items-6 dots-0">
+                   <div> 
+                       <img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template" class="border-hover fables-partner-carousel-img">  
+                   </div>
+                   <div> 
+                       <img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template" class="border-hover fables-partner-carousel-img">  
+                   </div>
+                   <div> 
+                       <img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template" class="border-hover fables-partner-carousel-img">  
+                   </div>
+                   <div> 
+                       <img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template" class="border-hover fables-partner-carousel-img">  
+                   </div>
+                   <div> 
+                       <img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template" class="border-hover fables-partner-carousel-img">  
+                   </div>
+                   <div> 
+                       <img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template" class="border-hover fables-partner-carousel-img">  
+                   </div>
+                   <div> 
+                       <img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template" class="border-hover fables-partner-carousel-img">  
+                   </div>
+                   <div> 
+                       <img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template" class="border-hover fables-partner-carousel-img">  
+                   </div>
+                   <div> 
+                       <img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template" class="fborder-hover ables-partner-carousel-img">  
+                   </div>
+                   <div> 
+                       <img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template" class="border-hover fables-partner-carousel-img">  
+                   </div>
+                   <div> 
+                       <img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template" class="border-hover fables-partner-carousel-img">  
+                   </div>
+                   <div> 
+                       <img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template" class="fborder-hover ables-partner-carousel-img">  
+                   </div>
+
+                 </div>  
+            </div>
+        </div>
+
+        
+        <div class="container my-5">
+            <div class="row">
+               <div class="col-12 text-center mb-5">
+                <h2 class="font-35 font-weight-bold fables-second-text-color subtitle ">En attendant #FAP2023...</h2>
+                <h1 class="font-weight-bold fables-main-text-color display-3 title">Suivez nos actualités !</h1> 
+               </div>
+                <div class="col-12 col-md-4 mb-4 mb-md-5 wow fadeIn" data-wow-delay=".6s">  
+                      <div class="image-container zoomIn-effect">
+                           <a href="#"><img src="{% static 'assets/custom/images/magazine-2559842.jpg' %}" alt=""></a> 
+                       </div>
+                       
+                       <div class="above-date py-2 py-lg-3 fables-fifth-text-color float-left w-100 d-md-none d-lg-block">
+                           <div class="float-left font-13">
+                                  <span class="fables-iconcalender"></span> December 27, 2017  
+                            </div> 
+                            <div class="float-right font-13">
+                                <span class="fables-iconnews"></span> Latest News 
+                            </div>
+                       </div>
+                       <h2 class="font-weight-bold font-20 my-2"><a href="#" class="fables-main-text-color fables-second-hover-color">Grow Your Business</a></h2>
+                        
+                       <p class="fables-forth-text-color font-14">
+                          When you need your company to have a new  website or if you venture on updating your old webpage with a new look and functionality. the
+                       </p>
+                       <a href="" class="btn fables-main-text-color fables-second-hover-color p-0 mt-2">
+                           <span class="underline">En savoir plus</span>
+                           <span class="fables-iconarrow-light ml-2"></span>
+                       </a>  
+               </div>
+               <div class="col-12 col-md-4 mb-4 mb-md-5 wow fadeIn" data-wow-delay=".6s">  
+                      <div class="image-container zoomIn-effect">
+                           <a href="#"><img src="{% static 'assets/custom/images/magazine-2559842.jpg' %}" alt=""></a> 
+                       </div>
+                       <div class="above-date py-2 py-lg-3 fables-fifth-text-color float-left w-100 d-md-none d-lg-block">
+                           <div class="float-left font-13">
+                                  <span class="fables-iconcalender"></span> December 27, 2017  
+                            </div> 
+                            <div class="float-right font-13">
+                                <span class="fables-iconnews"></span> Latest News 
+                            </div>
+                       </div>
+                       <h2 class="font-weight-bold font-20 my-2"><a href="#" class="fables-main-text-color fables-second-hover-color">Grow Your Business</a></h2>
+                        
+                       <p class="fables-forth-text-color font-14">
+                          When you need your company to have a new  website or if you venture on updating your old webpage with a new look and functionality. the
+                       </p>
+                       <a href="" class="btn fables-main-text-color fables-second-hover-color p-0 mt-2">
+                           <span class="underline">En savoir plus</span>
+                           <span class="fables-iconarrow-light ml-2"></span>
+                       </a>  
+               </div>
+               <div class="col-12 col-md-4 mb-4 mb-md-5 wow fadeIn" data-wow-delay=".9s"> 
+                      <div class="image-container zoomIn-effect">
+                           <a href="#"><img src="{% static 'assets/custom/images/magazine-2559842.jpg' %}" alt=""></a> 
+                       </div>
+                       <div class="above-date py-2 py-lg-3 fables-fifth-text-color float-left w-100 d-md-none d-lg-block">
+                           <div class="float-left font-13">
+                                  <span class="fables-iconcalender"></span> December 27, 2017  
+                            </div> 
+                            <div class="float-right font-13">
+                                <span class="fables-iconnews"></span> Latest News 
+                            </div>
+                       </div>
+                       <h2 class="font-weight-bold font-20 my-2"><a href="#" class="fables-main-text-color fables-second-hover-color">Grow Your Business</a></h2>
+                        
+                       <p class="fables-forth-text-color font-14">
+                           When you need your company to have a new  website or if you venture on updating your old webpage with a new look and functionality. the
+                       </p>
+                       <a href="" class="btn fables-main-text-color fables-second-hover-color p-0 mt-2">
+                           <span class="underline">En savoir plus</span>
+                           <span class="fables-iconarrow-light ml-2"></span>
+                       </a>  
+               </div>
+            </div>
+        </div>
+  
+
+{% endblock "body" %}
