@@ -1,0 +1,601 @@
+{% extends 'base/vitrineBase.html' %}
+{% load static %}
+
+{% block "title" %}Marché de Noël Africain | Dream Team Africa{% endblock "title" %}
+
+{% block body %}
+
+
+
+
+
+<!-- Banners -->
+<section id="banner" class="banner-section"> 
+  <!-- Banner Tagline -->
+  <div class="banner-fixed">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-7 col-md-7 col-lg-8">
+          <div class="banner-content">
+            <div class="banner-tagline">
+              <h1>Festival International du Cinéma Africain <br>06 Mars 2023</h1>
+              <p>10 rue des terres au Curé Paris France</p>
+              <p>11H00 - 20H00</p>
+              <P>Info exposants <br> (+33) 7 82 80 18 52 <br> 
+                services@dreamteamafrica.com</P>
+              <p>Venez nombreux même en famille, assister et participer à la 
+                    transmission de la culture africaine aux plus jeunes publics ! 
+              </p>
+              
+                <a href="https://foiredafrique.fr/assets/images/marche-de-noel-Afrique-paris.pdf" class="btn margin-btm-20">Télécharger le flyer</a>
+              </div>
+            
+          </div>
+        </div>
+        <div class="col-sm-5 col-md-5 col-lg-4">
+          <div class="banner-form">
+              <h5 class="text-center">Réservez votre place</h5>
+              <!--Registration Form-->
+                <form method="POST" class="formShamman" classname="ParticipationForm">
+                    {% csrf_token %}
+                    <div class="form-group">
+                      <input class="form-control" name="fullname" id="fullname" placeholder="Nom et prénoms" required type="text">
+                    </div>
+                    <div class="form-group">
+                      <input class="form-control" name="email"  placeholder="Adresse email" required type="email">
+                    </div>
+                    <div class="form-group">
+                      <input class="form-control" name="contact" placeholder="Numero de téléphone" required type="text">
+                    </div>               
+                    <div class="form-group select">
+                      <select name="evenement" class="form-control" required="">
+                        <option value="">Quel evenement vous interesse ?</option>
+                        {% for event in events %}
+                          <option value="{{event.id}}">{{event.name}} ({{event.price}}) €</option>
+                        {% endfor %}
+                      </select>
+                    </div><br>
+                   
+                    <div class="contact-btn-m text-center">
+                        <button class="btn btn-block">
+                          <span id="button-text">Réservez maintenant !</span>
+                        </button>
+                    </div>
+                 
+                </form>
+              <!--/Registration Form--> 
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /Banners Tagline -->
+  <div class="dark-layer"></div>
+</section>
+<!-- /Banners --> 
+
+<!--Timer Countdown-->
+<section id="timer_countdown" class="vc_row">
+  <div class="col-sm-6 col-md-6  primary-bg vc_col">
+    <div class="timer_wrap padding_50px text-center">
+      <h5>Festival International du Cinéma Africain Paris</h5>
+      <p class="conference_date">06 Août 2024 <br> Paris - France</p>
+    </div>
+  </div>
+  <div class="col-sm-6 col-md-6 secondary-bg vc_col">
+    <div class="timer_wrap padding_50px text-center">
+      <div class="timer">
+        <h5>Festival International du Cinéma Africain</h5>
+        <p>Réservez votre place maintenant</p>
+        <div class="countdown styled"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--/Time Countdown--> 
+
+<!--  About Section -->
+<section id="about" class="section-padding">
+  <div class="container">
+    <div class="row"> 
+      <!-- Heading -->
+      <div class="col-md-12">
+        <div class="heading-sec">
+          <div class="section-header text-center">
+            <h2>Lumière sur l'Afrique : Festival International du Cinéma Africain à Paris</h2>
+            <p>
+              Célébration de la diversité et du talent cinématographique africain au cœur de la capitale française.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- /Heading --> 
+    </div>
+    <div class="row">
+      <div class="col-md-7 col-lg-6">
+        <div class="about-m-content">
+          <h5>L'Afrique Fait Son Cinéma à Paris</h5>
+          <p style="text-align: justify;">
+            
+            Le Festival International du film africain et de la télévision, intitulé 
+            "L'Afrique Fait Son Cinéma", est une célébration majeure du cinéma africain 
+            en plein cœur de Paris. Cette manifestation permet à la fois de découvrir de 
+            nouveaux talents et d'apprécier des œuvres cinématographiques africaines de 
+            renom. Pour sa 4ème édition, l'événement se déroulera sur les prestigieux 
+            Champs-Élysées du 24 au 31 octobre.
+          </p>
+          <h5>Un Événement Durable et Annuel</h5>
+          <p style="text-align: justify;">
+            L'Afrique Fait Son Cinéma se distingue non seulement par la richesse de sa 
+            programmation, mais aussi par son engagement envers la durabilité. C'est un 
+            festival durable qui présente chaque année une sélection de films africains et 
+            caribéens à Paris. L'événement tient ainsi un public international, désireux d'en 
+            apprendre davantage sur les cultures, les défis et les triomphes représentés à l'écran.
+          </p>
+          <h5>Le FICA : Une Autre Célébration Cinématographique</h5>
+          <p style="text-align: justify;">
+            Parallèlement à "L'Afrique Fait Son Cinéma", Paris accueille également le FIFDA (Festival 
+            International des Films de la Diaspora Africaine). Pour sa 13ème édition, le FIFDA se tiendra 
+            du 8 au 10 septembre 2023 dans divers cinémas parisiens, dont le CGR Paris Lilas et le St. 
+            André Des Arts. C'est une autre occasion pour les cinéphiles de découvrir des films qui mettent 
+            en lumière les histoires et les voix de la diaspora africaine.
+          </p>
+          <h4>6 Raisons Incontournables pour Assister au festival international du cinéma africain à Paris</h4>
+          <ul class="list_style_none">
+            <li><i class="fa fa-check-circle" aria-hidden="true"></i><strong>Célébration du Cinéma Africain</strong> : Le festival 
+              "L'Afrique Fait Son Cinéma" est une manifestation majeure qui célèbre le cinéma africain, 
+              permettant aux spectateurs de découvrir une variété de films en provenance du continent africain.</li>
+            <li><i class="fa fa-check-circle" aria-hidden="true"></i><strong>Rencontre avec des Cinéastes</strong> : C'est une 
+              occasion pour divers cinéastes de se rencontrer et d'échanger autour de leurs créations, 
+              favorisant ainsi le partage d'idées et la collaboration.</li>
+            <li><i class="fa fa-check-circle" aria-hidden="true"></i><strong>Découverte de Nollywood</strong> : Outre les 
+              films africains traditionnels, le festival offre également une plateforme pour Nollywood, 
+              l'industrie cinématographique nigériane en plein essor, mettant en lumière son importance
+              croissante sur la scène internationale.</li>
+            <li><i class="fa fa-check-circle" aria-hidden="true"></i><strong>Engagement envers la Durabilité</strong> : 
+              "L'Afrique Fait Son Cinéma" est un festival durable, montrant ainsi un engagement envers 
+              les problématiques environnementales actuelles.</li>
+            <li><i class="fa fa-check-circle" aria-hidden="true"></i><strong>Représentation de la Diaspora Africaine</strong> : Le 
+              FIFDA (Festival International des Films de la Diaspora Africaine) est une autre occasion de 
+              découvrir des films qui mettent en lumière les histoires de la diaspora africaine.</li>
+            <li><i class="fa fa-check-circle" aria-hidden="true"></i><strong>Paris comme Toile de Fond</strong> : Assister à un 
+              festival à Paris offre une expérience unique, combinant la beauté et la richesse culturelle de 
+              la ville avec le dynamisme du cinéma africain.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-5 col-lg-6">
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-xs-6 abut-event-img"> <img src="assets/images/marche-d-afrique-1.png" alt="image"> </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 abut-event-img"> <img src="assets/images/marche-d-afrique-2.png" alt="image"> </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 abut-event-img"> <img src="assets/images/marche-d-afrique-3.png" alt="image"> </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 abut-event-img"> <img src="assets/images/marche-d-afrique-4.png" alt="image"> </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 abut-event-img"> <img src="assets/images/marche-d-afrique-5.png" alt="image"> </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 abut-event-img"> <img src="assets/images/marche-d-afrique-6.png" alt="image"> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- / About Section --> 
+
+<!--  Conference info -->
+<section class="our-conference section-padding parallex-bg">
+  <div class="container">
+    <div class="row">
+      <div class="conference-m-box div_zindex">
+        <div class="conf-icon-m">
+		<div class="row">
+          <div class="col-md-3 col-xs-6">
+            <div class="spekers-tickets-info"> <i class="fa fa-microphone"></i> <span class="summary">24 Prestations</span> </div>
+          </div>
+          <div class="col-md-3 col-xs-6">
+            <div class="spekers-tickets-info"> <i class="fa fa-ticket"></i> <span class="summary">+2800 Visiteurs</span> </div>
+          </div>
+          <div class="col-md-3 col-xs-6">
+            <div class="spekers-tickets-info"> <i class="fa fa-flag"></i> <span class="summary">+120 Eposants</span> </div>
+          </div>
+          <div class="col-md-3 col-xs-6">
+            <div class="spekers-tickets-info"> <i class="fa fa-calendar-check-o"></i> <span class="summary">2 Jours folles</span> </div>
+          </div>
+        </div>
+		</div>
+        <div class="resever-today text-center">
+          <h2>Réservez votre place maintenant</h2>
+          <a href="#home" class="btn btn-lg js-target-scroll">Booking Now</a> </div>
+      </div>
+    </div>
+  </div>
+  <div class="dark-layer"></div>
+</section>
+<!-- / Conference info --> 
+
+<!--Conference Gallery-->
+<section class="section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="heading-sec clearfix">
+          <div class="section-header text-center">
+            <h2>Des années d'expériences</h2>
+            <p>Réservez dès maintenant vos billets pour participer à la plus belle 
+              rencontre des artisans de la diversité !</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+ <!-- Event Gallery -->
+ <div class="trigger section gutter-horizontal bg-gray gutter-vertical--m gutter-horizontal">
+  <div class="customer-logos slider">
+  <div class="slide-in-right slide">
+    <div class="overlay"></div>
+    <img src="{% static 'assets/images/marche-d-afrique-15.png' %}">
+    
+  </div>
+  <div class="slide-in-right slide">
+    <div class="overlay"></div>
+    <img src="{% static 'assets/images/marche-d-afrique-9.png' %}">
+  </div>
+  <div class="slide-in-right slide">
+    <div class="overlay"></div>
+    <img src="{% static 'assets/images/marche-d-afrique-10.png' %}">
+  </div>
+  <div class="slide-in-right slide">
+    <div class="overlay"></div>
+    <img src="{% static 'assets/images/marche-d-afrique-12.png' %}">
+  </div>
+  <div class="slide-in-right slide">
+    <div class="overlay"></div>
+    <img src="{% static 'assets/images/marche-d-afrique-13.png' %}">
+  </div>
+  <div class="slide-in-right slide">
+    <div class="overlay"></div>
+    <img src="{% static 'assets/images/marche-d-afrique-10.png' %}">
+  </div>
+  <div class="slide-in-right slide">
+    <div class="overlay"></div>
+    <img src="{% static 'assets/images/marche-d-afrique-15.png' %}">
+  </div>
+  <div class="slide-in-right slide">
+    <div class="overlay"></div>
+    <img src="{% static 'assets/images/marche-d-afrique-16.png' %}">
+  </div>
+  </div>
+</div>
+  <!-- /Event Gallery --> 
+  
+    
+  </div>
+</section>
+<!--/Conference Gallery--> 
+
+<!--Conference Pricing-->
+<section id="pricing" class="section-padding parallex-bg white_text">
+  <div class="container">
+    <div class="div_zindex">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="heading-sec clearfix">
+            <div class="section-header text-center">
+              <h2>Tarifs exposants</h2>
+              <p>Réservez vos stands</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+          <div class="event_priceing">
+            <div class="plan_name">
+              <h6>Pack Artisans</h6>
+            </div>
+            <div class="plan_price">
+              <p>200 €/J</p>
+            </div>
+            <ul>
+              <li><i class="fa fa-check" aria-hidden="true"></i>Café</li>
+              <li><i class="fa fa-times" aria-hidden="true"></i>2 badges exposants</li>
+              <li><i class="fa fa-times" aria-hidden="true"></i>2 chaises</li>
+              <li><i class="fa fa-times" aria-hidden="true"></i>1 Table (1,50 x 0,60)</li>
+              <li><i class="fa fa-times" aria-hidden="true"></i>Kit exposant 2 m2</li>
+            </ul>
+            <a href="#home" class="btn btn-block js-target-scroll">Prendre RDV</a> </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+          <div class="event_priceing">
+            <div class="plan_name">
+              <h6>Pack Restauration</h6>
+            </div>
+            <div class="plan_price">
+              <p>300€/J</p>
+            </div>
+            <ul>
+              <li><i class="fa fa-check" aria-hidden="true"></i>Café ou Thé</li>
+              <li><i class="fa fa-times" aria-hidden="true"></i>2 badges exposants</li>
+              <li><i class="fa fa-times" aria-hidden="true"></i>2 chaises</li>
+              <li><i class="fa fa-times" aria-hidden="true"></i>1 Table (2,50 x 0,80)</li>
+              <li><i class="fa fa-times" aria-hidden="true"></i>Kit exposant 6 m2</li>
+            </ul>
+            <a href="#home" class="btn btn-block js-target-scroll">Prendre RDV</a> </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+          <div class="event_priceing">
+            <div class="plan_name">
+              <h6>Partenariat</h6>
+            </div>
+            <div class="plan_price">
+              <p>Nous contacter</p>
+            </div>
+            <ul>
+              <li><i class="fa fa-check" aria-hidden="true"></i></li>
+              <li><i class="fa fa-check" aria-hidden="true"></i></li>
+              <li><i class="fa fa-check" aria-hidden="true"></i></li>
+              <li><i class="fa fa-check" aria-hidden="true"></i></li>
+            </ul>
+            <a href="#home" class="btn btn-block js-target-scroll">Prendre RDV</a> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dark-layer"></div>
+</section>
+<!--/Conference Pricing--> 
+
+<!--Conference Testimonial-->
+<section id="testimonial" class="section-padding">
+  <div class="container">
+    <div class="row"> 
+      <!-- Heading -->
+      <div class="col-md-12">
+        <div class="heading-sec">
+          <div class="section-header text-center">
+            <h2>Ce qu'ils disent de nous !</h2>
+            <p>Leurs Avis !</p>
+          </div>
+        </div>
+      </div>
+      <!-- /Heading -->
+      
+      <section class="testimonial-section">
+		<div class="testimonials">
+		  <div class="testimonial">
+      <h2>Découverte Impressionnante !</h2>
+			<p>"Assister au Festival International du 
+        Cinéma Africain à Paris a été une expérience inoubliable. La richesse des films présentés 
+        m'a ouvert les yeux sur les diverses facettes du cinéma africain. Un must pour les cinéphiles !"
+      </p>
+			<div class="details">
+			<span class="author">Julien</span>
+			</div>
+		  </div>
+      <div class="testimonial">
+        <h2>Innovation et tradition à l'honneur !</h2>
+			<p>"Chaque édition de la Fashion Week Africa à Paris me surprend toujours.
+         L'ingéniosité des créateurs est à couper le souffle, et j'admire la 
+         manière dont ils intègrent la riche histoire africaine dans des designs 
+         modernes. C'est une célébration de la diversité et de l'innovation."
+      </p>
+			<div class="details">
+			<span class="author">Sébastien</span>
+			</div>
+		  </div>
+		  <div class="testimonial">
+        <h2>Un voyage à travers le cinéma !</h2>
+			<p>
+        "Chaque année, je suis émerveillée par la sélection du festival. La diversité des histoires
+         et des perspectives est rafraîchissante. C'est un rendez-vous incontournable pour moi."
+      </p>
+			<div class="details">
+			<span class="author">Clarisse
+      </span>
+			</div>
+		  </div>
+		</div>
+	</section>
+    </div>
+  </div>
+</section>
+<!--/Conference Testimonial--> 
+
+<!--Conference FAQ-->
+<section id="faq" class="section-padding parallex-bg white_text">
+  <div class="container">
+    <div class="div_zindex">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="heading-sec clearfix">
+            <div class="section-header text-center">
+              <h2>Foire aux Questions</h2>
+              <p>Venez nombreux soutenir la mode africain !</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="panel-group faq_group" id="accordion" role="tablist" aria-multiselectable="true"> 
+            <!--FAQ-1-->
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title"> <a role="button" data-bs-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Quel est le nom du festival international du film africain qui a lieu à Paris ?
+                  <span class="faq_control"> <i class="fa fa-plus-square" aria-hidden="true"></i> <i class="fa fa-minus-square" aria-hidden="true"></i> </span> </a> </h4>
+              </div>
+              <div id="collapseOne" class="panel-collapse collapse in show" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body">
+                  <p>Le festival s'appelle "L'Afrique Fait Son Cinéma à Paris"
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <!--FAQ-2-->
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingTwo">
+                <h4 class="panel-title"> <a class="collapsed" role="button" data-bs-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Quand commence et se termine "L'Afrique Fait Son Cinéma" en 2023 ?
+                  <span class="faq_control"> <i class="fa fa-plus-square" aria-hidden="true"></i> <i class="fa fa-minus-square" aria-hidden="true"></i> </span> </a> </h4>
+              </div>
+              <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                <div class="panel-body">
+                  <p>
+                    Le festival commence le 24 octobre 2023 et se termine le 31 octobre 2023.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <!--FAQ-3-->
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingThree">
+                <h4 class="panel-title"> <a class="collapsed" role="button" data-bs-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Qu'est-ce que le "Nollywood Week Film Festival" à Paris ?
+                  <span class="faq_control"> <i class="fa fa-plus-square" aria-hidden="true"></i> <i class="fa fa-minus-square" aria-hidden="true"></i> </span> </a> </h4>
+              </div>
+              <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                <div class="panel-body">
+                  <p>
+                    C'est un festival célébrant le cinéma nigérian. Il propose des avants-premières mondiales, 
+                    des projections de longs et courts métrages, ainsi que des séances de questions-réponses.
+                  </p>
+                 
+                </div>
+              </div>
+            </div>
+             <!--FAQ-4-->
+             <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingThree">
+                <h4 class="panel-title"> <a class="collapsed" role="button" data-bs-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">La Fashion Week Africa à Paris est-elle une initiative récente?
+                  <span class="faq_control"> <i class="fa fa-plus-square" aria-hidden="true"></i> <i class="fa fa-minus-square" aria-hidden="true"></i> </span> </a> </h4>
+              </div>
+              <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                <div class="panel-body">
+                  <p>
+                    Bien que la mode africaine ait toujours eu une influence sur la scène mondiale, 
+                    la reconnaissance spécifique et les événements dédiés à Paris ont gagné en popularité
+                     au cours des dernières années, reflétant une prise de conscience croissante de la 
+                     richesse et de la diversité des talents africains.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!--FAQ-5-->
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingFour">
+                <h4 class="panel-title"> <a class="collapsed" role="button" data-bs-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseThree">Durant combien de jours se déroulera le "Nollywood Week Film Festival" à Paris ?
+                  <span class="faq_control"> <i class="fa fa-plus-square" aria-hidden="true"></i> <i class="fa fa-minus-square" aria-hidden="true"></i> </span> </a> </h4>
+              </div>
+              <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                <div class="panel-body">
+                  <p>
+                    Le "Nollywood Week Film Festival" se déroule sur quatre jours.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dark-layer"></div>
+</section>
+<!--/Conference FAQ--> 
+  
+<!-- Blog -->
+<section id="blog" class="section-padding">
+  <div class="container">
+    <div class="row">
+      <!-- Heading -->
+      <div class="col-md-12">
+          <div class="heading-sec clearfix">
+            <div class="section-header text-center">
+              <h2>L'Afropéen</h2>
+              <p>Le mag de la diaspora africiane</p>
+            </div>
+          </div>
+        </div>
+      <!-- /Heading --> 
+      
+      <div class="col-md-4 col-sm-4">
+         <div class="blog_wrap">
+	      	<div class="blog_img margin-btm-20">
+                <a href="#"><img src="assets/images/800x510.jpg" alt="image"></a>
+            </div>
+    	    <div class="blog_meta">
+                <p>Posted on May 30, 2023</p>
+            </div>
+        	<h5><a href="#">How To Build Your Event Brand</a></h5>
+	        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+            Lorem Ipsum has been the industry's standard dummy text.</p>
+         </div>
+      </div>
+      
+      <div class="col-md-4 col-sm-4">
+         <div class="blog_wrap video_post">
+	      	<div class="blog_img margin-btm-20">
+                <a href="#"><img src="assets/images/800x510.jpg" alt="image"></a>
+            </div>
+    	    <div class="blog_meta">
+                <p>Posted on May 28, 2023</p>
+            </div>
+        	<h5><a href="#">How To Get Started In Event Planning</a></h5>
+	        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+            Lorem Ipsum has been the industry's standard dummy text.</p>
+         </div>
+      </div>
+      <div class="col-md-4 col-sm-4">
+         <div class="blog_wrap">
+	      	<div class="blog_img margin-btm-20">
+                <a href="#"><img src="assets/images/800x510.jpg" alt="image"></a>
+            </div>
+    	    <div class="blog_meta">
+                <p>Posted on Aug 30, 2023</p>
+            </div>
+        	<h5><a href="#">The standard chunk of Lorem Ipsum used since</a></h5>
+	        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+            Lorem Ipsum has been the industry's standard dummy text.</p>
+         </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /Blog -->
+
+<!--Conference Venue-->
+<section id="venue" class="section-padding parallex-bg white_text">
+  <div class="container">
+    <div class="div_zindex">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="heading-sec clearfix">
+            <div class="section-header text-center">
+              <h2>Fashion Week Africa</h2>
+              <p>Venez soutenir les artisans de la diversité culturel africaine !</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+          <div class="venue_info_box"> <i class="fa fa-phone" aria-hidden="true"></i>
+            <p>(+33) 7 82 80 18 52</p>
+          </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+          <div class="venue_info_box"> <i class="fa fa-map-marker" aria-hidden="true"></i>
+            <p>10 rue des terres au curé <br> 75 013 Paris
+              </p>
+          </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+          <div class="venue_info_box"> <i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:support@domainname.com">service-client@dreamteamafrica.com</a> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dark-layer"></div>
+</section>
+<!--/Conference Venue--> 
+
+
+
+
+{% endblock body %} 
+
+
+
+
+

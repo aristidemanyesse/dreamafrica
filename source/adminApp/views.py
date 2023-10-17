@@ -6,8 +6,8 @@ from django.core.serializers import serialize
 from django.contrib.auth import authenticate, logout
 
 from galerieApp.models import CategorieItem, Item
-from boutiqueApp.models import Categorie, Produit
-from vitrineApp.models import Actualite, Evenement, Jour, Participant, Stand, TypeParticipant
+from boutiqueApp.models import  Produit
+from vitrineApp.models import  Evenement, Participation, ReservationStand
 from .models import *
 from datetime import datetime, timedelta
 # Create your views here.
@@ -139,10 +139,8 @@ def update_produit(request, id):
 def events(request):
     if request.method == "GET":
         events = Evenement.objects.filter(deleted = False)
-        jours = Jour.objects.filter(deleted = False)
         ctx = {
             "events": events,
-            "jours": jours,
         }
         return ctx
           
@@ -201,9 +199,9 @@ def test(request):
           
 
         
-# @render_to('adminApp/payement_checkout.html')
+@render_to('adminApp/payement_checkout.html')
 def payement_checkout(request):
-    if request.method == "POST":
+    if request.method == "GET":
         print(request.POST)
         ctx = {
             "test": "test",

@@ -1,22 +1,14 @@
 from django.shortcuts import render
 from django.contrib.contenttypes.models import ContentType
-from django.http import HttpResponse
-from django.contrib.auth.decorators import login_required, permission_required
 from django.http import JsonResponse
 import json, uuid
 from django.urls import reverse
-from settings import settings as parametres
 from django.utils.translation import gettext as _
 
 
 from galerieApp.forms import *
 from vitrineApp.forms import *
 from boutiqueApp.forms import *
-# from livraisonApp.forms import *
-# from organisationApp.forms import *
-# from productionApp.forms import *
-# from comptabilityApp.forms import *
-# from paramApp.forms import *
 import coreApp.tools as tools
 
 
@@ -32,7 +24,6 @@ def save(request):
             modelform = datas["modelform"]
             MyForm = globals()[modelform]
             
-            print(request.FILES.get('image'))
 
             if (MyForm) :
                 MyModel = tools.form_to_model(modelform)
@@ -54,8 +45,8 @@ def save(request):
                     item = form.save()
                     if modelform == "ClientForm":
                         return JsonResponse({"status":True, "url" : reverse("boutique:clients:client", args=[item.id])})
-                    if modelform == "FournisseurForm":
-                        return JsonResponse({"status":True, "url" : reverse("fabrique:appros:fournisseur", args=[item.id])})
+                    if modelform == "ParticipationForm":
+                        return JsonResponse({"status":True, "url" : reverse("vitrineApp:purchase", args=[item.id])})
                     return JsonResponse({"status":True, "message": _("Opération effectuée avec succes !")})
                 
                 else:

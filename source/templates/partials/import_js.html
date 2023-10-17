@@ -2,48 +2,141 @@
 
 
 
+   <!-- Google Tag Manager -->
+   <script>(function (w, d, s, l, i) {
+    w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+            new Date().getTime(), event: 'gtm.js'
+    }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+})(window, document, 'script', 'dataLayer', 'GTM-5LRXFBV');</script>
 
+<!-- Google tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-242569165-1">
+</script>
 <script>
-    $('.testimonials').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        dots: true,
-        infinite: true,
-        cssEase: 'linear',
-        slide: 'li',
-        arrows: false,
-    });
-    </script>
-    
-    <script>
-    $('.bxslider').bxSlider({
-      autoHover: true,
-      auto: true,
-      slideWidth: 250,
-      minSlides: 1,
-      maxSlides: 4,
-      controls: false,
-      pager: true,
-      speed: 500,
-      captions: true,
-      slideMargin: 5,
-    });
-    </script>
-    
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag('js', new Date());
+
+gtag('config', 'UA-242569165-1');
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0M7J37HW09"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag('js', new Date());
+
+gtag('config', 'G-0M7J37HW09');
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "foire d'afrique paris, événement afro",
+   "image": [
+    "https://foiredafrique.fr/assets/img/foire-d-afrique.jpeg"
+   ],
+  "description": "Le beurre de karité offre de nombreux avantages pour la peau des femmes enceintes. 
+  Retrouver tous nos produits naturels bio à la Foire d'Afrique Paris !",
+  "sku": "+33 7 82 80 18 52",
+  "mpn": "foire d'afrique paris, événement afro",
+  "brand": {
+    "@type": "Brand",
+    "name": "foiredafrique"
+  },
+  "review": {
+    "@type": "Review",
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "5",
+      "bestRating": "5"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Mme Nadejda G."
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+     "ratingValue": "4.9",
+"reviewCount": "57"
+  },
+   "offers": {
+            "@type": "AggregateOffer",
+            "offerCount": "5",
+            "lowPrice": "45",
+            "highPrice": "190",
+            "priceCurrency": "EUR"
+          }
+}
+</script>
+<!-- Facebook Pixel Code -->
+<script>
+!function (f, b, e, v, n, t, s) {
+if (f.fbq) return; n = f.fbq = function () {
+    n.callMethod ?
+        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+};
+if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+n.queue = []; t = b.createElement(e); t.async = !0;
+t.src = v; s = b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t, s)
+}(window, document, 'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1337947253401514');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1337947253401514&ev=PageView&noscript=1" /></noscript>
+
+<script src="{% static 'assets/js/31f5977fdc.js' %}"></script> 
+
+
+<script src="https://js.stripe.com/v3/"></script>
+
+
     <!-- Scripts --> 
     <script src="{% static 'assets/js/jquery.min.js' %}"></script> 
     <script src="{% static 'assets/js/popper.min.js' %}"></script> 
     <script src="{% static 'assets/js/bootstrap.min.js' %}"></script> 
-    <!-- <script src="http://maps.google.com/maps/api/js?sensor=true"></script> 
+    {% comment %} <!-- <script src="http://maps.google.com/maps/api/js?sensor=true"></script> 
     <script src="assets/js/gmaps.min.js"></script>  -->
     <script src="{% static 'assets/js/jquery.validate.min.js' %}"></script> 
     <script src="{% static 'assets/js/interface.js' %}"></script> 
     <!-- testimonial-slider-JS--> 
-    <script src="{% static 'assets/js/owl.carousel.min.js' %}"></script> 
+    <script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>  {% endcomment %}
     <!-- Countdown--> 
-    <script src="{% static 'assets/js/jquery.countdown.min.js' %}"></script>
+    {% comment %} <script src="{% static 'assets/js/jquery.countdown.min.js' %}"></script>
     <!-- prettyPhoto--> 
     <script src="{% static 'assets/js/jquery.prettyPhoto.js' %}" type="text/javascript" charset="utf-8"></script>
     
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+
+    
     <script type='text/javascript' src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAQsTHPE1hhsGg77C0BG8p5uIAIuFraE0w&#038;libraries=places&#038;ver=5.3.2'></script>
-    <script src="{% static 'assets/js/slick.js' %}"></script>
+    <script src="{% static 'assets/js/slick.js' %}"></script> {% endcomment %}
+
+
+    <script src="{% static 'admin/dist/shamman/functions.js' %}"></script>
+    <script src="{% static 'admin/dist/shamman/alerter.js' %}"></script>
+    <script src="{% static 'admin/dist/shamman/loader.js' %}"></script>
+    <script src="{% static 'admin/dist/shamman/traitement.js' %}"></script>
+    <script src="{% static 'admin/dist/shamman/general.js' %}"></script>
+
+    <script>
+      $("#modal-payement").modal('toggle');
+      {% comment %} $('.testimonials').slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: true,
+          infinite: true,
+          cssEase: 'linear',
+          slide: 'li',
+          arrows: false,
+      }); {% endcomment %}
+      </script>
+      

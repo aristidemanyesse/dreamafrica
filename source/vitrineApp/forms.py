@@ -2,24 +2,18 @@ from django.forms import ModelForm
 from .models import *
 
         
+        
 # Create the form class.
-class TypeParticipantForm(ModelForm):
+class ParticipationForm(ModelForm):
     class Meta:
-        model = TypeParticipant
+        model = Participation
         fields = "__all__"
         
         
 # Create the form class.
-class ParticipantForm(ModelForm):
+class ReservationStandForm(ModelForm):
     class Meta:
-        model = Participant
-        fields = "__all__"
-        
-        
-# Create the form class.
-class ActualiteForm(ModelForm):
-    class Meta:
-        model = Actualite
+        model = ReservationStand
         fields = "__all__"
         
         

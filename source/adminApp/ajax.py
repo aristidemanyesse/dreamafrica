@@ -9,26 +9,25 @@ from django.urls import reverse
 from settings import settings as parametres
 from django.utils.translation import gettext as _
 import stripe
+from vitrineApp.models import Participation
 
 # Create your views here.
 @csrf_exempt
 def stripeTokenHandler(request):
     if request.method == "POST":
-        datas = request.POST
-        
+        datas = json.loads(request.body.decode('utf-8'))
         try:
             stripe.api_key = "sk_test_51O11ddBltzuPBBd1JY9carffmwRn2DXMOfc5uw7MabKtZhrbDUrWIPuryZ5qLsJQ9ZGeqlJWIkOmi3HDm0tS8jOz005BTmzl9u"
-
+            participation = Participation.objects.get(id = datas["items"][0]["participation_id"])
             # Create a PaymentIntent with the order amount and currency
             intent = stripe.PaymentIntent.create(
-                amount= 4500,
+                amount= int(participation.evenement.price * 100),
                 currency='eur',
                 # In the latest version of the API, specifying the `automatic_payment_methods` parameter is optional because Stripe enables its functionality by default.
                 automatic_payment_methods={
                     'enabled': True,
                 },
             )
-            print(intent)
             return JsonResponse({
                 'clientSecret': intent['client_secret']
             })

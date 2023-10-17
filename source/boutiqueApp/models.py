@@ -1,15 +1,7 @@
 from django.db import models
 from django.db.models import  Q
 from coreApp.models import BaseModel, Etat
-from vitrineApp.models import Faq
 
-
-
-class Categorie(BaseModel):
-    name    = models.CharField(max_length = 255, null = True, blank=True)
-
-    class Meta:
-        ordering = ['name']
 
 
 class Produit(BaseModel):
@@ -17,19 +9,18 @@ class Produit(BaseModel):
     code          = models.TextField(default="", null = True, blank=True)
     price         = models.IntegerField(default = 0)
     description   = models.TextField(default = "", null = True, blank=True)
-    recette       = models.TextField(default = "", null = True, blank=True)
     image1        = models.ImageField(max_length = 255, upload_to = "images/produits/", default='images/produits/default.png', null = True, blank=True)
     image2        = models.ImageField(max_length = 255, upload_to = "images/produits/", default='images/produits/default.png', null = True, blank=True)
     image3        = models.ImageField(max_length = 255, upload_to = "images/produits/", default='images/produits/default.png', null = True, blank=True)
     image4        = models.ImageField(max_length = 255, upload_to = "images/produits/", default='images/produits/default.png', null = True, blank=True)
-    categorie     = models.ForeignKey(Categorie, on_delete = models.CASCADE, null = True, blank=True, related_name="categorie_produit")
     
     class Meta:
         ordering = ['name']
 
 
 class FaqProduit(BaseModel):
-    faq       = models.ForeignKey(Faq, on_delete = models.CASCADE, null = True, blank=True, related_name="faq_produit")
+    question       = models.TextField(default = "", null = True, blank=True)
+    reponse       = models.TextField(default = "", null = True, blank=True)
     produit   = models.ForeignKey(Produit, on_delete = models.CASCADE, null = True, blank=True, related_name="produit_faq")
     
     def __str__(self):
@@ -51,7 +42,7 @@ class Client(BaseModel):
 
 
 class Commande(BaseModel):
-    client = models.ForeignKey(Categorie, on_delete = models.CASCADE, null = True, blank=True, related_name="client_commande")
+    client = models.ForeignKey(Client, on_delete = models.CASCADE, null = True, blank=True, related_name="client_commande")
     state = models.ForeignKey(Etat, on_delete = models.CASCADE, null = True, blank=True, related_name="etat_commande")
         
         

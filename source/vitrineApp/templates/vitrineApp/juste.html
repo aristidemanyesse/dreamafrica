@@ -3,422 +3,529 @@
 
 {% block "title" %}Juste une danse | Dream Team Africa{% endblock "title" %}
 
-{% block "body" %}
-
-<!-- Start Header -->
-<div class="fables-header fables-after-overlay overlay-lighter bg-rules"
-	style="background-image: url({% static 'images/Afro-Beatz.jpg' %});">
-	<div class="container overflow-hidden">
-		<div class="owl-carousel owl-theme default-carousel fables-sqr-nav dots-0 wow fadeInUpBig"
-			data-wow-duration="2s">
-			<div>
-				<h1 class="white-color bold-font mt-lg-5 mb-4 text-uppercase">Faîtes bouger l'afrique ...<br>
-					<span class="fables-second-text-color text-uppercase">qui est en vous</span>
-				</h1>
-				<p class="fables-third-text-color mt-3 mb-5 light-font fables-header-slider-details">
-					Un événement pour mettre en valeur l'artisanat africain.
-				</p>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- /End Header -->
+{% block body %}
 
 
 
-<div class="container-fluid my-3 text-center">
-	<div class="my-4 my-md-5">
-		<h2 class="font-35 font-weight-bold fables-second-text-color subtitle">Nous vous invitons pour ...</h2>
-		<h1 class="font-weight-bold fables-main-text-color display-3 title">Juste une danse</h1>
-	</div>
-</div>
+<!-- Banners -->
+<section id="banner" class="banner-section"> 
+  <!-- Banner Tagline -->
+  <div class="banner-fixed">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-7 col-md-7 col-lg-8">
+          <div class="banner-content">
+            <div class="banner-tagline">
+              <h1>Festival des Danses Urbaines ! <br>17 Février 2024</h1>
+              <p>10 rue des terres au Curé Paris France</p>
+              <p>Théâtre du Gymnase Paris</p>
+              <P>38 Boulevard Bonne Nouvelle Paris <br> 
+                services@dreamteamafrica.com</P>
+              <p>Venez nombreux même en famille, assister et participer à la 
+                    transmission de la culture africaine aux plus jeunes publics ! 
+              </p>
+              
+                <a href="https://foiredafrique.fr/assets/images/marche-de-noel-Afrique-paris.pdf" class="btn margin-btm-20">Télécharger le flyer</a>
+              </div>
+            
+          </div>
+        </div>
+        <div class="col-sm-5 col-md-5 col-lg-4">
+          <div class="banner-form">
+            <h5 class="text-center">Réservez votre place</h5>
+            <!--Registration Form-->
+              <form method="POST" class="formShamman" classname="ParticipationForm">
+                  {% csrf_token %}
+                  <div class="form-group">
+                    <input class="form-control" name="fullname" id="fullname" placeholder="Nom et prénoms" required type="text">
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" name="email"  placeholder="Adresse email" required type="email">
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" name="contact" placeholder="Numero de téléphone" required type="text">
+                  </div>               
+                  <div class="form-group select">
+                    <select name="evenement" class="form-control" required="">
+                      <option value="">Quel evenement vous interesse ?</option>
+                      {% for event in events %}
+                        <option value="{{event.id}}">{{event.name}} ({{event.price}}) €</option>
+                      {% endfor %}
+                    </select>
+                  </div><br>
+                 
+                  <div class="contact-btn-m text-center">
+                      <button class="btn btn-block">
+                        <span id="button-text">Réservez maintenant !</span>
+                      </button>
+                  </div>
+               
+              </form>
+            <!--/Registration Form--> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /Banners Tagline -->
+  <div class="dark-layer"></div>
+</section>
+<!-- /Banners --> 
 
-<div class="container">
-	<div class="row ">
-		<div class="col-12 col-md-10 offset-md-1  text-center">
-			<br> <br>
-			<p class="fables-forth-text-color">
-				Plongez dans l'univers effervescent de la danse urbaine avec 'Juste une danse'. Cet événement dynamique est bien plus qu'un simple festival de danse. Il incarne la fusion parfaite entre le mouvement et l'expression artistique, revitalisant l'espace urbain pour offrir une expérience culturelle inoubliable.
-			</p>
-		</div>
-		<div class="col-12 col-sm-6 col-lg-4 pt-3 pt-md-5 mb-md-5 wow">
-			<div class="row text-center text-md-left">
-				<div class="col-12 col-md-3">
-					<span class="fables-iconhead-set-light fables-second-text-color fa-3x"></span>
-				</div>
-				<div class="col-12 col-md-9 pl-md-0">
-					<h2 class="fables-main-text-color font-20 my-2 mt-md-0 semi-font">Authenticité Culturelle</h2>
-					<div class="font-15 fables-forth-text-color">
-						Immersion authentique dans la culture africaine, avec des produits artisanaux, une cuisine
-						typique et des performances artistiques.
-					</div>
+<!--Timer Countdown-->
+<section id="timer_countdown" class="vc_row">
+  <div class="col-sm-6 col-md-6  primary-bg vc_col">
+    <div class="timer_wrap padding_50px text-center">
+      <h5>Festival des Danses Urbaines</h5>
+      <p class="conference_date">17 Février 2024<br> Paris - France</p>
+    </div>
+  </div>
+  <div class="col-sm-6 col-md-6 secondary-bg vc_col">
+    <div class="timer_wrap padding_50px text-center">
+      <div class="timer">
+        <h5>Festival des Danses Urbaines</h5>
+        <p>Réservez votre place maintenant</p>
+        <div class="countdown styled"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--/Time Countdown--> 
 
-				</div>
-			</div>
-		</div>
-		<div class="col-12 col-sm-6 col-lg-4 pt-3 pt-md-5 mb-md-5 wow">
-			<div class="row text-center text-md-left">
-				<div class="col-12 col-md-3">
-					<span class="fables-iconscreen fables-second-text-color fa-3x"></span>
-				</div>
-				<div class="col-12 col-md-9 pl-md-0">
-					<h2 class="fables-main-text-color font-20 my-2 mt-md-0 semi-font">Cadeaux Uniques</h2>
-					<div class="font-15 fables-forth-text-color">
-						Vous trouverez des cadeaux originaux et uniques, allant de l'artisanat traditionnel aux œuvres
-						d'art contemporaines, parfaits pour les achats de Noël
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-12 col-sm-6 col-lg-4 pt-3 pt-md-5 mb-md-5 wow">
-			<div class="row text-center text-md-left">
-				<div class="col-12 col-md-3">
-					<span class="fables-iconfile fables-second-text-color fa-3x"></span>
-				</div>
-				<div class="col-12 col-md-9 pl-md-0">
-					<h2 class="fables-main-text-color font-20 my-2 mt-md-0 semi-font">Esprit de Solidarité </h2>
-					<div class="font-15 fables-forth-text-color">
-						Ce marché soutient souvent des projets sociaux et caritatifs, offrant aux visiteurs l'occasion
-						de faire des achats tout en contribuant à des causes humanitaires.
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+<!--  About Section -->
+<section id="about" class="section-padding">
+  <div class="container">
+    <div class="row"> 
+      <!-- Heading -->
+      <div class="col-md-12">
+        <div class="heading-sec">
+          <div class="section-header text-center">
+            <h2>Juste une danse, la fête de la culture urbaine</h2>
+            <h5>Un rendez-vous incontournable de la culture urbaine</h5>
+          </div>
+        </div>
+      </div>
+      <!-- /Heading --> 
+    </div>
+    <div class="row">
+      <div class="col-md-7 col-lg-6">
+        <div class="about-m-content">
+          <p style="text-align: justify;">
+            
+            "Juste Une Danse" s'annonce comme le rendez-vous incontournable des 
+            passionnés de danses urbaines à Paris, prévu pour le 17 février 2024. 
+            Ce festival rassemblera des talents de tout horizon, témoignant de la 
+            richesse et de la diversité des danses urbaines. Qu'il s'agisse de 
+            breakdance, de krump, de dancehall ou de voguing, chaque style aura 
+            sa place, offrant au public une expérience immersive au cœur de la 
+            culture urbaine.
+          </p>
+          <p style="text-align: justify;">
+            L'événement se tiendra au cœur de la capitale, une ville reconnue pour 
+            son dynamisme culturel et artistique. Les participants pourront assister 
+            à des batailles épiques, des performances à couper le souffle et des 
+            ateliers interactifs. Ces moments forts promettent d'être des instants 
+            de partage, de découverte et de célébration de l'art de la danse urbaine.
+          </p>
+          <p style="text-align: justify;">
+            Les organisateurs du festival ont souligné l'importance de cet événement 
+            dans la promotion des arts urbains. En effet, "Juste Une Danse" n'est pas 
+            seulement une vitrine pour les talents émergents, mais aussi une plateforme
+             d'échange pour les professionnels, les amateurs et les novices. Avec une 
+             telle diversité de danses et de talents présentés, le festival promet d'être 
+             un moment fort du calendrier culturel parisien en 2024.
+          </p>
+          <h4>Le rendez-vous officiel de la danse urbaine</h4>
+          <ul class="list_style_none">
+            <li><i class="fa fa-check-circle" aria-hidden="true"></i><strong>Découverte de la richesse des danses urbaines</strong> :
+               Le festival offre une plateforme pour différents styles de danse urbaine, du breakdance au krump.</li>
+            <li><i class="fa fa-check-circle" aria-hidden="true"></i><strong>Opportunité d'interaction</strong> : Les participants
+               auront l'occasion d'assister à des battles, des performances et des ateliers interactifs.</li>
+            <li><i class="fa fa-check-circle" aria-hidden="true"></i><strong>Promotion des arts urbains</strong> : Le festival met 
+              en avant tant les talents émergents que les professionnels établis dans le monde de la danse urbaine</li>
+            <li><i class="fa fa-check-circle" aria-hidden="true"></i><strong>Bienfaits de la danse</strong> : Au-delà du 
+              spectacle, la danse est une discipline qui apporte d'immenses satisfactions, tant sur le plan 
+              physique que mental</li>
+            <li><i class="fa fa-check-circle" aria-hidden="true"></i><strong>Vibrer au rythme de la culture urbaine</strong> : 
+              Le festival est une célébration de la culture hip-hop à travers la danse</li>
+            <li><i class="fa fa-check-circle" aria-hidden="true"></i><strong>Rencontres et échanges</strong> : C'est l'occasion 
+              de rencontrer des passionnés et des professionnels, d'échanger et de créer des liens dans la 
+              communauté de la danse.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-5 col-lg-6">
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-xs-6 abut-event-img"> <img src="assets/images/marche-d-afrique-1.png" alt="image"> </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 abut-event-img"> <img src="assets/images/marche-d-afrique-2.png" alt="image"> </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 abut-event-img"> <img src="assets/images/marche-d-afrique-3.png" alt="image"> </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 abut-event-img"> <img src="assets/images/marche-d-afrique-4.png" alt="image"> </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 abut-event-img"> <img src="assets/images/marche-d-afrique-5.png" alt="image"> </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 abut-event-img"> <img src="assets/images/marche-d-afrique-6.png" alt="image"> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- / About Section --> 
 
-
-
-
-<div class="container mb-4 mb-md-5 mt-5"> 
-	<div class="gallery-filter">
-		<div class="portfolioContainer row filter-masonry"> 
-			{% for fichier in fichiers %}
-				<div class="drawings places col-sm-6 col-md-3 mb-2">
-					<div class="filter-img-block position-relative image-container translate-effect-right">
-						<img src="{% static fichier %}" alt="image" class="w-100">
-						<div class="img-filter-overlay fables-main-color-transparent row m-0">
-							<a data-fancybox="gallery" href="{% static fichier %}" class="gallery-filter-icon white-color fables-second-hover-color"><span class="fables-iconsearch-icon"></span></a>
-						</div>
-					</div>
-				</div>
-			{% endfor %}
-		</div> 
-	</div> 
-</div>
-
-
-
-
-<div class="container-fluid">
-	<div class="row mt-3 mt-md-5">
-		<div class="col-12 col-lg-5 offset-lg-1 mb-4 mb-lg-0 overflow-hidden">
-			<h2 class="fables-second-text-color font-35 bold-font wow fadeInLeft">Un Rendez-vous de Trésors<span
-					class="fables-main-text-color"> Uniques pour les Fêtes</span></h2>
-			<p class="fables-forth-text-color mt-4 mb-4">
-				Explorez un marché festif où chaque coin recèle des trésors uniques, parfaits pour faire briller les
-				fêtes. Trouvez des cadeaux originaux, des bijoux étincelants, des objets de décoration exotiques et des
-				produits gastronomiques délicieux pour offrir à vos proches. Laissez-vous emporter par la magie des
-				fêtes et par la découverte de trouvailles exceptionnelles dans un cadre chaleureux et authentique.
-			</p>
-
-			<div id="accordion">
-				<div class="card border-0 mb-3">
-					<div class="card-header p-0 border bg-transparent rounded-0" id="headingOne">
-						<h5 class="mb-0 position-relative">
-							<span class="fables-second-background-color white-color d-inline-block 
-		position-absolute fables-lus-icon pt-2 text-center">
-								<i class="fas fa-plus"></i>
-							</span>
-							<button
-								class="btn fables-main-text-color bg-transparent font-18 focus-0 d-block position-relative z-index pl-6 pt-2 pb-2 w-100 text-left border-0 text-truncate"
-								data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-								aria-controls="collapseOne">
-								Clean and modern websites , Clean and modern websites
-							</button>
-						</h5>
-					</div>
-
-					<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-						<div class="card-body fables-forth-text-color font-14 py-1 py-xl-2 pl-6 pr-0">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos reiciendis cum aliquid quam,
-							consequatur. quisquam consectetur culpa commodi maxime in harum
-						</div>
-					</div>
-				</div>
-				<div class="card border-0 mb-3">
-					<div class="card-header bg-transparent p-0 border rounded-0" id="headingTwo">
-						<h5 class="mb-0 position-relative">
-							<span class="fables-second-background-color white-color d-inline-block 
-		position-absolute fables-lus-icon pt-2 text-center">
-								<i class="fas fa-plus"></i>
-							</span>
-							<button
-								class="btn fables-main-text-color bg-transparent font-18 focus-0 d-block position-relative z-index pl-6 pt-2 pb-2 w-100 text-left border-0 text-truncate collapsed"
-								data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
-								aria-controls="collapseTwo">
-								Clean and modern websites
-							</button>
-						</h5>
-					</div>
-					<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-						<div class="card-body fables-forth-text-color font-14 py-1 py-xl-2 pl-6 pr-0">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos reiciendis cum aliquid quam,
-							consequatur. quisquam consectetur culpa commodi maxime in harum
-						</div>
-					</div>
-				</div>
-				<div class="card border-0 mb-3">
-					<div class="card-header p-0 border bg-transparent rounded-0" id="headingThree">
-						<h5 class="mb-0 position-relative">
-							<span class="fables-second-background-color white-color d-inline-block 
-		position-absolute fables-lus-icon pt-2 text-center">
-								<i class="fas fa-plus"></i>
-							</span>
-							<button
-								class="btn fables-main-text-color bg-transparent font-18 focus-0 d-block position-relative z-index pl-6 pt-2 pb-2 w-100 text-left border-0 text-truncate collapsed"
-								data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"
-								aria-controls="collapseThree">
-								Clean and modern websites
-							</button>
-						</h5>
-					</div>
-					<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-						<div class="card-body fables-forth-text-color font-14 py-1 py-xl-2 pl-6 pr-0">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos reiciendis cum aliquid quam,
-							consequatur. quisquam consectetur culpa commodi maxime in harum
-						</div>
-					</div>
-				</div>
-				<div class="card border-0 mb-3">
-					<div class="card-header p-0 border bg-transparent rounded-0" id="headingfour">
-						<h5 class="mb-0 position-relative">
-							<span class="fables-second-background-color white-color d-inline-block 
-		position-absolute fables-lus-icon pt-2 text-center">
-								<i class="fas fa-plus"></i>
-							</span>
-							<button
-								class="btn fables-main-text-color bg-transparent font-18 focus-0 d-block position-relative z-index pl-6 pt-2 pb-2 w-100 text-left border-0 text-truncate collapsed"
-								data-toggle="collapse" data-target="#collapseFour" aria-expanded="false"
-								aria-controls="collapseThree">
-								Clean and modern websites
-							</button>
-						</h5>
-					</div>
-					<div id="collapseFour" class="collapse" aria-labelledby="headingfour" data-parent="#accordion">
-						<div class="card-body fables-forth-text-color font-14 py-1 py-xl-2 pl-6 pr-0">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos reiciendis cum aliquid quam,
-							consequatur. quisquam consectetur culpa commodi maxime in harum
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-12 col-lg-5 offset-lg-1 p-0 text-right mb-lg-5">
-			<div class="choose-img-border-after fables-second-border-color position-relative">
-				<img src="{% static 'images/global/troupe.jpg' %}" alt="" class="w-100">
-			</div>
-		</div>
-	</div>
-</div><br>
-
-
-{% include "../partials/boutique.html" %}
-
-
-<div class="container text-center">
-
-	<div class="row overflow-hidden mb-lg-5">
-		<div class="col-12 col-sm-6 col-lg-4 text-center mb-4 mb-lg-0 wow  ">
-			<div class="table-block table-border-light py-5 fables-second-hover-border">
-				<h2 class="fables-second-text-color font-35 font-weight-bold position-relative subtitle">100+</h2>
-				<h2
-					class="fables-forth-text-color text-center font-weight-bold table-title fables-third-after position-relative subtitle font-17">
-					Artistes musiciens</h2>
-				<p class="fables-forth-text-color my-4 px-4 line-height-large font-15">
-					Rechercheurs de Cadeaux Originaux, Gourmets Curieux, Les Amateurs d'Art et de Culture, Amateurs de
-					Musique et de Divertissemen, etc..
-			</div>
-		</div>
-		<div class="col-12 col-sm-6 col-lg-4 text-center mb-4 mb-lg-0 wow ">
-			<div class="table-block table-border-light py-5 fables-second-hover-border">
-				<h2 class="fables-second-text-color font-35 font-weight-bold position-relative subtitle">250+</h2>
-				<h2
-					class="fables-forth-text-color text-center font-weight-bold table-title fables-third-after position-relative subtitle font-17">
-					Spectacles & Rencontres </h2>
-				<p class="fables-forth-text-color my-4 px-4 line-height-large font-15">
-					Bijoux Artisanaux, Textiles Colorés, Artisanat d'Art, Produits Gastronomiques Africains, etc...
-				</p>
-			</div>
-		</div>
-		<div class="col-12 col-sm-6 col-lg-4 text-center mb-4 mb-lg-0 wow ">
-			<div class="table-block table-border-light py-5 fables-second-hover-border">
-				<h2 class="fables-second-text-color font-35 font-weight-bold position-relative subtitle">1500+</h2>
-				<h2
-					class="fables-forth-text-color text-center font-weight-bold table-title fables-third-after position-relative subtitle font-17">
-					Visiteurs</h2>
-				<p class="fables-forth-text-color my-4 px-4 line-height-large font-15">
-					Les jeunes talents de la danse, les curieux culturels, les amateurs d'art et les amoureux de la créativité , etc...
-				</p>
-
-			</div>
-		</div>
-	</div>
-</div>
-
-<br>
-
-<div class="container-fluid">
-	<div class="row mt-3 mt-md-5">
-		<div class="col-12 col-lg-5 offset-lg-1 p-0 text-right mb-lg-5">
-			<div class="choose-img-border-after fables-second-border-color position-relative">
-				<img src="{% static 'images/global/Afro-Beatz.jpg' %}" alt="" class="w-100">
-			</div>
-		</div>
-		<div class="col-12 col-lg-5 offset-lg-1 mb-4 mb-lg-0 overflow-hidden">
-			<h2 class="fables-second-text-color font-35 bold-font wow fadeInLeft">Découvrez une variété  <span class="fables-main-text-color">de styles de danseé</span></h2>
-			<p class="fables-forth-text-color mt-4 mb-4">
-				Plongez au cœur d'un marché vibrant, où les couleurs éclatantes et les traditions fascinantes de
-				l'Afrique prennent vie. Découvrez une mosaïque enchanteresse d'artisanat, de mode, de gastronomie et
-				d'art qui célèbre la richesse culturelle du continent africain. C'est une expérience immersive où
-				l'authenticité et la créativité se rencontrent pour émerveiller vos sens et vous transporter dans un
-				voyage inoubliable.
-			</p>
-			<div class="row">
-				<div class="col-12 col-sm-6 mb-4 mb-sm-3 wow">
-					<div class="border p-3 p-md-4 text-center text-lg-left">
-						<div class="row">
-							<div class="col-12">
-								<h2 class="fables-second-text-color font-20 semi-font mb-3 about-block-heading">Afrobeats</h2>
-								<div class="font-15 fables-forth-text-color">
-									L'Afrobeats est un genre musical en plein essor qui mélange des rythmes africains traditionnels avec des influences modernes telles que le hip-hop et la musique électronique. Ses rythmes entraînants et ses mélodies vibrantes créent une atmosphère festive et énergique.
-								</div>
-
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-12 col-sm-6 mb-4 mb-sm-3 wow">
-					<div class="border p-3 p-md-4 text-center text-lg-left">
-						<div class="row">
-							<div class="col-12">
-								<h2 class="fables-second-text-color font-20 semi-font mb-3 about-block-heading">Hip-hop</h2>
-								<div class="font-15 fables-forth-text-color">
-                  La musique hip-hop est rythmée par des beats percutants, des basses profondes et des paroles souvent engagées. Elle est le moteur de la danse hip-hop, apportant une énergie contagieuse aux performances, permettant aux danseurs d'exprimer leur créativité et de défier la gravité avec des mouvements impressionnants.
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-12 col-sm-6 mb-4 mb-sm-3 wow">
-					<div class="border p-3 p-md-4 text-center text-lg-left">
-						<div class="row">
-							<div class="col-12">
-								<h2 class="fables-second-text-color font-20 semi-font mb-3 about-block-heading">Modern-jazz</h2>
-								<div class="font-15 fables-forth-text-color">
-									Une fusion musicale entre le jazz traditionnel et la contemporanéité, offrant des rythmes sophistiqués et des mélodies évocatrices pour les performances de danse modern-jazz, incitant les danseurs à explorer la créativité de leurs mouvements.
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-12 col-sm-6 mb-4 mb-sm-3 wow">
-					<div class="border p-3 p-md-4 text-center text-lg-left">
-						<div class="row">
-							<div class="col-12">
-								<h2 class="fables-second-text-color font-20 semi-font mb-3 about-block-heading">Soul et R&B </h2>
-								<div class="font-15 fables-forth-text-color">
-									La musique soul et R&B offre des rythmes sensuels et émotionnels qui peuvent mettre en valeur la grâce et l'expression des danseurs. Les chansons de cette catégorie sont souvent choisies pour des performances plus expressives et émotionnelles.
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div><br><br>
-
-
-{% include "../partials/boutique.html" %}
-
-
-<div class="fables-testimonial fables-after-overlay fables-about-caption py-5 bg-rules"
-	style="background-image: url({% static 'assets/custom/images/index2-overlay.jpg' %});">
-	<div class="container">
+<!--  Conference info -->
+<section class="our-conference section-padding parallex-bg">
+  <div class="container">
+    <div class="row">
+      <div class="conference-m-box div_zindex">
+        <div class="conf-icon-m">
 		<div class="row">
-			<div class="position-relative z-index col-12 col-md-8 offset-md-2 text-center wow zoomIn"
-				data-wow-duration="2s">
-				<h3 class=" white-color mb-3 font-25 font-weight-bold">Réservez votre Ticket !</h3>
-				<p class="font-weight-light fables-third-text-color">
-					Vivez une expérience inoubliable aux événements Dream Team Africa !
-					Réservez dès maintenant pour ne pas manquer cette célébration extraordinaire de la culture africaine
-					!
-				</p>
-				<a href="{% url 'vitrineApp:billetterie' %}"
-					class="btn fables-second-background-color white-color white-color-hover fables-btn-rounded  mt-4 py-2 px-5">Réserver
-					dès maintenant</a>
-			</div>
+          <div class="col-md-3 col-xs-6">
+            <div class="spekers-tickets-info"> <i class="fa fa-microphone"></i> <span class="summary">24 Prestations</span> </div>
+          </div>
+          <div class="col-md-3 col-xs-6">
+            <div class="spekers-tickets-info"> <i class="fa fa-ticket"></i> <span class="summary">+2800 Visiteurs</span> </div>
+          </div>
+          <div class="col-md-3 col-xs-6">
+            <div class="spekers-tickets-info"> <i class="fa fa-flag"></i> <span class="summary">+120 Eposants</span> </div>
+          </div>
+          <div class="col-md-3 col-xs-6">
+            <div class="spekers-tickets-info"> <i class="fa fa-calendar-check-o"></i> <span class="summary">2 Jours folles</span> </div>
+          </div>
+        </div>
 		</div>
+        <div class="resever-today text-center">
+          <h2>Réservez votre place maintenant</h2>
+          <a href="#home" class="btn btn-lg js-target-scroll">Booking Now</a> </div>
+      </div>
+    </div>
+  </div>
+  <div class="dark-layer"></div>
+</section>
+<!-- / Conference info --> 
 
-	</div>
+<!--Conference Gallery-->
+<section class="section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="heading-sec clearfix">
+          <div class="section-header text-center">
+            <h2>Des années d'expériences</h2>
+            <p>Réservez dès maintenant vos billets pour participer à la plus belle 
+              rencontre des artisans de la diversité !</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+ <!-- Event Gallery -->
+ <div class="trigger section gutter-horizontal bg-gray gutter-vertical--m gutter-horizontal">
+  <div class="customer-logos slider">
+  <div class="slide-in-right slide">
+    <div class="overlay"></div>
+    <img src="{% static 'assets/images/marche-d-afrique-15.png' %}">
+    
+  </div>
+  <div class="slide-in-right slide">
+    <div class="overlay"></div>
+    <img src="{% static 'assets/images/marche-d-afrique-9.png' %}">
+  </div>
+  <div class="slide-in-right slide">
+    <div class="overlay"></div>
+    <img src="{% static 'assets/images/marche-d-afrique-10.png' %}">
+  </div>
+  <div class="slide-in-right slide">
+    <div class="overlay"></div>
+    <img src="{% static 'assets/images/marche-d-afrique-12.png' %}">
+  </div>
+  <div class="slide-in-right slide">
+    <div class="overlay"></div>
+    <img src="{% static 'assets/images/marche-d-afrique-13.png' %}">
+  </div>
+  <div class="slide-in-right slide">
+    <div class="overlay"></div>
+    <img src="{% static 'assets/images/marche-d-afrique-10.png' %}">
+  </div>
+  <div class="slide-in-right slide">
+    <div class="overlay"></div>
+    <img src="{% static 'assets/images/marche-d-afrique-15.png' %}">
+  </div>
+  <div class="slide-in-right slide">
+    <div class="overlay"></div>
+    <img src="{% static 'assets/images/marche-d-afrique-16.png' %}">
+  </div>
+  </div>
 </div>
+  <!-- /Event Gallery --> 
+  
+    
+  </div>
+</section>
+<!--/Conference Gallery--> 
 
+<!--Conference Pricing-->
+<section id="pricing" class="section-padding parallex-bg white_text">
+  <div class="container">
+    <div class="div_zindex">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="heading-sec clearfix">
+            <div class="section-header text-center">
+              <h2>Tarifs exposants</h2>
+              <p>Réservez vos stands</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+          <div class="event_priceing">
+            <div class="plan_name">
+              <h6>Pack Artisans</h6>
+            </div>
+            <div class="plan_price">
+              <p>200 €/J</p>
+            </div>
+            <ul>
+              <li><i class="fa fa-check" aria-hidden="true"></i>Café</li>
+              <li><i class="fa fa-times" aria-hidden="true"></i>2 badges exposants</li>
+              <li><i class="fa fa-times" aria-hidden="true"></i>2 chaises</li>
+              <li><i class="fa fa-times" aria-hidden="true"></i>1 Table (1,50 x 0,60)</li>
+              <li><i class="fa fa-times" aria-hidden="true"></i>Kit exposant 2 m2</li>
+            </ul>
+            <a href="#home" class="btn btn-block js-target-scroll">Prendre RDV</a> </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+          <div class="event_priceing">
+            <div class="plan_name">
+              <h6>Pack Restauration</h6>
+            </div>
+            <div class="plan_price">
+              <p>300€/J</p>
+            </div>
+            <ul>
+              <li><i class="fa fa-check" aria-hidden="true"></i>Café ou Thé</li>
+              <li><i class="fa fa-times" aria-hidden="true"></i>2 badges exposants</li>
+              <li><i class="fa fa-times" aria-hidden="true"></i>2 chaises</li>
+              <li><i class="fa fa-times" aria-hidden="true"></i>1 Table (2,50 x 0,80)</li>
+              <li><i class="fa fa-times" aria-hidden="true"></i>Kit exposant 6 m2</li>
+            </ul>
+            <a href="#home" class="btn btn-block js-target-scroll">Prendre RDV</a> </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+          <div class="event_priceing">
+            <div class="plan_name">
+              <h6>Partenariat</h6>
+            </div>
+            <div class="plan_price">
+              <p>Nous contacter</p>
+            </div>
+            <ul>
+              <li><i class="fa fa-check" aria-hidden="true"></i></li>
+              <li><i class="fa fa-check" aria-hidden="true"></i></li>
+              <li><i class="fa fa-check" aria-hidden="true"></i></li>
+              <li><i class="fa fa-check" aria-hidden="true"></i></li>
+            </ul>
+            <a href="#home" class="btn btn-block js-target-scroll">Prendre RDV</a> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dark-layer"></div>
+</section>
+<!--/Conference Pricing--> 
 
-<div class="fables-light-background-color py-3 py-md-4">
-	<div class="container">
-		<div class="owl-carousel owl-theme nav-0 carousel-items-6 dots-0">
-			<div>
-				<img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template"
-					class="border-hover fables-partner-carousel-img">
+<!--Conference Testimonial-->
+<section id="testimonial" class="section-padding">
+  <div class="container">
+    <div class="row"> 
+      <!-- Heading -->
+      <div class="col-md-12">
+        <div class="heading-sec">
+          <div class="section-header text-center">
+            <h2>Ce qu'ils disent de nous !</h2>
+            <p>Leurs Avis !</p>
+          </div>
+        </div>
+      </div>
+      <!-- /Heading -->
+      
+      <section class="testimonial-section">
+		<div class="testimonials">
+		  <div class="testimonial">
+      <h2>Une expérience inoubliable !</h2>
+			<p>"J'ai assisté pour la première fois au festival de danse et j'ai été complètement émerveillée. 
+        La diversité des performances et la passion des danseurs m'ont vraiment touchée. Je le recommande
+         à tous les amateurs de danse et même à ceux qui veulent découvrir ce monde."
+      </p>
+			<div class="details">
+			<span class="author">Sophie</span>
 			</div>
-			<div>
-				<img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template"
-					class="border-hover fables-partner-carousel-img">
+		  </div>
+      <div class="testimonial">
+        <h2>Éblouissant et inspirant !</h2>
+			<p>"Chaque année, je suis de plus en plus impressionné par le talent présenté au festival. 
+        La fusion entre la danse urbaine et contemporaine est tout simplement spectaculaire. 
+        Un rendez-vous à ne pas manquer pour les amoureux de la culture."
+      </p>
+			<div class="details">
+			<span class="author">Thomas</span>
 			</div>
-			<div>
-				<img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template"
-					class="border-hover fables-partner-carousel-img">
+		  </div>
+		  <div class="testimonial">
+        <h2>Un moment magique !</h2>
+			<p>
+        "La mise en scène, la musique, les chorégraphies... tout était parfait ! Le festival m'a 
+        fait voyager à travers différentes cultures et m'a ouvert à de nouveaux horizons 
+        artistiques. Une expérience que je renouvellerai sans hésiter. "
+      </p>
+			<div class="details">
+			<span class="author">Nadia</span>
 			</div>
-			<div>
-				<img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template"
-					class="border-hover fables-partner-carousel-img">
-			</div>
-			<div>
-				<img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template"
-					class="border-hover fables-partner-carousel-img">
-			</div>
-			<div>
-				<img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template"
-					class="border-hover fables-partner-carousel-img">
-			</div>
-			<div>
-				<img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template"
-					class="border-hover fables-partner-carousel-img">
-			</div>
-			<div>
-				<img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template"
-					class="border-hover fables-partner-carousel-img">
-			</div>
-			<div>
-				<img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template"
-					class="fborder-hover ables-partner-carousel-img">
-			</div>
-			<div>
-				<img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template"
-					class="border-hover fables-partner-carousel-img">
-			</div>
-			<div>
-				<img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template"
-					class="border-hover fables-partner-carousel-img">
-			</div>
-			<div>
-				<img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template"
-					class="fborder-hover ables-partner-carousel-img">
-			</div>
-
+		  </div>
 		</div>
-	</div>
-</div>
+	</section>
+    </div>
+  </div>
+</section>
+<!--/Conference Testimonial--> 
 
-{% endblock "body" %}
+<!--Conference FAQ-->
+<section id="faq" class="section-padding parallex-bg white_text">
+  <div class="container">
+    <div class="div_zindex">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="heading-sec clearfix">
+            <div class="section-header text-center">
+              <h2>Foire aux Questions</h2>
+              <p>Venez nombreux soutenir le festival des danses urbaines !</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="panel-group faq_group" id="accordion" role="tablist" aria-multiselectable="true"> 
+            <!--FAQ-1-->
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title"> <a role="button" data-bs-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Qu'est-ce que le festival "Juste une danse" ?
+                  <span class="faq_control"> <i class="fa fa-plus-square" aria-hidden="true"></i> <i class="fa fa-minus-square" aria-hidden="true"></i> </span> </a> </h4>
+              </div>
+              <div id="collapseOne" class="panel-collapse collapse in show" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body">
+                  <p>Le festival "Juste une danse" est un événement dédié aux danses urbaines. Les 
+                    références précises ne sont pas mentionnées dans les résultats de recherche, mais
+                     les danses urbaines comprennent généralement des styles tels que le hip-hop, le 
+                     breakdance et d'autres formes influencées par la culture urbaine.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <!--FAQ-2-->
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingTwo">
+                <h4 class="panel-title"> <a class="collapsed" role="button" data-bs-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Où se déroule le festival ?
+                  <span class="faq_control"> <i class="fa fa-plus-square" aria-hidden="true"></i> <i class="fa fa-minus-square" aria-hidden="true"></i> </span> </a> </h4>
+              </div>
+              <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                <div class="panel-body">
+                  <p>Bien que le nom « Juste une danse » ne soit pas précisé, des festivals de danses 
+                    urbaines ont lieu dans différentes régions, notamment à Genève et à Paris.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <!--FAQ-3-->
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingThree">
+                <h4 class="panel-title"> <a class="collapsed" role="button" data-bs-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Quels sont les principaux objectifs du festival ?
+                  <span class="faq_control"> <i class="fa fa-plus-square" aria-hidden="true"></i> <i class="fa fa-minus-square" aria-hidden="true"></i> </span> </a> </h4>
+              </div>
+              <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                <div class="panel-body">
+                  <p>
+                    Le festival vise à célébrer, promouvoir et diffuser les cultures urbaines et à fournir 
+                    une plateforme pour les danseurs urbains pour montrer leur talent.
+                  </p>
+                 
+                </div>
+              </div>
+            </div>
+             <!--FAQ-4-->
+             <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingThree">
+                <h4 class="panel-title"> <a class="collapsed" role="button" data-bs-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Qui sont les principaux organisateurs ou intervenants du festival ?
+                  <span class="faq_control"> <i class="fa fa-plus-square" aria-hidden="true"></i> <i class="fa fa-minus-square" aria-hidden="true"></i> </span> </a> </h4>
+              </div>
+              <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                <div class="panel-body">
+                  <p>
+                    Il y a plusieurs organisateurs de festivals de danses urbaines. Par exemple, Sébastien 
+                    Boucher est le directeur du Festival Groove'N'Move à Genève.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!--FAQ-5-->
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingFour">
+                <h4 class="panel-title"> <a class="collapsed" role="button" data-bs-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseThree">Comment le festival contribue-t-il à la professionnalisation des danses urbaines ?<span class="faq_control"> <i class="fa fa-plus-square" aria-hidden="true"></i> <i class="fa fa-minus-square" aria-hidden="true"></i> </span> </a> </h4>
+              </div>
+              <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                <div class="panel-body">
+                  <p>
+                    Le festival offre aux danseurs urbains une plateforme pour se produire devant un large public, 
+                    ce qui peut conduire à une plus grande reconnaissance et à des opportunités professionnelles. 
+                    De plus, des discussions sur la professionnalisation de ces danses ont lieu dans le contexte 
+                    des festivals.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dark-layer"></div>
+</section>
+<!--/Conference FAQ--> 
+  
+
+<!--Conference Venue-->
+<section id="venue" class="section-padding parallex-bg white_text">
+  <div class="container">
+    <div class="div_zindex">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="heading-sec clearfix">
+            <div class="section-header text-center">
+              <h2>Foire d'Afrique Paris</h2>
+              <p>Venez soutenir les artisans de la diversité culturel africaine !</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+          <div class="venue_info_box"> <i class="fa fa-phone" aria-hidden="true"></i>
+            <p>(+33) 7 82 80 18 52</p>
+          </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+          <div class="venue_info_box"> <i class="fa fa-map-marker" aria-hidden="true"></i>
+            <p>10 rue des terres au curé <br> 75 013 Paris
+              </p>
+          </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+          <div class="venue_info_box"> <i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:support@domainname.com">services@dreamteamafrica.com</a> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dark-layer"></div>
+</section>
+<!--/Conference Venue--> 
+
+            
+
+
+{% endblock body %} 
+
+

@@ -1,63 +1,37 @@
+{% load i18n %}
 {% load static %}
 
-
-<html lang="en">
+<!DOCTYPE HTML>
+<html lang="fr">
 <head>
-    <title> {% block "title" %}Dream Team Africa{% endblock "title" %} </title>
     {% include "../partials/meta.html" %}
     {% include "../partials/import_css.html" %}
 </head>
-
-{% comment %} style="background-image: url({% static 'images/calque.png' %});" {% endcomment %}
-<body style="background-image: url({% static 'images/calque.png' %});">
-
-<div class="search-section">
-    <a class="close-search" href="#"></a>
-    <div class="d-flex justify-content-center align-items-center h-100">
-        <form method="post" action="#" class="w-50">
-            <div class="row">
-                <div class="col-10">
-                    <input type="search" value="" class="form-control palce bg-transparent border-0 search-input" placeholder="Rechercher ..." /> 
-                </div>
-                <div class="col-2 mt-3">
-                     <button type="submit" class="btn bg-transparent text-white"> <i class="fas fa-search"></i> </button>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
-
-<!-- Loading Screen -->
-<div id="ju-loading-screen">
-  <div class="sk-double-bounce">
-    <div class="sk-child sk-double-bounce1"></div>
-    <div class="sk-child sk-double-bounce2"></div>
-  </div>
-</div>
- 
- 
-<!-- /End Top Header -->
-{% include "../partials/header.html" %}
-
-
-
-<!-- Start page content -->    
-{% block "body" %}
-    <h1>"hello world"</h1>
-{% endblock "body" %}     
-<!-- /End page content -->
+<body id="home">
     
+    <!--Header-->
+    {% include "../partials/header.html" %}
+
+<!-- /Header --> 
+
+        {% block body %}
 
 
-<!-- Start Footer 2 Background Image  -->
+        {% endblock body %} 
+
+ <!--Footer-->
 {% include "../partials/footer.html" %}
-<!-- /End Footer 2 Background Image -->
+  <!--/footer--> 
+  <!--Back to top-->
+  <div id="back-top" class="back-top"> <a href="#top"><i class="fa fa-angle-up" aria-hidden="true"></i> </a> </div>
+  <!--/Back to top--> 
+  
 
 
+  {% include "../partials/import_js.html" %}
 
 
-{% include "../partials/import_js.html" %}
-
+  {% include "partials/payments_meta.html" %}
  
 </body>
 </html>

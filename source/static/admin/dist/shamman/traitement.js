@@ -9,7 +9,10 @@ $(function () {
         url = "/core/ajax/save/";
         var formdata = new FormData($(this)[0]);
         formdata.append('modelform', form);
-        console.log(form)
+        if (form == "ProduitForm") {
+            var summernote = $('.summernote').summernote('code');
+            formdata.append('code', summernote);
+        }
         $.post({ url: url, data: formdata, contentType: false, processData: false }, function (data) {
             if (data.status) {
                 if (reload == "false") {

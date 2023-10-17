@@ -3,532 +3,608 @@
 
 {% block "title" %}Fashion West Africa | Dream Team Africa{% endblock "title" %}
 
-{% block "body" %}
+{% block body %}
 
-<!-- Start Header -->
-<div class="fables-header fables-after-overlay overlay-lighter bg-rules" style="background-image: url({% static 'images/global/tissu-wax-african.jpg' %});">
-    <div class="container overflow-hidden">  
-        <div class="owl-carousel owl-theme default-carousel fables-sqr-nav dots-0 wow fadeInUpBig" data-wow-duration="2s">
-              <div>
-                  <h1 class="white-color bold-font mt-lg-5 mb-4 text-uppercase">Un défilé qui célèbre la créativité et la diversité<br> 
-                     <span class="fables-second-text-color text-uppercase">de la mode africaine</span>
-                  </h1>  
-                  <p class="fables-third-text-color mt-3 mb-5 light-font fables-header-slider-details">
-                    La Mode Africaine sous les Feux de la Créativité
-                  </p>
-              </div> 
+
+
+
+<!-- Banners -->
+<section id="banner" class="banner-section"> 
+  <!-- Banner Tagline -->
+  <div class="banner-fixed">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-7 col-md-7 col-lg-8">
+          <div class="banner-content">
+            <div class="banner-tagline">
+              <h1>Fashion Week Africa <br>06 Mars 2023</h1>
+              <p>10 rue des terres au Curé Paris France</p>
+              <p>11H00 - 20H00</p>
+              <P>Info exposants <br> (+33) 7 82 80 18 52 <br> 
+                service-client@dreamteamafrica.com</P>
+              <p>Venez nombreux même en famille, assister et participer à la 
+                    transmission de la culture africaine aux plus jeunes publics ! 
+              </p>
+              
+                <a href="https://foiredafrique.fr/assets/images/marche-de-noel-Afrique-paris.pdf" class="btn margin-btm-20">Télécharger le flyer</a>
+              </div>
+            
+          </div>
         </div>
-    </div>
-</div>  
-<!-- /End Header -->
-     
-
-
-<div class="container-fluid my-3 text-center" >
-    <div class="my-4 my-md-5" >
-        <h2 class="font-35 font-weight-bold fables-second-text-color subtitle">Sublimez vous dans le...</h2>
-        <h1 class="font-weight-bold fables-main-text-color display-3 title">Fashion West Africa</h1> 
-    </div>
-</div>
-
-<div class="container" >
-    <div class="row " >
-        <div class="col-12 col-md-10 offset-md-1  text-center">
-                <p class="fables-forth-text-color">
-                    Africa Fashion Week est plus qu'un simple défilé de mode ; il s'agit d'une célébration de la riche culture africaine à travers le prisme de la mode. Le but de cet événement est de mettre en avant la diversité et la créativité des designers africains. Les créateurs locaux et internationaux présentent leurs dernières collections, allant des vêtements traditionnels aux designs modernes et avant-gardistes.
-                </p>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4 pt-3 pt-md-5 mb-md-5 wow"> 
-                    <div class="row text-center text-md-left">
-                        <div class="col-12 col-md-3"> 
-                            <span class="fables-iconhead-set-light fables-second-text-color fa-3x"></span>
-                        </div>
-                        <div class="col-12 col-md-9 pl-md-0">
-                            <h2 class="fables-main-text-color font-20 my-2 mt-md-0 semi-font">Diversité de la Créativité</h2>
-                            <div class="font-15 fables-forth-text-color">
-                                Explorez une variété de styles de mode, allant des designs traditionnels aux créations avant-gardistes, mettant en valeur la diversité de la créativité africaine. 
-                            </div>
-                        </div>
-                    </div> 
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4 pt-3 pt-md-5 mb-md-5 wow"> 
-                    <div class="row text-center text-md-left">
-                        <div class="col-12 col-md-3">
-                            <span class="fables-iconscreen fables-second-text-color fa-3x"></span>
-                        </div>
-                        <div class="col-12 col-md-9 pl-md-0">
-                           <h2 class="fables-main-text-color font-20 my-2 mt-md-0 semi-font">Stylistes Designers Africains</h2>
-                           <div class="font-15 fables-forth-text-color">
-                            Offrez une vitrine aux designers locaux et internationaux, leur permettant de présenter leurs dernières collections et de partager leur vision artistique.
-                            </div>
-                        </div>
-                    </div> 
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4 pt-3 pt-md-5 mb-md-5 wow" > 
-                    <div class="row text-center text-md-left">
-                        <div class="col-12 col-md-3">
-                            <span class="fables-iconfile fables-second-text-color fa-3x"></span>
-                        </div>
-                        <div class="col-12 col-md-9 pl-md-0">
-                           <h2 class="fables-main-text-color font-20 my-2 mt-md-0 semi-font">Célébration Culturelle</h2>
-                            <div class="font-15 fables-forth-text-color">
-                                Vivez une célébration authentique de la culture africaine à travers la mode, où l'art, la musique, la danse et la gastronomie se marient pour créer une expérience immersive inoubliable. 
-                            </div>
-                        </div>
-                    </div> 
-                </div>
-        </div> 
-    </div>
-
-
-
-
-    <div class="container mb-4 mb-md-5 mt-5"> 
-        <div class="gallery-filter">
-            <div class="portfolioContainer row filter-masonry"> 
-                {% for fichier in fichiers %}
-                    <div class="drawings places col-sm-6 col-md-3 mb-2">
-                        <div class="filter-img-block position-relative image-container translate-effect-right">
-                            <img src="{% static fichier %}" alt="image" class="w-100">
-                            <div class="img-filter-overlay fables-main-color-transparent row m-0">
-                                <a data-fancybox="gallery" href="{% static fichier %}" class="gallery-filter-icon white-color fables-second-hover-color"><span class="fables-iconsearch-icon"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div> 
-        </div> 
-   </div>
-
-
-    <div class="container-fluid">
-        <div class="row mt-3 mt-md-5">
-            <div class="col-12 col-lg-5 offset-lg-1 mb-4 mb-lg-0 overflow-hidden"> 
-                <h2 class="fables-second-text-color font-35 bold-font wow fadeInLeft">Glamour et Innovation,<span class="fables-main-text-color">  où la mode africaine s'anime sous les projecteurs</span></h2>
-                <p class="fables-forth-text-color mt-4 mb-4">
-                    Explorez des défilés de mode sensationnels, assistez à des discussions animées avec des créateurs de renom, et découvrez les secrets des tendances africaines les plus captivantes. C'est une expérience mode incontournable qui célèbre la créativité, la diversité et l'élégance de l'Afrique
-                </p>  
-
-                <div id="accordion">
-                    <div class="card border-0 mb-3">
-                      <div class="card-header p-0 border bg-transparent rounded-0" id="headingOne">
-                        <h5 class="mb-0 position-relative">
-                          <span class="fables-second-background-color white-color d-inline-block position-absolute fables-lus-icon pt-2 text-center">
-                              <i class="fas fa-plus"></i>  
-                          </span>
-                          <button class="btn fables-main-text-color bg-transparent font-18 focus-0 d-block position-relative z-index pl-6 pt-2 pb-2 w-100 text-left border-0 text-truncate" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            Exposition d'œuvres d'art africaines et d'accessoires de mode
-                          </button>
-                        </h5>
-                      </div>
-        
-                      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                        <div class="card-body fables-forth-text-color font-14 py-1 py-xl-2 pl-6 pr-0">
-                            Une occasion de découvrir l'art africain et les accessoires de mode uniques qui influencent la création vestimentaire. Une exposition mettant en avant les richesses des textiles traditionnels africains.
-                        </div>
-                      </div>
-                    </div>
-                    <div class="card border-0 mb-3">
-                      <div class="card-header bg-transparent p-0 border rounded-0" id="headingTwo">
-                        <h5 class="mb-0 position-relative">
-                          <span class="fables-second-background-color white-color d-inline-block position-absolute fables-lus-icon pt-2 text-center">
-                              <i class="fas fa-plus"></i>  
-                          </span>
-                          <button class="btn fables-main-text-color bg-transparent font-18 focus-0 d-block position-relative z-index pl-6 pt-2 pb-2 w-100 text-left border-0 text-truncate collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            Présentations de designers émergents locaux
-                          </button>
-                        </h5>
-                      </div>
-                      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                        <div class="card-body fables-forth-text-color font-14 py-1 py-xl-2 pl-6 pr-0">
-                            Les jeunes talents locaux auront l'occasion de présenter leurs créations prometteuses.
-                        </div>
-                      </div>
-                    </div>
-                    <div class="card border-0 mb-3">
-                      <div class="card-header p-0 border bg-transparent rounded-0" id="headingThree">
-                        <h5 class="mb-0 position-relative">
-                          <span class="fables-second-background-color white-color d-inline-block position-absolute fables-lus-icon pt-2 text-center">
-                              <i class="fas fa-plus"></i>  
-                          </span>
-                          <button class="btn fables-main-text-color bg-transparent font-18 focus-0 d-block position-relative z-index pl-6 pt-2 pb-2 w-100 text-left border-0 text-truncate collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            Défilé de mode grandiose
-                          </button>
-                        </h5>
-                      </div>
-                      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                        <div class="card-body fables-forth-text-color font-14 py-1 py-xl-2 pl-6 pr-0">
-                            Les créateurs de renom présenteront leurs dernières collections dans un défilé spectaculaire. Présentation de créations mettant en avant la mode éthique et durable.
-                        </div>
-                      </div>
-                    </div>
-                    <div class="card border-0 mb-3">
-                      <div class="card-header p-0 border bg-transparent rounded-0" id="headingfour">
-                        <h5 class="mb-0 position-relative">
-                          <span class="fables-second-background-color white-color d-inline-block position-absolute fables-lus-icon pt-2 text-center">
-                              <i class="fas fa-plus"></i>  
-                          </span>
-                          <button class="btn fables-main-text-color bg-transparent font-18 focus-0 d-block position-relative z-index pl-6 pt-2 pb-2 w-100 text-left border-0 text-truncate collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
-                            Ateliers interactifs & Séminaires sur les tendances 
-                          </button>
-                        </h5>
-                      </div>
-                      <div id="collapseFour" class="collapse" aria-labelledby="headingfour" data-parent="#accordion">
-                        <div class="card-body fables-forth-text-color font-14 py-1 py-xl-2 pl-6 pr-0">
-                            Les participants pourront assister à des ateliers pratiques sur la conception de vêtements et d'accessoires. Des experts de l'industrie partageront leurs connaissances sur les tendances actuelles de la mode africaine. Des experts débattront de la fusion réussie de la mode traditionnelle et contemporaine.
-                        </div>
-                      </div>
-                    </div>
-                    <div class="card border-0 mb-3">
-                      <div class="card-header p-0 border bg-transparent rounded-0" id="headingfour">
-                        <h5 class="mb-0 position-relative">
-                          <span class="fables-second-background-color white-color d-inline-block position-absolute fables-lus-icon pt-2 text-center">
-                              <i class="fas fa-plus"></i>  
-                          </span>
-                          <button class="btn fables-main-text-color bg-transparent font-18 focus-0 d-block position-relative z-index pl-6 pt-2 pb-2 w-100 text-left border-0 text-truncate collapsed" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapseThree">
-                            Présentations de collections internationales 
-                          </button>
-                        </h5>
-                      </div>
-                      <div id="collapse5" class="collapse" aria-labelledby="headingfour" data-parent="#accordion">
-                        <div class="card-body fables-forth-text-color font-14 py-1 py-xl-2 pl-6 pr-0">
-                            Les designers internationaux présenteront leurs créations uniques.
-                        </div>
-                      </div>
-                    </div>
-                    <div class="card border-0 mb-3">
-                      <div class="card-header p-0 border bg-transparent rounded-0" id="headingfour">
-                        <h5 class="mb-0 position-relative">
-                          <span class="fables-second-background-color white-color d-inline-block position-absolute fables-lus-icon pt-2 text-center">
-                              <i class="fas fa-plus"></i>  
-                          </span>
-                          <button class="btn fables-main-text-color bg-transparent font-18 focus-0 d-block position-relative z-index pl-6 pt-2 pb-2 w-100 text-left border-0 text-truncate collapsed" data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controls="collapseThree">
-                            Remise des prix
-                          </button>
-                        </h5>
-                      </div>
-                      <div id="collapse6" class="collapse" aria-labelledby="headingfour" data-parent="#accordion">
-                        <div class="card-body fables-forth-text-color font-14 py-1 py-xl-2 pl-6 pr-0">
-                            Reconnaissance des créateurs pour leur créativité et leur innovation.
-                        </div>
-                      </div>
-                    </div>
+        <div class="col-sm-5 col-md-5 col-lg-4">
+          <div class="banner-form">
+            <h5 class="text-center">Réservez votre place</h5>
+            <!--Registration Form-->
+              <form method="POST" class="formShamman" classname="ParticipationForm">
+                  {% csrf_token %}
+                  <div class="form-group">
+                    <input class="form-control" name="fullname" id="fullname" placeholder="Nom et prénoms" required type="text">
                   </div>
-            </div>
-            <div class="col-12 col-lg-5 offset-lg-1 p-0 text-right mb-lg-5">  
-                 <div class="choose-img-border-after fables-second-border-color position-relative">
-                      <img src="{% static 'images/global/Fashion-Week.jpg' %}" alt="" class="w-100">  
-                 </div>
-            </div>
-         </div>
-    </div><br>
-
-
-
-    <div class="fables-index-products large-mb fables-after-overlay py-md-5 mt-md-5 bg-rules" style="background-image: url({% static 'assets/custom/images/index-products-overlay.jpg' %});">
-        <div class="container z-index position-relative overflow-hidden"> 
-            <div class="row">
-                <div class="col-12 col-md-7 wow fadeInLeft">
-                    <h2 class="fables-second-text-color font-35 font-weight-bold subtitle">#FAB2023 <span class="white-color">Boutique</span></h2>
-                    <p class="fables-third-text-color mt-4 mb-md-5">
-                        Explorez notre boutique exquise à la Foire Africaine de Paris et trouvez des trésors uniques, alliant authenticité et artisanat raffiné, pour emporter avec vous un morceau de l'Afrique.
-                    </p>
-                </div>
-                <div class="col-12 col-md-5 col-lg-3 text-right offset-lg-2 my-4 my-md-0 mt-md-5 mt-lg-0 text-center">
-                    <a href="{% url "boutiqueApp:main" %}" class="btn fables-second-background-color white-color white-color-hover fables-btn-rounded px-5 py-2">Voir tous nos produits</a>
-                </div>
-            </div>   
-            <div class="owl-carousel owl-theme dots-0 circle-nav carousel-items-4"> 
-                  <div class="card rounded-0 mb-4 border-light wow fadeIn" data-wow-delay=".4s">
-                    <div class="row">
-                        <div class="fables-product-img col-12">
-                           <img class="card-img-top w-100 rounded-0" src="{% static 'assets/custom/images/index-product1.jpg' %}" alt="dress fashion">
-                           <div class="fables-img-overlay">                                          
-                               <ul class="nav fables-product-btns pr-3 mt-5 vertical-store-btns">
-                                   <li><a href="" class="fables-product-btn"><span class="fables-iconeye"></span></a></li>
-                                   <li><a href="" class="fables-product-btn"><span class="fables-iconcompare"></span></a></li>
-                                   <li><button class="fables-product-btn"><span class="fables-iconheart"></span></button></li>
-                               </ul>
-                           </div>
-                       </div>
-                       <div class="card-body col-12">
-                         <h5 class="card-title mx-3">
-                             <a href="#" class="fables-main-text-color fables-store-product-title fables-second-hover-color">dress fashion</a>
-                         </h5>
-                         <p class="card-text fables-fifth-text-color font-15 mx-3">LUIS LEATHER DRIVING MOCCASINS FROM ... DOUBLE</p>
-                         <p class="font-weight-bold fables-second-text-color my-2 mb-3 mx-3">$ 98.00</p>
-                         <p class="fables-product-info"><a href="#" class="btn fables-second-border-color fables-second-text-color fables-btn-rouned fables-hover-btn-color font-14 px-4 py-2">
-                         <span class="fables-iconcart"></span> 
-                         <span class="fables-btn-value">Ajouter au panier</span></a></p>
-                       </div>
-                    </div>
-                  </div>  
-                  <div class="card rounded-0 mb-4 border-light wow fadeIn" data-wow-delay=".8s">
-                    <div class="row">
-                        <div class="fables-product-img col-12">
-                           <img class="card-img-top rounded-0 w-100" src="{% static 'assets/custom/images/index-product2.jpg' %}" alt="dress fashion">
-                           <div class="fables-img-overlay">                                          
-                               <ul class="nav fables-product-btns pr-3 mt-5 vertical-store-btns">
-                                   <li><a href="" class="fables-product-btn"><span class="fables-iconeye"></span></a></li>
-                                   <li><a href="" class="fables-product-btn"><span class="fables-iconcompare"></span></a></li>
-                                   <li><button class="fables-product-btn"><span class="fables-iconheart"></span></button></li>
-                               </ul>
-                           </div>
-                       </div>
-                       <div class="card-body col-12">
-                         <h5 class="card-title mx-3">
-                             <a href="#" class="fables-main-text-color fables-store-product-title fables-second-hover-color">dress fashion</a>
-                         </h5>
-                         <p class="card-text fables-fifth-text-color font-15 mx-3">LUIS LEATHER DRIVING MOCCASINS FROM ... DOUBLE</p>
-                         <p class="font-weight-bold fables-second-text-color my-2 mb-3 mx-3">$ 98.00</p>
-                         <p class="fables-product-info"><a href="#" class="btn fables-second-border-color fables-second-text-color fables-btn-rouned fables-hover-btn-color font-14 px-4 py-2">
-                         <span class="fables-iconcart"></span> 
-                         <span class="fables-btn-value">Ajouter au panier</span></a></p>
-                       </div>
-                    </div>
-                 </div> 
-                  <div class="card rounded-0 mb-4 border-light wow fadeIn" data-wow-delay="1.2s">
-                            <div class="row">
-                                <div class="fables-product-img col-12">
-                                   <img class="card-img-top rounded-0 w-100" src="{% static 'assets/custom/images/index-product1.jpg' %}" alt="dress fashion">
-                                   <div class="fables-img-overlay">                                          
-                                       <ul class="nav fables-product-btns pr-3 mt-5 vertical-store-btns">
-                                           <li><a href="" class="fables-product-btn"><span class="fables-iconeye"></span></a></li>
-                                           <li><a href="" class="fables-product-btn"><span class="fables-iconcompare"></span></a></li>
-                                           <li><button class="fables-product-btn"><span class="fables-iconheart"></span></button></li>
-                                       </ul>
-                                   </div>
-                               </div>
-                               <div class="card-body col-12">
-                                 <h5 class="card-title mx-3">
-                                     <a href="#" class="fables-main-text-color fables-store-product-title fables-second-hover-color">dress fashion</a>
-                                 </h5>
-                                 <p class="card-text fables-fifth-text-color font-15 mx-3">LUIS LEATHER DRIVING MOCCASINS FROM ... DOUBLE</p>
-                                 <p class="font-weight-bold fables-second-text-color my-2 mb-3 mx-3">$ 98.00</p>
-                                 <p class="fables-product-info"><a href="#" class="btn fables-second-border-color fables-second-text-color fables-btn-rouned fables-hover-btn-color font-14 px-4 py-2">
-                                 <span class="fables-iconcart"></span> 
-                                 <span class="fables-btn-value">Ajouter au panier</span></a></p>
-                               </div>
-                            </div>
-                 </div>  
-                  <div class="card rounded-0 mb-4 border-light wow fadeIn" data-wow-delay="1.6s">
-                            <div class="row">
-                                <div class="fables-product-img col-12">
-                                   <img class="card-img-top rounded-0 w-100" src="{% static 'assets/custom/images/index-product2.jpg' %}" alt="dress fashion">
-                                   <div class="fables-img-overlay">                                          
-                                       <ul class="nav fables-product-btns pr-3 mt-5 vertical-store-btns">
-                                           <li><a href="" class="fables-product-btn"><span class="fables-iconeye"></span></a></li>
-                                           <li><a href="" class="fables-product-btn"><span class="fables-iconcompare"></span></a></li>
-                                           <li><button class="fables-product-btn"><span class="fables-iconheart"></span></button></li>
-                                       </ul>
-                                   </div>
-                               </div>
-                               <div class="card-body col-12">
-                                 <h5 class="card-title mx-3">
-                                     <a href="#" class="fables-main-text-color fables-store-product-title fables-second-hover-color">dress fashion</a>
-                                 </h5>
-                                 <p class="card-text fables-fifth-text-color font-15 mx-3">LUIS LEATHER DRIVING MOCCASINS FROM ... DOUBLE</p>
-                                 <p class="font-weight-bold fables-second-text-color my-2 mb-3 mx-3">$ 98.00</p>
-                                 <p class="fables-product-info"><a href="#" class="btn fables-second-border-color fables-second-text-color fables-btn-rouned fables-hover-btn-color font-14 px-4 py-2">
-                                 <span class="fables-iconcart"></span> 
-                                 <span class="fables-btn-value">Ajouter au panier</span></a></p>
-                               </div>
-                            </div>
-                     </div>   
-                  <div class="card rounded-0 mb-4 border-light">
-                            <div class="row">
-                                <div class="fables-product-img col-12">
-                                   <img class="card-img-top rounded-0 w-100" src="assets/custom/images/index-product1.jpg' %}" alt="dress fashion">
-                                   <div class="fables-img-overlay">                                          
-                                       <ul class="nav fables-product-btns pr-3 mt-5 vertical-store-btns">
-                                           <li><a href="" class="fables-product-btn"><span class="fables-iconeye"></span></a></li>
-                                           <li><a href="" class="fables-product-btn"><span class="fables-iconcompare"></span></a></li>
-                                           <li><button class="fables-product-btn"><span class="fables-iconheart"></span></button></li>
-                                       </ul>
-                                   </div>
-                               </div>
-                               <div class="card-body col-12">
-                                 <h5 class="card-title mx-3">
-                                     <a href="#" class="fables-main-text-color fables-store-product-title fables-second-hover-color">dress fashion</a>
-                                 </h5>
-                                 <p class="card-text fables-fifth-text-color font-15 mx-3">LUIS LEATHER DRIVING MOCCASINS FROM ... DOUBLE</p>
-                                 <p class="font-weight-bold fables-second-text-color my-2 mx-3">$ 98.00</p>
-                                 <p class="fables-product-info"><a href="#" class="btn fables-second-border-color fables-second-text-color fables-btn-rouned fables-hover-btn-color font-14 px-4 py-2">
-                                 <span class="fables-iconcart"></span> 
-                                 <span class="fables-btn-value">Ajouter au panier</span></a></p>
-                               </div>
-                            </div>
-                         </div>
-             </div>  
+                  <div class="form-group">
+                    <input class="form-control" name="email"  placeholder="Adresse email" required type="email">
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" name="contact" placeholder="Numero de téléphone" required type="text">
+                  </div>               
+                  <div class="form-group select">
+                    <select name="evenement" class="form-control" required="">
+                      <option value="">Quel evenement vous interesse ?</option>
+                      {% for event in events %}
+                        <option value="{{event.id}}">{{event.name}} ({{event.price}}) €</option>
+                      {% endfor %}
+                    </select>
+                  </div><br>
+                 
+                  <div class="contact-btn-m text-center">
+                      <button class="btn btn-block">
+                        <span id="button-text">Réservez maintenant !</span>
+                      </button>
+                  </div>
+               
+              </form>
+            <!--/Registration Form--> 
+          </div>
         </div>
+      </div>
     </div>
+  </div>
+  <!-- /Banners Tagline -->
+  <div class="dark-layer"></div>
+</section>
+<!-- /Banners --> 
 
-
-
-
-   <div class="container text-center">
-
-    <div class="row overflow-hidden mb-lg-5">
-        <div class="col-12 col-sm-6 col-lg-4 text-center mb-4 mb-lg-0 wow  " >
-           <div class="table-block table-border-light py-5 fables-second-hover-border">
-               <h2 class="fables-second-text-color font-35 font-weight-bold position-relative subtitle">40+</h2>
-               <h2 class="fables-forth-text-color text-center font-weight-bold table-title fables-third-after position-relative subtitle font-17">Créateurs</h2> 
-               <p class="fables-forth-text-color my-4 px-4 line-height-large font-15">
-                Designers de Mode Émergents, Designers Établis, Designers de Mode Accessoires, Designers de Mode pour Hommes, etc..
-           </div>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-4 text-center mb-4 mb-lg-0 wow ">
-            <div class="table-block table-border-light py-5 fables-second-hover-border">
-                <h2 class="fables-second-text-color font-35 font-weight-bold position-relative subtitle">2500+</h2>
-               <h2 class="fables-forth-text-color text-center font-weight-bold table-title fables-third-after position-relative subtitle font-17">participants</h2> 
-               <p class="fables-forth-text-color my-4 px-4 line-height-large font-15">
-                Mannequins, Amateurs de Mode, Étudiants en Mode, Célébrités, Bénévoles et Équipes de Production, etc...
-               </p>
-            </div>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-4 text-center mb-4 mb-lg-0 wow " >
-            <div class="table-block table-border-light py-5 fables-second-hover-border">
-                <h2 class="fables-second-text-color font-35 font-weight-bold position-relative subtitle">150+</h2>
-                <h2 class="fables-forth-text-color text-center font-weight-bold table-title fables-third-after position-relative subtitle font-17">Partenaires</h2> 
-                <p class="fables-forth-text-color my-4 px-4 line-height-large font-15">
-                    Sponsors de Mode, de Beauté, de Média, Partenaires Éducatifs, Partenaires Caritatifs, Partenaires Artistiques,  etc...
-                </p>
-            </div>
-        </div>
+<!--Timer Countdown-->
+<section id="timer_countdown" class="vc_row">
+  <div class="col-sm-6 col-md-6  primary-bg vc_col">
+    <div class="timer_wrap padding_50px text-center">
+      <h5>Fashion Week Africa Paris</h5>
+      <p class="conference_date">06 Août 2024 <br> Paris - France</p>
     </div>
-</div> 
-
-<br><br>
-
-<div class="container-fluid">
-    <div class="row mt-3 mt-md-5">
-        <div class="col-12 col-lg-5 offset-lg-1 p-0 text-right mb-lg-5">  
-             <div class="choose-img-border-after fables-second-border-color position-relative">
-                  <img src="{% static 'images/global/maquillage.webp' %}" alt="" class="w-100">  
-             </div>
-        </div>
-        <div class="col-12 col-lg-5 offset-lg-1 mb-4 mb-lg-0 overflow-hidden"> 
-            <h2 class="fables-second-text-color font-35 bold-font wow fadeInLeft">Style Africain, <span class="fables-main-text-color">Créativité Sans Limite !</span></h2>
-            <p class="fables-forth-text-color mt-4 mb-4">
-                Plongez au cœur d'un marché vibrant, où les couleurs éclatantes et les traditions fascinantes de l'Afrique prennent vie. Découvrez une mosaïque enchanteresse d'artisanat, de mode, de gastronomie et d'art qui célèbre la richesse culturelle du continent africain. C'est une expérience immersive où l'authenticité et la créativité se rencontrent pour émerveiller vos sens et vous transporter dans un voyage inoubliable.
-            </p>  
-            <div class="row" > 
-                <div class="col-12 col-sm-6 mb-4 mb-sm-3 wow">
-                    <div class="border p-3 p-md-4 text-center text-lg-left">
-                        <div class="row">
-                            <div class="col-12">
-                                <h2 class="fables-second-text-color font-20 semi-font mb-3 about-block-heading">Visibilité et Opportunités de Réseau</h2>
-                                <div class="font-15 fables-forth-text-color">
-                                    Visibilité considérable aux créateurs de mode, aux professionnels de l'industrie et aux marques. Vous aurez l'opportunité de vous connecter avec d'autres acteurs clés de l'industrie, d'établir des relations professionnelles et de présenter votre travail à un public mondial.
-                                </div>
-        
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 mb-4 mb-sm-3 wow" >
-                   <div class="border p-3 p-md-4 text-center text-lg-left">
-                        <div class="row">
-                            <div class="col-12">
-                               <h2 class="fables-second-text-color font-20 semi-font mb-3 about-block-heading">Inspiration et Créativité </h2>
-                               <div class="font-15 fables-forth-text-color">
-                                L'événement est une source inépuisable d'inspiration. Vous pourrez découvrir les dernières tendances de la mode africaine, rencontrer des designers innovants et explorer les textiles et les techniques traditionnelles. Cela peut stimuler votre créativité et vous aider à repousser les limites de votre propre travail.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 mb-4 mb-sm-3 wow">
-                   <div class="border p-3 p-md-4 text-center text-lg-left">
-                        <div class="row">
-                            <div class="col-12">
-                               <h2 class="fables-second-text-color font-20 semi-font mb-3 about-block-heading">Accès à un Marché Diversifié</h2>
-                                <div class="font-15 fables-forth-text-color">
-                                    "Africa Fashion Week" attire un public diversifié, des amateurs de mode aux acheteurs internationaux. C'est une occasion exceptionnelle de présenter vos créations à un large éventail de consommateurs et de clients potentiels, ce qui peut stimuler vos ventes et votre notoriété.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 mb-4 mb-sm-3 wow" >
-                    <div class="border p-3 p-md-4 text-center text-lg-left">
-                         <div class="row">
-                             <div class="col-12">
-                                <h2 class="fables-second-text-color font-20 semi-font mb-3 about-block-heading">Participation Culturelle et Artistique</h2>
-                                <div class="font-15 fables-forth-text-color">
-                                    L'événement célèbre la riche culture africaine à travers la mode, offrant une expérience immersive qui va au-delà des vêtements. Vous aurez l'occasion de participer à des événements culturels, d'explorer l'art africain, de déguster une cuisine authentique et de vivre une expérience artistique complète
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-            </div>
-        </div>
+  </div>
+  <div class="col-sm-6 col-md-6 secondary-bg vc_col">
+    <div class="timer_wrap padding_50px text-center">
+      <div class="timer">
+        <h5>Fashion Week Africa</h5>
+        <p>Réservez votre place maintenant</p>
+        <div class="countdown styled"></div>
+      </div>
     </div>
-</div><br><br>
+  </div>
+</section>
+<!--/Time Countdown--> 
 
+<!--  About Section -->
+<section id="about" class="section-padding">
+  <div class="container">
+    <div class="row"> 
+      <!-- Heading -->
+      <div class="col-md-12">
+        <div class="heading-sec">
+          <div class="section-header text-center">
+            <h2>La Splendeur de la Fashion Week Africa à Paris</h2>
+            <h4>Découverte de la mode africaine en plein cœur de la capitale !</h4>
+          </div>
+        </div>
+      </div>
+      <!-- /Heading --> 
+    </div>
+    <div class="row">
+      <div class="col-md-7 col-lg-6">
+        <div class="about-m-content">
+          <h5>La Fashion Week Africa à Paris : Fusion entre Tradition et Modernité dans la Mode Africaine</h5>
+          <p style="text-align: justify;">
+            
+            La Fashion Week Africa à Paris se distingue comme un événement majeur 
+            célébrant la créativité, la diversité et le dynamisme de la mode africaine. 
+            Chaque édition de cet événement rassemble des créateurs talentueux du 
+            continent africain pour présenter leurs collections avant-gardistes, 
+            alliant traditions ancestrales et modernité. L'événement offre une 
+            plateforme unique où l'authenticité des tissus africains tels que 
+            le wax et le kente fusionne avec des designs contemporains pour créer 
+            des pièces à la fois intemporelles et actuelles.
+          </p>
+          <h5>La Fashion Week Africa à Paris : Au-delà des défilés, un forum de discussion sur 
+            la durabilité et l'impact social de la mode africaine.</h5>
+          <p style="text-align: justify;">
+            En plus des défilés, la Fashion Week Africa à Paris est également 
+            l'occasion de débats et de discussions sur l'impact de l'industrie 
+            de la mode sur l'environnement et la société, en mettant en lumière 
+            les initiatives en matière de durabilité dans la mode africaine. 
+            Des designers aux activistes, divers intervenants échangent sur 
+            les enjeux et les défis de l'industrie tout en explorant les 
+            opportunités qu'offre la mode africaine sur la scène mondiale.
+          </p>
+          <h5>Paris salue l'empreinte africaine : Fusion culturelle et influence mondiale 
+            lors de la Fashion Week Africa</h5>
+          <p style="text-align: justify;">
+            Au fil des ans, Paris, capitale mondiale de la mode, a reconnu et 
+            célébré la contribution significative de l'Afrique à l'industrie de 
+            la mode. La Fashion Week Africa à Paris n'est pas seulement une 
+            célébration de la mode, mais aussi une affirmation de l'importance 
+            croissante de l'Afrique dans le domaine de la création mondiale. 
+            Elle symbolise la fusion des cultures et montre comment la mode 
+            peut servir de pont entre différentes régions du monde.
+          </p>
+          <h4>6 Raisons Incontournables pour Assister à la Fashion Week Africa à Paris</h4>
+          <ul class="list_style_none">
+            <li><i class="fa fa-check-circle" aria-hidden="true"></i><strong>Célébration de la Créativité Africaine</strong> : 
+              Paris, capitale mondiale de la mode, reconnaît et célèbre la contribution significative de 
+              l'Afrique à l'industrie de la mode, offrant une plateforme unique pour les créateurs africains.</li>
+            <li><i class="fa fa-check-circle" aria-hidden="true"></i><strong>Fusion Culturelle</strong> : C'est un événement qui
+               symbolise la fusion des cultures, montrant comment la mode peut servir de pont entre différentes 
+               régions du monde.</li>
+            <li><i class="fa fa-check-circle" aria-hidden="true"></i><strong>Évolution de la Mode Africaine</strong> : L'occasion 
+              de suivre l'évolution de la mode africaine, avec des pays comme le Nigeria et l'Afrique du Sud 
+              étant des acteurs clés.</li>
+            <li><i class="fa fa-check-circle" aria-hidden="true"></i><strong>Opportunités de Networking</strong> : Rencontrer 
+              des acteurs clés de l'industrie, créateurs de émergents à des marques établies, ainsi que des 
+              influenceurs et des décideurs.</li>
+            <li><i class="fa fa-check-circle" aria-hidden="true"></i><strong>Participation Internationale</strong> : La Fashion 
+              Week Africa à Paris attire des participants du monde entier, y compris des gagnants de concours 
+              qui ont l'opportunité de développer leur business.</li>
+            <li><i class="fa fa-check-circle" aria-hidden="true"></i><strong>Héritage et Tradition</strong> : Découvrez le 
+              mélange unique de traditions ancestrales et moderne.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-5 col-lg-6">
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-xs-6 abut-event-img"> <img src="assets/images/marche-d-afrique-1.png" alt="image"> </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 abut-event-img"> <img src="assets/images/marche-d-afrique-2.png" alt="image"> </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 abut-event-img"> <img src="assets/images/marche-d-afrique-3.png" alt="image"> </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 abut-event-img"> <img src="assets/images/marche-d-afrique-4.png" alt="image"> </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 abut-event-img"> <img src="assets/images/marche-d-afrique-5.png" alt="image"> </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 abut-event-img"> <img src="assets/images/marche-d-afrique-6.png" alt="image"> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- / About Section --> 
 
-{% include "../partials/boutique.html" %}
+<!--  Conference info -->
+<section class="our-conference section-padding parallex-bg">
+  <div class="container">
+    <div class="row">
+      <div class="conference-m-box div_zindex">
+        <div class="conf-icon-m">
+		<div class="row">
+          <div class="col-md-3 col-xs-6">
+            <div class="spekers-tickets-info"> <i class="fa fa-microphone"></i> <span class="summary">24 Prestations</span> </div>
+          </div>
+          <div class="col-md-3 col-xs-6">
+            <div class="spekers-tickets-info"> <i class="fa fa-ticket"></i> <span class="summary">+2800 Visiteurs</span> </div>
+          </div>
+          <div class="col-md-3 col-xs-6">
+            <div class="spekers-tickets-info"> <i class="fa fa-flag"></i> <span class="summary">+120 Eposants</span> </div>
+          </div>
+          <div class="col-md-3 col-xs-6">
+            <div class="spekers-tickets-info"> <i class="fa fa-calendar-check-o"></i> <span class="summary">2 Jours folles</span> </div>
+          </div>
+        </div>
+		</div>
+        <div class="resever-today text-center">
+          <h2>Réservez votre place maintenant</h2>
+          <a href="#home" class="btn btn-lg js-target-scroll">Booking Now</a> </div>
+      </div>
+    </div>
+  </div>
+  <div class="dark-layer"></div>
+</section>
+<!-- / Conference info --> 
 
-    <div class="fables-testimonial fables-after-overlay fables-about-caption py-5 bg-rules" style="background-image: url({% static 'assets/custom/images/index2-overlay.jpg' %});">
-        <div class="container">
-            <div class="row">
-                <div class="position-relative z-index col-12 col-md-8 offset-md-2 text-center wow zoomIn" data-wow-duration="2s"> 
-                        <h3 class=" white-color mb-3 font-25 font-weight-bold">Réservez votre Ticket !</h3> 
-                        <p class="font-weight-light fables-third-text-color">
-                            Vivez une expérience inoubliable aux événements Dream Team Africa !
-                            Réservez dès maintenant pour ne pas manquer cette célébration extraordinaire de la culture africaine !
-                        </p>
-                        <a href="{% url "vitrineApp:billetterie" %}" class="btn fables-second-background-color white-color white-color-hover fables-btn-rounded  mt-4 py-2 px-5">Réserver dès maintenant</a>   
-                </div> 
+<!--Conference Gallery-->
+<section class="section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="heading-sec clearfix">
+          <div class="section-header text-center">
+            <h2>Des années d'expériences</h2>
+            <p>Réservez dès maintenant vos billets pour participer à la plus belle 
+              rencontre des artisans de la diversité !</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+ <!-- Event Gallery -->
+ <div class="trigger section gutter-horizontal bg-gray gutter-vertical--m gutter-horizontal">
+  <div class="customer-logos slider">
+  <div class="slide-in-right slide">
+    <div class="overlay"></div>
+    <img src="{% static 'assets/images/marche-d-afrique-15.png' %}">
+    
+  </div>
+  <div class="slide-in-right slide">
+    <div class="overlay"></div>
+    <img src="{% static 'assets/images/marche-d-afrique-9.png' %}">
+  </div>
+  <div class="slide-in-right slide">
+    <div class="overlay"></div>
+    <img src="{% static 'assets/images/marche-d-afrique-10.png' %}">
+  </div>
+  <div class="slide-in-right slide">
+    <div class="overlay"></div>
+    <img src="{% static 'assets/images/marche-d-afrique-12.png' %}">
+  </div>
+  <div class="slide-in-right slide">
+    <div class="overlay"></div>
+    <img src="{% static 'assets/images/marche-d-afrique-13.png' %}">
+  </div>
+  <div class="slide-in-right slide">
+    <div class="overlay"></div>
+    <img src="{% static 'assets/images/marche-d-afrique-10.png' %}">
+  </div>
+  <div class="slide-in-right slide">
+    <div class="overlay"></div>
+    <img src="{% static 'assets/images/marche-d-afrique-15.png' %}">
+  </div>
+  <div class="slide-in-right slide">
+    <div class="overlay"></div>
+    <img src="{% static 'assets/images/marche-d-afrique-16.png' %}">
+  </div>
+  </div>
+</div>
+  <!-- /Event Gallery --> 
+  
+    
+  </div>
+</section>
+<!--/Conference Gallery--> 
+
+<!--Conference Pricing-->
+<section id="pricing" class="section-padding parallex-bg white_text">
+  <div class="container">
+    <div class="div_zindex">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="heading-sec clearfix">
+            <div class="section-header text-center">
+              <h2>Tarifs exposants</h2>
+              <p>Réservez vos stands</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+          <div class="event_priceing">
+            <div class="plan_name">
+              <h6>Pack Artisans</h6>
+            </div>
+            <div class="plan_price">
+              <p>200 €/J</p>
+            </div>
+            <ul>
+              <li><i class="fa fa-check" aria-hidden="true"></i>Café</li>
+              <li><i class="fa fa-times" aria-hidden="true"></i>2 badges exposants</li>
+              <li><i class="fa fa-times" aria-hidden="true"></i>2 chaises</li>
+              <li><i class="fa fa-times" aria-hidden="true"></i>1 Table (1,50 x 0,60)</li>
+              <li><i class="fa fa-times" aria-hidden="true"></i>Kit exposant 2 m2</li>
+            </ul>
+            <a href="#home" class="btn btn-block js-target-scroll">Prendre RDV</a> </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+          <div class="event_priceing">
+            <div class="plan_name">
+              <h6>Pack Restauration</h6>
+            </div>
+            <div class="plan_price">
+              <p>300€/J</p>
+            </div>
+            <ul>
+              <li><i class="fa fa-check" aria-hidden="true"></i>Café ou Thé</li>
+              <li><i class="fa fa-times" aria-hidden="true"></i>2 badges exposants</li>
+              <li><i class="fa fa-times" aria-hidden="true"></i>2 chaises</li>
+              <li><i class="fa fa-times" aria-hidden="true"></i>1 Table (2,50 x 0,80)</li>
+              <li><i class="fa fa-times" aria-hidden="true"></i>Kit exposant 6 m2</li>
+            </ul>
+            <a href="#home" class="btn btn-block js-target-scroll">Prendre RDV</a> </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+          <div class="event_priceing">
+            <div class="plan_name">
+              <h6>Partenariat</h6>
+            </div>
+            <div class="plan_price">
+              <p>Nous contacter</p>
+            </div>
+            <ul>
+              <li><i class="fa fa-check" aria-hidden="true"></i></li>
+              <li><i class="fa fa-check" aria-hidden="true"></i></li>
+              <li><i class="fa fa-check" aria-hidden="true"></i></li>
+              <li><i class="fa fa-check" aria-hidden="true"></i></li>
+            </ul>
+            <a href="#home" class="btn btn-block js-target-scroll">Prendre RDV</a> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dark-layer"></div>
+</section>
+<!--/Conference Pricing--> 
+
+<!--Conference Testimonial-->
+<section id="testimonial" class="section-padding">
+  <div class="container">
+    <div class="row"> 
+      <!-- Heading -->
+      <div class="col-md-12">
+        <div class="heading-sec">
+          <div class="section-header text-center">
+            <h4>Ce qu'ils disent de nous !</h4>
+            <p>Leurs Avis !</p>
+          </div>
+        </div>
+      </div>
+      <!-- /Heading -->
+      
+      <section class="testimonial-section">
+		<div class="testimonials">
+		  <div class="testimonial">
+      <h4>Un véritable voyage culturel !</h4>
+			<p>"La Fashion Week Africa à Paris est une expérience exceptionnelle. Elle m'a 
+        offert un aperçu profond et authentique des talents émergents du continent 
+        africain. J'ai été particulièrement impressionnée par la fusion des traditions 
+        ancestrales avec les tendances contemporaines."
+      </p>
+			<div class="details">
+			<span class="author">Sophie Leroux</span>
+			</div>
+		  </div>
+      <div class="testimonial">
+        <h4>Innovation et tradition à l'honneur !</h4>
+			<p>"Chaque édition de la Fashion Week Africa à Paris me surprend toujours.
+         L'ingéniosité des créateurs est à couper le souffle, et j'admire la 
+         manière dont ils intègrent la riche histoire africaine dans des designs 
+         modernes. C'est une célébration de la diversité et de l'innovation."
+      </p>
+			<div class="details">
+			<span class="author">Omar Bensalem</span>
+			</div>
+		  </div>
+		  <div class="testimonial">
+        <h4>Une plateforme essentielle pour la mode africaine !</h4>
+			<p>
+        "La Fashion Week Africa à Paris est bien plus qu'un simple événement de 
+        mode. C'est un espace où l'Afrique brille, raconte ses histoires et montre 
+        au monde son immense potentiel. Je suis toujours ému par la passion et la 
+        détermination des designers participants."
+      </p>
+			<div class="details">
+			<span class="author">Isabelle Moretti
+      </span>
+			</div>
+		  </div>
+		</div>
+	</section>
+    </div>
+  </div>
+</section>
+<!--/Conference Testimonial--> 
+
+<!--Conference FAQ-->
+<section id="faq" class="section-padding parallex-bg white_text">
+  <div class="container">
+    <div class="div_zindex">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="heading-sec clearfix">
+            <div class="section-header text-center">
+              <h4>Foire aux Questions</h4>
+              <p>Venez nombreux soutenir la mode africain !</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="panel-group faq_group" id="accordion" role="tablist" aria-multiselectable="true"> 
+            <!--FAQ-1-->
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingOne">
+                <h5 class="panel-title"> <a role="button" data-bs-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Qu'est-ce que la Fashion Week Africa à Paris?
+                  <span class="faq_control"> <i class="fa fa-plus-square" aria-hidden="true"></i> <i class="fa fa-minus-square" aria-hidden="true"></i> </span> </a> </h4>
+              </div>
+              <div id="collapseOne" class="panel-collapse collapse in show" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body">
+                  <p>C'est un événement qui met en avant les créateurs, designers et talents du continent 
+                    africain en les présentant sur la prestigieuse scène de la mode parisienne.
+                  </p>
+                </div>
+              </div>
             </div>
             
-        </div>
-    </div>
-
-    
-        <div class="fables-light-background-color py-3 py-md-4">
-            <div class="container">
-                <div class="owl-carousel owl-theme nav-0 carousel-items-6 dots-0">
-                   <div> 
-                       <img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template" class="border-hover fables-partner-carousel-img">  
-                   </div>
-                   <div> 
-                       <img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template" class="border-hover fables-partner-carousel-img">  
-                   </div>
-                   <div> 
-                       <img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template" class="border-hover fables-partner-carousel-img">  
-                   </div>
-                   <div> 
-                       <img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template" class="border-hover fables-partner-carousel-img">  
-                   </div>
-                   <div> 
-                       <img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template" class="border-hover fables-partner-carousel-img">  
-                   </div>
-                   <div> 
-                       <img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template" class="border-hover fables-partner-carousel-img">  
-                   </div>
-                   <div> 
-                       <img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template" class="border-hover fables-partner-carousel-img">  
-                   </div>
-                   <div> 
-                       <img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template" class="border-hover fables-partner-carousel-img">  
-                   </div>
-                   <div> 
-                       <img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template" class="fborder-hover ables-partner-carousel-img">  
-                   </div>
-                   <div> 
-                       <img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template" class="border-hover fables-partner-carousel-img">  
-                   </div>
-                   <div> 
-                       <img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template" class="border-hover fables-partner-carousel-img">  
-                   </div>
-                   <div> 
-                       <img src="{% static 'assets/custom/images/brand-4.jpg' %}" alt="Fables Template" class="fborder-hover ables-partner-carousel-img">  
-                   </div>
-
-                 </div>  
+            <!--FAQ-2-->
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingTwo">
+                <h5 class="panel-title"> <a class="collapsed" role="button" data-bs-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Comment la Fashion Week Africa à Paris se distingue-t-elle des autres Fashion Weeks?
+                  <span class="faq_control"> <i class="fa fa-plus-square" aria-hidden="true"></i> <i class="fa fa-minus-square" aria-hidden="true"></i> </span> </a> </h5>
+              </div>
+              <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                <div class="panel-body">
+                  <p>Elle se concentre spécifiquement sur la promotion des talents et designs africains, 
+                    fusionnant les traditions ancestrales du continent avec les tendances contemporaines 
+                    de la mode mondiale.
+                  </p>
+                </div>
+              </div>
             </div>
+            
+            <!--FAQ-3-->
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingThree">
+                <h5 class="panel-title"> <a class="collapsed" role="button" data-bs-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Quelle est la signification de cet événement pour les créateurs africains?
+                  <span class="faq_control"> <i class="fa fa-plus-square" aria-hidden="true"></i> <i class="fa fa-minus-square" aria-hidden="true"></i> </span> </a> </h5>
+              </div>
+              <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                <div class="panel-body">
+                  <p>
+                    La Fashion Week Africa à Paris offre une plateforme internationale aux créateurs africains, 
+                    leur permettant d'accéder à une audience plus large et de se connecter avec des 
+                    professionnels de l'industrie de la mode à un niveau mondial.
+                  </p>
+                 
+                </div>
+              </div>
+            </div>
+             <!--FAQ-4-->
+             <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingThree">
+                <h5 class="panel-title"> <a class="collapsed" role="button" data-bs-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">La Fashion Week Africa à Paris est-elle une initiative récente?
+                  <span class="faq_control"> <i class="fa fa-plus-square" aria-hidden="true"></i> <i class="fa fa-minus-square" aria-hidden="true"></i> </span> </a> </h5>
+              </div>
+              <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                <div class="panel-body">
+                  <p>
+                    Bien que la mode africaine ait toujours eu une influence sur la scène mondiale, 
+                    la reconnaissance spécifique et les événements dédiés à Paris ont gagné en popularité
+                     au cours des dernières années, reflétant une prise de conscience croissante de la 
+                     richesse et de la diversité des talents africains.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!--FAQ-5-->
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingFour">
+                <h5 class="panel-title"> <a class="collapsed" role="button" data-bs-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseThree">Qui sont quelques-uns des lauréats notables de l'Africa Fashion Up?
+                  <span class="faq_control"> <i class="fa fa-plus-square" aria-hidden="true"></i> <i class="fa fa-minus-square" aria-hidden="true"></i> </span> </a> </h5>
+              </div>
+              <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                <div class="panel-body">
+                  <p>
+                    Parmi les lauréats de l'Africa Fashion Up, on trouve des créateurs ou stylistes africains !
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+    </div>
+  </div>
+  <div class="dark-layer"></div>
+</section>
+<!--/Conference FAQ--> 
+  
+<!-- Blog -->
+<section id="blog" class="section-padding">
+  <div class="container">
+    <div class="row">
+      <!-- Heading -->
+      <div class="col-md-12">
+          <div class="heading-sec clearfix">
+            <div class="section-header text-center">
+              <h2>L'Afropéen</h2>
+              <p>Le mag de la diaspora africiane</p>
+            </div>
+          </div>
+        </div>
+      <!-- /Heading --> 
+      
+      <div class="col-md-4 col-sm-4">
+         <div class="blog_wrap">
+	      	<div class="blog_img margin-btm-20">
+                <a href="#"><img src="assets/images/800x510.jpg" alt="image"></a>
+            </div>
+    	    <div class="blog_meta">
+                <p>Posted on May 30, 2023</p>
+            </div>
+        	<h5><a href="#">How To Build Your Event Brand</a></h5>
+	        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+            Lorem Ipsum has been the industry's standard dummy text.</p>
+         </div>
+      </div>
+      
+      <div class="col-md-4 col-sm-4">
+         <div class="blog_wrap video_post">
+	      	<div class="blog_img margin-btm-20">
+                <a href="#"><img src="assets/images/800x510.jpg" alt="image"></a>
+            </div>
+    	    <div class="blog_meta">
+                <p>Posted on May 28, 2023</p>
+            </div>
+        	<h5><a href="#">How To Get Started In Event Planning</a></h5>
+	        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+            Lorem Ipsum has been the industry's standard dummy text.</p>
+         </div>
+      </div>
+      <div class="col-md-4 col-sm-4">
+         <div class="blog_wrap">
+	      	<div class="blog_img margin-btm-20">
+                <a href="#"><img src="assets/images/800x510.jpg" alt="image"></a>
+            </div>
+    	    <div class="blog_meta">
+                <p>Posted on Aug 30, 2023</p>
+            </div>
+        	<h5><a href="#">The standard chunk of Lorem Ipsum used since</a></h5>
+	        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+            Lorem Ipsum has been the industry's standard dummy text.</p>
+         </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /Blog -->
 
-{% endblock "body" %}
+<!--Conference Venue-->
+<section id="venue" class="section-padding parallex-bg white_text">
+  <div class="container">
+    <div class="div_zindex">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="heading-sec clearfix">
+            <div class="section-header text-center">
+              <h2>Fashion Week Africa</h2>
+              <p>Venez soutenir les artisans de la diversité culturel africaine !</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+          <div class="venue_info_box"> <i class="fa fa-phone" aria-hidden="true"></i>
+            <p>(+33) 7 82 80 18 52</p>
+          </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+          <div class="venue_info_box"> <i class="fa fa-map-marker" aria-hidden="true"></i>
+            <p>10 rue des terres au curé <br> 75 013 Paris
+              </p>
+          </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+          <div class="venue_info_box"> <i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:support@domainname.com">services@dreamteamafrica.com</a> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dark-layer"></div>
+</section>
+<!--/Conference Venue--> 
+ 
+
+
+
+{% endblock body %} 
+
+
+
+
+

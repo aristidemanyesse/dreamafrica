@@ -3,58 +3,24 @@ from .models import *
 # Register your models here.
 from django.contrib.admin import DateFieldListFilter
 
-
-@admin.register(Edition)
-class EditionAdmin(admin.ModelAdmin):
-    empty_value_display = '-'
-    list_filter = (
-        ('created_at', DateFieldListFilter),
-    )
-    list_display = ['name', "deleted", "created_at"]
-
-@admin.register(Jour)
-class JourAdmin(admin.ModelAdmin):
-    empty_value_display = '-'
-    list_filter = (
-        ('created_at', DateFieldListFilter),
-    )
-    list_display = ['name', "edition",  "deleted", "created_at"]
-
-@admin.register(Actualite)
-class ActualiteAdmin(admin.ModelAdmin):
-    empty_value_display = '-'
-    list_filter = (
-        ('created_at', DateFieldListFilter),
-    )
-    list_display = ['titre', "soustitre", "auteur", "deleted", "created_at"]
-
-
-@admin.register(Participant)
+@admin.register(Participation)
 class ParticipantAdmin(admin.ModelAdmin):
     empty_value_display = '-'
     list_filter = (
         ('created_at', DateFieldListFilter),
     )
-    list_display = ["fullname", "fonction", "email", "contact", "type", "deleted",  "created_at"]
+    list_display = ["fullname", "email", "contact", "evenement", "deleted",  "created_at"]
 
 
-@admin.register(Stand)
-class StandAdmin(admin.ModelAdmin):
+@admin.register(ReservationStand)
+class ReservationStandAdmin(admin.ModelAdmin):
     empty_value_display = '-'
     list_filter = (
         ('created_at', DateFieldListFilter),
     )
-    list_display = ["name", "email", "contact", "categorie", "edition", "deleted",  "created_at"]
+    list_display = ["fullname", "email", "contact", "evenement", "deleted",  "created_at"]
     
     
-@admin.register(CategorieStand)
-class CategorieStandAdmin(admin.ModelAdmin):
-    empty_value_display = '-'
-    list_filter = (
-        ('created_at', DateFieldListFilter),
-    )
-    list_display = ["name", "deleted",  "created_at"]
-
 
 @admin.register(Evenement)
 class EvenementAdmin(admin.ModelAdmin):
@@ -62,7 +28,7 @@ class EvenementAdmin(admin.ModelAdmin):
     list_filter = (
         ('created_at', DateFieldListFilter),
     )
-    list_display = ["name", "jour", "description",  "deleted",  "created_at"]
+    list_display = ["name", "price", "description",  "deleted",  "created_at"]
 
 
 @admin.register(Faq)
