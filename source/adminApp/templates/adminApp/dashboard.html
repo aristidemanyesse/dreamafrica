@@ -20,7 +20,7 @@
             <div class="widget widget-stats bg-green">
                 <div class="stats-icon"><i class="fa fa-bank"></i></div>
                 <div class="stats-info">
-                    <h4 class="text-uppercase">Officines</h4>
+                    <h4 class="text-uppercase">Evenements</h4>
                     <p>{{officines|length|start0}}</p>	
                 </div>
                 <div class="stats-link">
@@ -30,7 +30,7 @@
         </div>
         <!-- end col-3 -->
         <!-- begin col-3 -->
-        <div class="col-md-3 col-sm-6">
+        {% comment %} <div class="col-md-3 col-sm-6">
             <div class="widget widget-stats bg-blue">
                 <div class="stats-icon"><i class="fa fa-cubes"></i></div>
                 <div class="stats-info">
@@ -41,14 +41,14 @@
                     <a href="{% url 'adminApp:dashboard'  %}">Plus de détails <i class="fa fa-arrow-circle-o-right"></i></a>
                 </div>
             </div>
-        </div>
+        </div> {% endcomment %}
         <!-- end col-3 -->
         <!-- begin col-3 -->
         <div class="col-md-3 col-sm-6">
             <div class="widget widget-stats bg-purple">
                 <div class="stats-icon"><i class="fa fa-users"></i></div>
                 <div class="stats-info">
-                    <h4 class="text-uppercase">Utilisateurs</h4>
+                    <h4 class="text-uppercase">Participations</h4>
                     <p>{{users|length|start0}}</p>	
                 </div>
                 <div class="stats-link">
@@ -58,7 +58,7 @@
         </div>
         <!-- end col-3 -->
         <!-- begin col-3 -->
-        <div class="col-md-3 col-sm-6">
+        {% comment %} <div class="col-md-3 col-sm-6">
             <div class="widget widget-stats bg-red">
                 <div class="stats-icon"><i class="fa fa-clock-o"></i></div>
                 <div class="stats-info">
@@ -69,7 +69,7 @@
                     <a href="{% url 'adminApp:dashboard' %}">Plus de détails <i class="fa fa-arrow-circle-o-right"></i></a>
                 </div>
             </div>
-        </div>
+        </div> {% endcomment %}
         <!-- end col-3 -->
     </div>
     <!-- end row -->
@@ -107,7 +107,7 @@
                 </div>
                 <div class="">
                     {{ markers|json_script:"markers-data" }}
-                    <div id="mymap"></div>
+                    {% comment %} <div id="mymap"></div> {% endcomment %}
                 </div>
             </div>
         </div>

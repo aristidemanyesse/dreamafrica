@@ -150,7 +150,7 @@ def events(request):
 @render_to('adminApp/stands.html')
 def stands(request):
     if request.method == "GET":
-        stands = Stand.objects.filter(deleted = False)
+        # stands = Stand.objects.filter(deleted = False)
         ctx = {
             "stands": stands,
         }
@@ -162,11 +162,11 @@ def stands(request):
 @render_to('adminApp/commandes.html')
 def commandes(request):
     if request.method == "GET":
-        types = TypeParticipant.objects.filter(deleted = False)
-        participants = Participant.objects.filter(deleted = False)
+        # types = TypeParticipant.objects.filter(deleted = False)
+        # participants = Participant.objects.filter(deleted = False)
         ctx = {
-            "types": types,
-            "participants": participants,
+            # "types": types,
+            # "participants": participants,
             # "officinedemandes": demandes,
         }
         return ctx
@@ -177,10 +177,8 @@ def commandes(request):
 @render_to('adminApp/produits.html')
 def produits(request):
     if request.method == "GET":
-        categories = Categorie.objects.filter(deleted = False)
         produits = Produit.objects.filter(deleted = False)
         ctx = {
-            "categories": categories,
             "produits": produits,
         }
         return ctx
