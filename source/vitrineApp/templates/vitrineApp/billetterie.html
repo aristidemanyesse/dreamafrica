@@ -23,7 +23,7 @@
         <div class="col-sm-7 col-md-7 col-lg-8">
           <div class="banner-content">
             <div class="banner-tagline">
-				<h1>Reservez votre Stand ! </h1>
+				<h1>Prenez votre place ! </h1>
 				<p>10 rue des terres au Curé Paris France</p>
 				<p>Théâtre du Gymnase Paris</p>
 				<P>38 Boulevard Bonne Nouvelle Paris <br> 
@@ -146,15 +146,15 @@
 	<div class="col-sm-7 col-md-7 secondary-bg vc_col">
 		<div class="timer_wrap padding_50px text-center">
 			<div class="banner-form">
-				<h3 style="color: black">Reservez votre Stand ! </h3>
+				<h3 style="color: black">Prenez votre place ! </h3>
 				<!--Registration Form-->
-				<form method="POST" class="formShamman" classname="ReservationStandForm">
+				<form method="POST" class="formShamman" classname="ParticipationForm">
 					{% csrf_token %}
 					<div class="form-group select">
 						<select name="event" class="form-control" required="">
 							<option value="">Quel evenement vous interesse ?</option>
 							{% for event in events %}
-								<option value="{{event.id}}">{{event.name}}</option>
+								<option value="{{event.id}}">{{event.name}} ({{event.price}}€)</option>
 							{% endfor %}
 						</select>
 					</div>
@@ -167,14 +167,8 @@
 					<div class="form-group">
 						<input class="form-control" name="contact" placeholder="Numero de téléphone" required type="text">
 					</div>
-					<div class="form-group">
-						<input class="form-control" name="domaine" placeholder="Domaine d'activité" required type="text">
-					</div>
-					<div class="form-group">
-						<textarea class="form-control" name="description" rows="5" placeholder="Décrivez en quelques mots en quoi consisteras votre participation ..." required ></textarea>
-					</div>
 					<div class="contact-btn-m text-center">
-						<button class="btn btn-block" type="submit"> Valider ma demande</button>
+						<button class="btn btn-block" type="submit"> Payer mon ticket</button>
 					</div>
 				</form>
 			<!--/Registration Form--> 

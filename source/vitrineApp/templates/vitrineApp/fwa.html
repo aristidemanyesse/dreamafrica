@@ -32,38 +32,7 @@
           </div>
         </div>
         <div class="col-sm-5 col-md-5 col-lg-4">
-          <div class="banner-form">
-            <h5 class="text-center">Réservez votre place</h5>
-            <!--Registration Form-->
-              <form method="POST" class="formShamman" classname="ParticipationForm">
-                  {% csrf_token %}
-                  <div class="form-group">
-                    <input class="form-control" name="fullname" id="fullname" placeholder="Nom et prénoms" required type="text">
-                  </div>
-                  <div class="form-group">
-                    <input class="form-control" name="email"  placeholder="Adresse email" required type="email">
-                  </div>
-                  <div class="form-group">
-                    <input class="form-control" name="contact" placeholder="Numero de téléphone" required type="text">
-                  </div>               
-                  <div class="form-group select">
-                    <select name="evenement" class="form-control" required="">
-                      <option value="">Quel evenement vous interesse ?</option>
-                      {% for event in events %}
-                        <option value="{{event.id}}">{{event.name}} ({{event.price}}) €</option>
-                      {% endfor %}
-                    </select>
-                  </div><br>
-                 
-                  <div class="contact-btn-m text-center">
-                      <button class="btn btn-block">
-                        <span id="button-text">Réservez maintenant !</span>
-                      </button>
-                  </div>
-               
-              </form>
-            <!--/Registration Form--> 
-          </div>
+          {% include "./partials/form_participant.html" %}
         </div>
       </div>
     </div>
@@ -169,12 +138,18 @@
       </div>
       <div class="col-md-5 col-lg-6">
         <div class="row">
-          <div class="col-md-6 col-sm-6 col-xs-6 abut-event-img"> <img src="assets/images/marche-d-afrique-1.png" alt="image"> </div>
-          <div class="col-md-6 col-sm-6 col-xs-6 abut-event-img"> <img src="assets/images/marche-d-afrique-2.png" alt="image"> </div>
-          <div class="col-md-6 col-sm-6 col-xs-6 abut-event-img"> <img src="assets/images/marche-d-afrique-3.png" alt="image"> </div>
-          <div class="col-md-6 col-sm-6 col-xs-6 abut-event-img"> <img src="assets/images/marche-d-afrique-4.png" alt="image"> </div>
-          <div class="col-md-6 col-sm-6 col-xs-6 abut-event-img"> <img src="assets/images/marche-d-afrique-5.png" alt="image"> </div>
-          <div class="col-md-6 col-sm-6 col-xs-6 abut-event-img"> <img src="assets/images/marche-d-afrique-6.png" alt="image"> </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 abut-event-img"> <img src="{% static 'assets/images/marche-d-afrique-1.png' %}" alt="image"> </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 abut-event-img"> <img src="{% static 'assets/images/marche-d-afrique-2.png' %}" alt="image"> </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 abut-event-img"> <img src="{% static 'assets/images/jeux-olympique.png' %}" alt="image"> </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 abut-event-img"> <img src="{% static 'assets/images/marche-d-afrique-4.png' %}" alt="image"> </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 abut-event-img"> <img src="{% static 'assets/images/marche-d-afrique-5.png' %}" alt="image"> </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 abut-event-img"> <img src="{% static 'assets/images/marche-d-afrique-6.png' %}" alt="image"> </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 abut-event-img"> <img src="{% static 'assets/images/marche-d-afrique-3.png' %}" alt="image"> </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 abut-event-img"> <img src="{% static 'assets/images/marche-d-afrique-4.png' %}" alt="image"> </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 abut-event-img"> <img src="{% static 'assets/images/marche-d-afrique-1.png' %}" alt="image"> </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 abut-event-img"> <img src="{% static 'assets/images/marche-d-afrique-2.png' %}" alt="image"> </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 abut-event-img"> <img src="{% static 'assets/images/marche-d-afrique-1.png' %}" alt="image"> </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 abut-event-img"> <img src="{% static 'assets/images/marche-d-afrique-2.png' %}" alt="image"> </div>
         </div>
       </div>
     </div>
@@ -228,119 +203,52 @@
       </div>
     </div>
     
- <!-- Event Gallery -->
- <div class="trigger section gutter-horizontal bg-gray gutter-vertical--m gutter-horizontal">
-  <div class="customer-logos slider">
-  <div class="slide-in-right slide">
-    <div class="overlay"></div>
-    <img src="{% static 'assets/images/marche-d-afrique-15.png' %}">
-    
-  </div>
-  <div class="slide-in-right slide">
-    <div class="overlay"></div>
-    <img src="{% static 'assets/images/marche-d-afrique-9.png' %}">
-  </div>
-  <div class="slide-in-right slide">
-    <div class="overlay"></div>
-    <img src="{% static 'assets/images/marche-d-afrique-10.png' %}">
-  </div>
-  <div class="slide-in-right slide">
-    <div class="overlay"></div>
-    <img src="{% static 'assets/images/marche-d-afrique-12.png' %}">
-  </div>
-  <div class="slide-in-right slide">
-    <div class="overlay"></div>
-    <img src="{% static 'assets/images/marche-d-afrique-13.png' %}">
-  </div>
-  <div class="slide-in-right slide">
-    <div class="overlay"></div>
-    <img src="{% static 'assets/images/marche-d-afrique-10.png' %}">
-  </div>
-  <div class="slide-in-right slide">
-    <div class="overlay"></div>
-    <img src="{% static 'assets/images/marche-d-afrique-15.png' %}">
-  </div>
-  <div class="slide-in-right slide">
-    <div class="overlay"></div>
-    <img src="{% static 'assets/images/marche-d-afrique-16.png' %}">
-  </div>
-  </div>
-</div>
-  <!-- /Event Gallery --> 
-  
-    
-  </div>
-</section>
+    <!-- Event Gallery -->
+    <div class="trigger section gutter-horizontal bg-gray gutter-vertical--m gutter-horizontal">
+      <div class="customer-logos slider">
+      <div class="slide-in-right slide">
+        <div class="overlay"></div>
+        <img src="{% static 'assets/images/marche-d-afrique-15.png' %}">
+        
+      </div>
+      <div class="slide-in-right slide">
+        <div class="overlay"></div>
+        <img src="{% static 'assets/images/marche-d-afrique-9.png' %}">
+      </div>
+      <div class="slide-in-right slide">
+        <div class="overlay"></div>
+        <img src="{% static 'assets/images/marche-d-afrique-10.png' %}">
+      </div>
+      <div class="slide-in-right slide">
+        <div class="overlay"></div>
+        <img src="{% static 'assets/images/marche-d-afrique-12.png' %}">
+      </div>
+      <div class="slide-in-right slide">
+        <div class="overlay"></div>
+        <img src="{% static 'assets/images/marche-d-afrique-13.png' %}">
+      </div>
+      <div class="slide-in-right slide">
+        <div class="overlay"></div>
+        <img src="{% static 'assets/images/marche-d-afrique-10.png' %}">
+      </div>
+      <div class="slide-in-right slide">
+        <div class="overlay"></div>
+        <img src="{% static 'assets/images/marche-d-afrique-15.png' %}">
+      </div>
+      <div class="slide-in-right slide">
+        <div class="overlay"></div>
+        <img src="{% static 'assets/images/marche-d-afrique-16.png' %}">
+      </div>
+      </div>
+    </div>
+      <!-- /Event Gallery --> 
+      
+    </div>
+  </section>
 <!--/Conference Gallery--> 
 
 <!--Conference Pricing-->
-<section id="pricing" class="section-padding parallex-bg white_text">
-  <div class="container">
-    <div class="div_zindex">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="heading-sec clearfix">
-            <div class="section-header text-center">
-              <h2>Tarifs exposants</h2>
-              <p>Réservez vos stands</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-4 col-md-4">
-          <div class="event_priceing">
-            <div class="plan_name">
-              <h6>Pack Artisans</h6>
-            </div>
-            <div class="plan_price">
-              <p>200 €/J</p>
-            </div>
-            <ul>
-              <li><i class="fa fa-check" aria-hidden="true"></i>Café</li>
-              <li><i class="fa fa-times" aria-hidden="true"></i>2 badges exposants</li>
-              <li><i class="fa fa-times" aria-hidden="true"></i>2 chaises</li>
-              <li><i class="fa fa-times" aria-hidden="true"></i>1 Table (1,50 x 0,60)</li>
-              <li><i class="fa fa-times" aria-hidden="true"></i>Kit exposant 2 m2</li>
-            </ul>
-            <a href="#home" class="btn btn-block js-target-scroll">Prendre RDV</a> </div>
-        </div>
-        <div class="col-sm-4 col-md-4">
-          <div class="event_priceing">
-            <div class="plan_name">
-              <h6>Pack Restauration</h6>
-            </div>
-            <div class="plan_price">
-              <p>300€/J</p>
-            </div>
-            <ul>
-              <li><i class="fa fa-check" aria-hidden="true"></i>Café ou Thé</li>
-              <li><i class="fa fa-times" aria-hidden="true"></i>2 badges exposants</li>
-              <li><i class="fa fa-times" aria-hidden="true"></i>2 chaises</li>
-              <li><i class="fa fa-times" aria-hidden="true"></i>1 Table (2,50 x 0,80)</li>
-              <li><i class="fa fa-times" aria-hidden="true"></i>Kit exposant 6 m2</li>
-            </ul>
-            <a href="#home" class="btn btn-block js-target-scroll">Prendre RDV</a> </div>
-        </div>
-        <div class="col-sm-4 col-md-4">
-          <div class="event_priceing">
-            <div class="plan_name">
-              <h6>Partenariat</h6>
-            </div>
-            <div class="plan_price">
-              <p>Nous contacter</p>
-            </div>
-            <ul>
-              <li><i class="fa fa-check" aria-hidden="true"></i></li>
-              <li><i class="fa fa-check" aria-hidden="true"></i></li>
-              <li><i class="fa fa-check" aria-hidden="true"></i></li>
-              <li><i class="fa fa-check" aria-hidden="true"></i></li>
-            </ul>
-            <a href="#home" class="btn btn-block js-target-scroll">Prendre RDV</a> </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="dark-layer"></div>
-</section>
+{% include "./partials/price_stand.html" %}
 <!--/Conference Pricing--> 
 
 <!--Conference Testimonial-->
@@ -506,63 +414,7 @@
 <!--/Conference FAQ--> 
   
 <!-- Blog -->
-<section id="blog" class="section-padding">
-  <div class="container">
-    <div class="row">
-      <!-- Heading -->
-      <div class="col-md-12">
-          <div class="heading-sec clearfix">
-            <div class="section-header text-center">
-              <h2>L'Afropéen</h2>
-              <p>Le mag de la diaspora africiane</p>
-            </div>
-          </div>
-        </div>
-      <!-- /Heading --> 
-      
-      <div class="col-md-4 col-sm-4">
-         <div class="blog_wrap">
-	      	<div class="blog_img margin-btm-20">
-                <a href="#"><img src="assets/images/800x510.jpg" alt="image"></a>
-            </div>
-    	    <div class="blog_meta">
-                <p>Posted on May 30, 2023</p>
-            </div>
-        	<h5><a href="#">How To Build Your Event Brand</a></h5>
-	        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-            Lorem Ipsum has been the industry's standard dummy text.</p>
-         </div>
-      </div>
-      
-      <div class="col-md-4 col-sm-4">
-         <div class="blog_wrap video_post">
-	      	<div class="blog_img margin-btm-20">
-                <a href="#"><img src="assets/images/800x510.jpg" alt="image"></a>
-            </div>
-    	    <div class="blog_meta">
-                <p>Posted on May 28, 2023</p>
-            </div>
-        	<h5><a href="#">How To Get Started In Event Planning</a></h5>
-	        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-            Lorem Ipsum has been the industry's standard dummy text.</p>
-         </div>
-      </div>
-      <div class="col-md-4 col-sm-4">
-         <div class="blog_wrap">
-	      	<div class="blog_img margin-btm-20">
-                <a href="#"><img src="assets/images/800x510.jpg" alt="image"></a>
-            </div>
-    	    <div class="blog_meta">
-                <p>Posted on Aug 30, 2023</p>
-            </div>
-        	<h5><a href="#">The standard chunk of Lorem Ipsum used since</a></h5>
-	        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-            Lorem Ipsum has been the industry's standard dummy text.</p>
-         </div>
-      </div>
-    </div>
-  </div>
-</section>
+{% include "./partials/blogs.html" %}
 <!-- /Blog -->
 
 <!--Conference Venue-->

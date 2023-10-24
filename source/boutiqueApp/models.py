@@ -6,7 +6,10 @@ from coreApp.models import BaseModel, Etat
 
 class Produit(BaseModel):
     name          = models.CharField(max_length = 255, default="", null = True, blank=True)
-    code          = models.TextField(default="", null = True, blank=True)
+    infos          = models.TextField(default="", null = True, blank=True)
+    recettes          = models.TextField(default="", null = True, blank=True)
+    avis          = models.TextField(default="", null = True, blank=True)
+    faq          = models.TextField(default="", null = True, blank=True)
     price         = models.IntegerField(default = 0)
     description   = models.TextField(default = "", null = True, blank=True)
     image1        = models.ImageField(max_length = 255, upload_to = "images/produits/", default='images/produits/default.png', null = True, blank=True)

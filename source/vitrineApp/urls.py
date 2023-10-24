@@ -10,16 +10,16 @@ urlpatterns = [
     path('marche-de-noel-africain/', views.mna, name='mna'),
     path('african-fashion-cook/', views.afc, name='afc'),
     path('fashion-west-africa/', views.fwa, name='fwa'),
-    path('billetterie/', views.billetterie, name='billetterie'),
+    path('billetterie_visiteurs/', views.billetterie, name='billetterie'),
     path('juste-une-danse/', views.juste, name='juste'),
-    path('foire-aux-questions/', views.faq, name='faq'),
     path('fica/', views.fica, name='fica'),
     
     path('events/participation/purchase/<uuid:id>/', views.purchase, name='purchase'),
     
     # path('programme', views.programme, name='programme'),
     # path('participants', views.participants, name='participants'),
-    path('stand/', views.stand, name='stand'),
-    # path('unes', views.unes, name='unes'),
+    path('billetterie_exposants/', views.stand, name='stand'),
+    path('blogs', views.blogs, name='blogs'),
+    path('blog/<uuid:id>', views.blog, name='blog'),
     path('contacts/', views.contacts, name='contacts'),
 ]

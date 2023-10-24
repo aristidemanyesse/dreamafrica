@@ -10,8 +10,14 @@ $(function () {
         var formdata = new FormData($(this)[0]);
         formdata.append('modelform', form);
         if (form == "ProduitForm") {
-            var summernote = $('.summernote').summernote('code');
-            formdata.append('code', summernote);
+            var infos = $('.summernote#infos').summernote('code');
+            formdata.append('infos', infos);
+            var avis = $('.summernote#avis').summernote('code');
+            formdata.append('avis', avis);
+            var recettes = $('.summernote#recettes').summernote('code');
+            formdata.append('recettes', recettes);
+            var faq = $('.summernote#faq').summernote('code');
+            formdata.append('faq', faq);
         }
         $.post({ url: url, data: formdata, contentType: false, processData: false }, function (data) {
             if (data.status) {

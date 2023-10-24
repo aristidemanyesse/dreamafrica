@@ -19,42 +19,36 @@
 			<!-- end page-header -->
 			
             <div id="options" class="m-b-10">
-                <a href="{% url 'adminApp:write' %}" class="btn btn-success btn-sm pull-right">
+                <a href="{% url 'adminApp:write_blog' "new" %}" class="btn btn-success btn-sm pull-right">
                     <i class="fa fa-plus"></i> Ecris un nouvel article
                 </a>
             </div>
 
 			<!-- begin row -->
-			<div class="row">
-			    <!-- begin col-12 -->
-			    <div class="col-md-12">
-			        <div class="result-container">
-                        <br>
-                        <ul class="result-list">
-                            
-                            {% for actualite in actualites %}
-                                <li>
-                                    <div class="result-image text-center">
-                                        <i class="fa fa-file fa-5x" ></i>
-                                    </div>
-                                    <div class="result-info">
-                                        <h4 class="title"><a href="javascript:;">{{actualite.titre}}</a></h4>
-                                        <p class="location">{{actualite.auteur}} - {{actualite.created_at}} </p>
-                                        <p class="desc">
-                                            {{actualite.code|striptags|truncatewords:100}} ...
-                                        </p>
-                                    </div>
-                                    <div class="result-price">
-                                        <small>Diffusé du <br> {{actualite.debut}} au {{actualite.fin}}</small>
-                                        <a href="{% url 'adminApp:actualite' actualite.id %}" class="btn btn-inverse btn-block">Modifier l'article</a>
-                                    </div>
-                                </li>
-                            {% endfor %}
-
-                        </ul>
+			<div id="gallery" class="gallery">
+                    {% for blog in blogs %}
+                    <div class="image">
+                        <div class="image-inner">
+                            <a href="{{blog.image.url}}">
+                                <img src="{{blog.image.url}}" style="height: 200px" alt="" />
+                            </a>
+                        </div>
+                        <div class="image-info">
+                            <h5 class="title m-b-0">{{blog.title}}</h5>
+                            <p class="">{{blog.created_at}} </p><br>
+                            <div class="desc">{{blog.subtitle}}</div>
+                            <br>
+                            <div class="text-right">
+                                <div class="btn-group">
+                                    <button type="button" onclick="delete_password('blog', '{{blog.id}}')" class="btn btn-danger btn-sm"><i class="fa fa-close"></i></button>
+                                    <a href="{% url 'adminApp:write_blog' blog.id %}">
+                                        <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-			    </div>
-			    <!-- end col-12 -->
+                    {% endfor %}
 			</div>
 			<!-- end row -->
 		</div>

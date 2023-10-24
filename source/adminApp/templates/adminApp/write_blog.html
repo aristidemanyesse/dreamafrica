@@ -1,0 +1,83 @@
+{% extends 'base/adminBase.html' %}
+{% load myfilters %}
+{% load static %}
+{% load i18n %} 
+
+{% block "content" %}
+	
+				<!-- begin #content -->
+                <div id="content" class="content">
+                   
+                    <h1 class="page-header">Mon blog <small>...</small></h1>
+                    <!-- end page-header -->
+                    <br>
+                    <!-- begin row -->
+                    <form method="POST" id="summer" class="formShamman" classname="BlogForm">
+                        {% csrf_token %}
+                        <div class="row">
+
+                            <div class="col-md-3">
+                                <div class="">
+                                    <label>{% translate "Titre de l'article" %} </label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" value="{{blog.title}}" name="title">
+                                    </div>
+                                </div> <br>
+                                <div class="">
+                                    <label>{% translate "Sous-titre de l'article" %} </label>
+                                    <div class="form-group">
+                                        <textarea rows="4" class="form-control" name="subtitle">{{blog.subtitle}}</textarea>
+                                    </div>
+                                </div> <br>
+                                <div class="">
+                                    <label>{% translate "Photo d'illustration 1" %} </label>
+                                    <div class="">
+                                        <img style="width: 100px;" src="{{blog.image.url}}" class="img-thumbnail logo">
+                                        <input class="hide" type="file" name="image">
+                                        <button type="button" class="btn btn-sm bg-purple pull-right btn_image"><i class="fa fa-image"></i></button>
+                                    </div>
+                                </div>
+                                
+                                <br>
+                                <div class="text-right">
+                                    <button type="submit" class="btn dim btn-primary"><i class="fa fa-refresh"></i> {% translate "Valider le formulaire" %}</button>
+                                </div>
+                            </div>
+
+                            <!-- begin col-10 -->
+                            <div class="col-md-9">
+                                <div class="panel panel-inverse m-b-0">
+                                    <div class="panel-heading">
+                                        <div class="panel-heading-btn">
+                                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
+                                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+                                        </div>
+                                        <h4 class="panel-title">Rédigez votre article - Ce que vous voyez sera le resultat obtenu !</h4>
+                                    </div>
+                                    <div class="panel-body p-0">
+                                        <textarea class="summernote" name="content">{{blog.content}}</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end col-10 -->
+                            <!-- begin col-2 -->
+                            <input class="hide" type="text" name="id" value="{{blog.id}}" >
+                            <!-- end col-2 -->
+                        </div>
+                    </form>
+                    <!-- end row -->
+                </form>
+                <!-- end #content -->
+
+{% endblock "content" %}
+
+
+{% block "scriptjs" %}
+    <script>
+        $(document).ready(function() {
+            FormSummernote.init(); 
+        });
+    </script>
+{% endblock "scriptjs" %}

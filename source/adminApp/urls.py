@@ -11,8 +11,9 @@ urlpatterns = [
     path('galerie/', views.galerie, name="galerie"),
     path('participants/', views.participants, name="participants"),
     
-    path('actualites/', views.actualites, name="actualites"),
-    path('actualites/<uuid:id>/', views.actualite, name="actualite"),
+    path('blogs/', views.blogs, name="blogs"),
+    path('blogs/<uuid:id>/', views.blog, name="blog"),
+    path('blogs/write/<id>/', views.write_blog, name="write_blog"),
     
     path('events/', views.events, name="events"),
     

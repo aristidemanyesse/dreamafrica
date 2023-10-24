@@ -38,3 +38,12 @@ class FaqAdmin(admin.ModelAdmin):
         ('created_at', DateFieldListFilter),
     )
     list_display = ["id", "question", "created_at"]
+
+
+@admin.register(Blog)
+class BlogAdmin(admin.ModelAdmin):
+    empty_value_display = '-'
+    list_filter = (
+        ('created_at', DateFieldListFilter),
+    )
+    list_display = ["title", "subtitle", "created_at"]

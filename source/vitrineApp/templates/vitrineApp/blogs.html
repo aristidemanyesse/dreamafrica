@@ -1,0 +1,66 @@
+{% extends 'base/vitrineBase.html' %}
+{% load static %}
+
+
+{% block body %}
+
+<!-- Banners -->
+<section id="banner" class="banner-section"> 
+  <!-- Banner Tagline -->
+  <div class="banner-fixed">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-7 col-md-7 col-lg-8">
+          <div class="banner-content">
+            <div class="banner-tagline">
+              <h1>Blogs - Actualités</h1>
+              <p>Restez connecté aux dernières Actualités</p>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /Banners Tagline -->
+  <div class="dark-layer"></div>
+</section>
+<!-- /Banners --> 
+
+
+  
+<!-- Blog -->
+<section id="blog" class="section-padding">
+    <div class="container">
+		<div class="row">
+			<!-- Heading -->
+		
+			<!-- /Heading --> 
+			{% for blog in blogs %}
+			<div class="col-md-4 col-sm-4">
+				<div class="blog_wrap">
+					<div class="blog_img margin-btm-20">
+						<a href="{% url "vitrineApp:blog" blog.id %}"><img src="{{blog.image.url}}" style="height: 250px;" alt="image"></a>
+					</div>
+					<div class="blog_meta">
+						<p>{{blog.created_at}}</p>
+					</div>
+					<h5><a href="{% url "vitrineApp:blog" blog.id %}">{{blog.title}}</a></h5>
+					<p>{{blog.subtitle}}</p>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+    </div>
+</section>
+<!-- /Blog -->
+
+
+{% include "./partials/price_stand.html" %}
+ 
+
+{% endblock body %} 
+
+
+
+
+

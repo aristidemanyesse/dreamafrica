@@ -31,38 +31,7 @@
           </div>
         </div>
         <div class="col-sm-5 col-md-5 col-lg-4">
-          <div class="banner-form">
-            <h5 class="text-center">Réservez votre place</h5>
-            <!--Registration Form-->
-              <form method="POST" class="formShamman" classname="ParticipationForm">
-                  {% csrf_token %}
-                  <div class="form-group">
-                    <input class="form-control" name="fullname" id="fullname" placeholder="Nom et prénoms" required type="text">
-                  </div>
-                  <div class="form-group">
-                    <input class="form-control" name="email"  placeholder="Adresse email" required type="email">
-                  </div>
-                  <div class="form-group">
-                    <input class="form-control" name="contact" placeholder="Numero de téléphone" required type="text">
-                  </div>               
-                  <div class="form-group select">
-                    <select name="evenement" class="form-control" required="">
-                      <option value="">Quel evenement vous interesse ?</option>
-                      {% for event in events %}
-                        <option value="{{event.id}}">{{event.name}} ({{event.price}}) €</option>
-                      {% endfor %}
-                    </select>
-                  </div><br>
-                 
-                  <div class="contact-btn-m text-center">
-                      <button class="btn btn-block">
-                        <span id="button-text">Réservez maintenant !</span>
-                      </button>
-                  </div>
-               
-              </form>
-            <!--/Registration Form--> 
-          </div>
+          {% include "./partials/form_participant.html" %}
         </div>
       </div>
     </div>
@@ -261,73 +230,7 @@
 <!--/Conference Gallery--> 
 
 <!--Conference Pricing-->
-<section id="pricing" class="section-padding parallex-bg white_text">
-  <div class="container">
-    <div class="div_zindex">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="heading-sec clearfix">
-            <div class="section-header text-center">
-              <h2>Tarifs exposants</h2>
-              <p>Réservez vos stands</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-4 col-md-4">
-          <div class="event_priceing">
-            <div class="plan_name">
-              <h6>Pack Artisans</h6>
-            </div>
-            <div class="plan_price">
-              <p>200 €/J</p>
-            </div>
-            <ul>
-              <li><i class="fa fa-check" aria-hidden="true"></i>Café</li>
-              <li><i class="fa fa-times" aria-hidden="true"></i>2 badges exposants</li>
-              <li><i class="fa fa-times" aria-hidden="true"></i>2 chaises</li>
-              <li><i class="fa fa-times" aria-hidden="true"></i>1 Table (1,50 x 0,60)</li>
-              <li><i class="fa fa-times" aria-hidden="true"></i>Kit exposant 2 m2</li>
-            </ul>
-            <a href="#home" class="btn btn-block js-target-scroll">Prendre RDV</a> </div>
-        </div>
-        <div class="col-sm-4 col-md-4">
-          <div class="event_priceing">
-            <div class="plan_name">
-              <h6>Pack Restauration</h6>
-            </div>
-            <div class="plan_price">
-              <p>300€/J</p>
-            </div>
-            <ul>
-              <li><i class="fa fa-check" aria-hidden="true"></i>Café ou Thé</li>
-              <li><i class="fa fa-times" aria-hidden="true"></i>2 badges exposants</li>
-              <li><i class="fa fa-times" aria-hidden="true"></i>2 chaises</li>
-              <li><i class="fa fa-times" aria-hidden="true"></i>1 Table (2,50 x 0,80)</li>
-              <li><i class="fa fa-times" aria-hidden="true"></i>Kit exposant 6 m2</li>
-            </ul>
-            <a href="#home" class="btn btn-block js-target-scroll">Prendre RDV</a> </div>
-        </div>
-        <div class="col-sm-4 col-md-4">
-          <div class="event_priceing">
-            <div class="plan_name">
-              <h6>Partenariat</h6>
-            </div>
-            <div class="plan_price">
-              <p>Nous contacter</p>
-            </div>
-            <ul>
-              <li><i class="fa fa-check" aria-hidden="true"></i></li>
-              <li><i class="fa fa-check" aria-hidden="true"></i></li>
-              <li><i class="fa fa-check" aria-hidden="true"></i></li>
-              <li><i class="fa fa-check" aria-hidden="true"></i></li>
-            </ul>
-            <a href="#home" class="btn btn-block js-target-scroll">Prendre RDV</a> </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="dark-layer"></div>
-</section>
+{% include "./partials/price_stand.html" %}
 <!--/Conference Pricing--> 
 
 <!--Conference Testimonial-->

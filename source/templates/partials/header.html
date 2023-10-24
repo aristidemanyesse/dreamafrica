@@ -32,12 +32,12 @@
               <li class="dropdown">
                   <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"> Billetterie </a>
                 <ul class="dropdown-menu">
-                  <li><a href="{% url "vitrineApp:fica" %}" class="js-target-scroll">Billetterie Visiteur</a></li>
+                  <li><a href="{% url "vitrineApp:billetterie" %}" class="js-target-scroll">Billetterie Visiteur</a></li>
                   <li><a href="{% url "vitrineApp:stand" %}" class="js-target-scroll">Billetterie Exposant</a></li>
                   </ul>
               </li>
-              <li><a href="faq" class="js-target-scroll">FAQ</a></li>
-              <li><a href="contact" class="js-target-scroll">Contact</a></li>
+              <li><a href="{% url "vitrineApp:blogs" %}" class="js-target-scroll">Blogs</a></li>
+              <li><a href="{% url "vitrineApp:contacts" %}" class="js-target-scroll">Contacts</a></li>
               </ul>
           </div>
         </nav>

@@ -7,7 +7,7 @@ from django.contrib.auth import authenticate, logout
 
 from galerieApp.models import CategorieItem, Item
 from boutiqueApp.models import  Produit
-from vitrineApp.models import  Evenement, Participation, ReservationStand
+from vitrineApp.models import  Blog, Evenement, Participation, ReservationStand
 from .models import *
 from datetime import datetime, timedelta
 # Create your views here.
@@ -96,23 +96,39 @@ def participants(request):
         
         
         
-@render_to('adminApp/actualites.html')
-def actualites(request):
+@render_to('adminApp/blogs.html')
+def blogs(request):
     if request.method == "GET":
-        actualites = Actualite.objects.filter(deleted = False)
+        blogs = Blog.objects.filter(deleted = False)
         ctx = {
-            "actualites": actualites,
+            "blogs": blogs,
         }
         return ctx
         
-@render_to('adminApp/actualite.html')
-def actualite(request, id):
+@render_to('adminApp/blog.html')
+def blog(request, id):
     if request.method == "GET":
-        actualite = get_object_or_404(Actualite, id = id, deleted = False)
+        blog = get_object_or_404(Blog, id = id, deleted = False)
         ctx = {
-            "actualite": actualite,
+            "blog": blog,
         }
         return ctx
+    
+    
+@render_to('adminApp/write_blog.html')
+def write_blog(request, id):
+    if request.method == "GET":
+        if id == "new":
+            ctx = {}
+        else:
+            blogs = Blog.objects.filter(id=id)
+            ctx = {
+                "blog": blogs.first
+            }
+        return ctx
+    
+    
+    
     
     
     

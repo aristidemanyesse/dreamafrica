@@ -38,7 +38,7 @@
                                 <div class="">
                                     <label>{% translate "Photo d'illustration 1" %} </label>
                                     <div class="">
-                                        <img style="width: 100px;" src="{{element.image.url}}" class="img-thumbnail logo">
+                                        <img style="width: 100px;" src="{{element.image1.url}}" class="img-thumbnail logo">
                                         <input class="hide" type="file" name="image1">
                                         <button type="button" class="btn btn-sm bg-purple pull-right btn_image"><i class="fa fa-image"></i></button>
                                     </div>
@@ -46,7 +46,7 @@
                                 <div class="">
                                     <label>{% translate "Photo d'illustration 1" %} </label>
                                     <div class="">
-                                        <img style="width: 100px;" src="{{element.image.url}}" class="img-thumbnail logo">
+                                        <img style="width: 100px;" src="{{element.image2.url}}" class="img-thumbnail logo">
                                         <input class="hide" type="file" name="image2">
                                         <button type="button" class="btn btn-sm bg-purple pull-right btn_image"><i class="fa fa-image"></i></button>
                                     </div>
@@ -54,7 +54,7 @@
                                 <div class="">
                                     <label>{% translate "Photo d'illustration 1" %} </label>
                                     <div class="">
-                                        <img style="width: 100px;" src="{{element.image.url}}" class="img-thumbnail logo">
+                                        <img style="width: 100px;" src="{{element.image3.url}}" class="img-thumbnail logo">
                                         <input class="hide" type="file" name="image3">
                                         <button type="button" class="btn btn-sm bg-purple pull-right btn_image"><i class="fa fa-image"></i></button>
                                     </div>
@@ -71,15 +71,49 @@
                                 <div class="panel panel-inverse m-b-0">
                                     <div class="panel-heading">
                                         <div class="panel-heading-btn">
-                                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-                                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
-                                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
-                                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
                                         </div>
-                                        <h4 class="panel-title">Rédigez plus d'infos sur le produit - Ce que vous voyez sera le resultat obtenu !</h4>
+                                        <h4 class="panel-title">PLUS D'INFOS</h4>
                                     </div>
                                     <div class="panel-body p-0">
-                                        <textarea class="summernote" name="code"></textarea>
+                                        <form action="" method="POST" name="summernote_form">
+                                            <textarea class="summernote" id="infos" rows="5" name="infos"></textarea>
+                                        </form>
+                                    </div>
+                                </div><br>
+                                <div class="panel panel-inverse m-b-0">
+                                    <div class="panel-heading">
+                                        <div class="panel-heading-btn">
+                                        </div>
+                                        <h4 class="panel-title">RECETTES</h4>
+                                    </div>
+                                    <div class="panel-body p-0">
+                                        <form action="" method="POST" name="summernote_form">
+                                            <textarea class="summernote" id="recettes" rows="5" name="recettes"></textarea>
+                                        </form>
+                                    </div>
+                                </div><br>
+                                <div class="panel panel-inverse m-b-0">
+                                    <div class="panel-heading">
+                                        <div class="panel-heading-btn">
+                                        </div>
+                                        <h4 class="panel-title">AVIS CLIENTS</h4>
+                                    </div>
+                                    <div class="panel-body p-0">
+                                        <form action="" method="POST" name="summernote_form">
+                                            <textarea class="summernote" id="avis" rows="5" name="avis"></textarea>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="panel panel-inverse m-b-0">
+                                    <div class="panel-heading">
+                                        <div class="panel-heading-btn">
+                                        </div>
+                                        <h4 class="panel-title">FAQ</h4>
+                                    </div>
+                                    <div class="panel-body p-0">
+                                        <form action="" method="POST" name="summernote_form">
+                                            <textarea class="summernote" rows="5" id="faq" name="faq"></textarea>
+                                        </form>
                                     </div>
                                 </div>
                             </div>

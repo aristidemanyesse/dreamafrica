@@ -1,0 +1,33 @@
+<div class="banner-form">
+    <h5 class="text-center">Réservez votre place</h5>
+    <!--Registration Form-->
+      <form method="POST" class="formShamman" classname="ParticipationForm">
+          {% csrf_token %}
+          <div class="form-group">
+            <input class="form-control" name="fullname" id="fullname" placeholder="Nom et prénoms" required type="text">
+          </div>
+          <div class="form-group select">
+            <select name="evenement" class="form-control" required="">
+              <option value="">Quel evenement vous interesse ?</option>
+              {% for event in events %}
+                <option value="{{event.id}}">{{event.name}} ({{event.price}}€)</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="form-group">
+            <input class="form-control" name="quantite" min="1" value="1" placeholder="Nombre de place" required type="number">
+          </div>
+          <div class="form-group">
+            <input class="form-control" name="contact" placeholder="Numero de téléphone" required type="text">
+          </div>               
+          <br>
+         
+          <div class="contact-btn-m text-center">
+              <button class="btn btn-block">
+                <span id="button-text">Réservez maintenant !</span>
+              </button>
+          </div>
+       
+      </form>
+    <!--/Registration Form--> 
+  </div>

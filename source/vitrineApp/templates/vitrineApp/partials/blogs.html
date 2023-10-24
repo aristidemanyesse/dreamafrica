@@ -1,0 +1,33 @@
+{% load static %}
+
+<section id="blog" class="section-padding">
+    <div class="container">
+      <div class="row">
+        <!-- Heading -->
+        <div class="col-md-12">
+            <div class="heading-sec clearfix">
+              <div class="section-header text-center">
+                <h2>Actualités DreamTeam</h2>
+                <p>Le mag de la diaspora africaine</p>
+              </div>
+            </div>
+          </div>
+        <!-- /Heading --> 
+        {% for blog in blogs %}
+        <div class="col-md-4 col-sm-4">
+          <div class="blog_wrap">
+            <div class="blog_img margin-btm-20">
+              <a href="{% url "vitrineApp:blog" blog.id %}"><img src="{{blog.image.url}}" style="height: 250px;" alt="image"></a>
+            </div>
+              <div class="blog_meta">
+                  <p>{{blog.created_at}}</p>
+                </div>
+                <h5><a href="{% url "vitrineApp:blog" blog.id %}">{{blog.title}}</a></h5>
+                <p>{{blog.subtitle}}</p>
+                </div>
+              </div>
+        {% endfor %}
+
+      </div>
+    </div>
+  </section>

@@ -1,97 +1,86 @@
 {% extends 'base/vitrineBase.html' %}
 {% load static %}
 
-{% block "title" %}#FAP2023 - Contactez-nous{% endblock "title" %}
 
-{% block "body" %}
+{% block body %}
 
-<!-- Start Header -->
-<div class="fables-header fables-after-overlay">
-    <div class="container"> 
-      <h2 class="fables-page-title fables-second-border-color"><span class="fables-second-text-color">#FAP2023</span> Contactez-nous</h2>
+<!-- Banners -->
+<section id="banner" class="banner-section"> 
+  <!-- Banner Tagline -->
+  <div class="banner-fixed">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-7 col-md-7 col-lg-8">
+          <div class="banner-content">
+            <div class="banner-tagline">
+              <h1>Contactez-nous</h1>
+              <p>Visitez notre boutique, et repartez avec de nombreux souvenirs</p>
+              </div>
+          </div>
+        </div>
+      </div>
     </div>
-</div>  
-<!-- /End Header -->
-     
+  </div>
+  <!-- /Banners Tagline -->
+  <div class="dark-layer"></div>
+</section>
+<!-- /Banners --> 
 
-     
-<!-- Start page content --> 
-    <div class="container"> 
-        <div class="row overflow-hidden">
-             <div class="col-12 col-md-4 text-center px-4 px-lg-5 my-4 my-lg-5 wow fadeInDown" data-wow-delay=".5s">
-                  <div class="fables-second-border-color border fables-contact-block-border fables-rounded px-2">
-                        <span class="fables-iconmap-icon fa-3x fables-second-text-color fables-contact-icon bg-white d-inline-block px-4"></span> 
-                        <h2 class="font-16 semi-font fables-main-text-color my-3">Site d'expositions</h2>
-                        <p class="font-14 fables-forth-text-color">
-                        level13, 2Elizabeth St, Melbourne,Victor 2000</p>        
-                  </div> 
-             </div>
-             <div class="col-12 col-md-4 text-center px-4 px-lg-5 my-4 my-lg-5 wow fadeInDown" data-wow-delay=".8s">
-                  <div class="fables-second-border-color border fables-contact-block-border fables-rounded px-2">
-                    <span class="fables-iconphone fa-3x fables-second-text-color fables-contact-icon bg-white d-inline-block px-4"></span>
-                    <h2 class="font-16 semi-font fables-main-text-color my-3">Mail & Téléphone</h2>
-                    <p class="font-14 fables-forth-text-color text-truncate">adminsupport@website.com</p>
-                    <p class="font-14 fables-forth-text-color">+333 111 111 000</p>
-                 </div> 
-             </div>
-             <div class="col-12 col-md-4 text-center px-4 px-lg-5 my-4 my-lg-5 wow fadeInDown" data-wow-delay="1.1s">
-                 <div class="fables-second-border-color border fables-contact-block-border fables-rounded px-2">
-                        <span class="fables-iconshare-icon fa-3x fables-second-text-color fables-contact-icon bg-white d-inline-block px-4"></span>
-                        <h2 class="font-16 semi-font fables-main-text-color my-3">Restons connecter</h2>
-                        <ul class="nav fables-contact-social-links"> 
-                            <li><a href="#" target="_blank"><i class="fab fa-facebook-f fables-forth-text-color fa-fw"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fab fa-instagram fables-forth-text-color  fa-fw"></i></a></li> 
-                            <li><a href="#" target="_blank"><i class="fab fa-twitter fables-forth-text-color    fa-fw"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fab fa-linkedin fables-forth-text-color   fa-fw"></i></a></li>
-                        </ul>
-                 </div> 
-             </div>
-        </div>        
-        <div class="row mt-0 mb-4 my-md-5 overflow-hidden"> 
-           <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-            <h1 class="font-weight-bold fables-main-text-color display-3 text-center title">Contactez-nous !</h1> 
-                <p class="fables-contact-text fables-forth-text-color text-center">Une immersion culturelle unique vous attend à la Foire Africaine de Paris ! </p><br>
-                <p class="fables-contact-text fables-forth-text-color text-center">Une question, une préoccupation, un renseignement... Profitez de notre espace infoline pour obtenir toutes les informations nécessaires et répondre à vos questions lors de votre visite à la Foire Africaine de Paris. </p>
-           </div>  
-                  
-        </div>    
-        <div class="row">
-            <div class="col-12 wow fadeInLeft">
-                <form class="fables-contact-form">
-                  <div class="form-row">
-                      <div class="form-group col-md-6">
-                          <input type="text" class="form-control p-3 fables-rounded"  placeholder="First Name">   
-                      </div>
-                      <div class="form-group col-md-6">
-                          <input type="text" class="form-control p-3 fables-rounded"  placeholder="Last Name">  
-                      </div> 
-                  </div>
-                  <div class="form-row">
-                      <div class="form-group col-md-6">
-                          <input type="email" class="form-control p-3 fables-rounded" placeholder="Email"> 
-                      </div>
-                      <div class="form-group col-md-6">
-                          <input type="text" class="form-control p-3 fables-rounded" placeholder="Subject"> 
-                      </div> 
-                  </div> 
-                  <div class="form-row"> 
-                       <div class="form-group col-md-12">
-                           <textarea class="form-control p-3 fables-rounded" placeholder="Message" rows="4"></textarea>
-                      </div> 
-                  </div>
-                  <div class="form-row">
-                    <div class="col-md-12 text-center">
-                        <button type="submit" class="btn fables-second-background-color 
-                         text-white fables-btn-rounded px-7 py-2 font-20">Envoyer le message</button>
-                    </div>
-                  </div>
-                </form>
-                
-                   
+
+  
+<!-- Blog -->
+<section id="blog" class="section-padding">
+    <div class="container">
+        <div class="">
+            <div class="heading-sec clearfix">
+                <div class="section-header text-center">
+                    <h2>Dream Team Africa</h2>
+                    <p>Venez soutenir les artisans de la diversité culturel africaine !</p>
+                </div>
             </div>
-                
-        </div> 
-    </div> 
-<!-- /End page content -->
+            <div class="row">
+                <div class="col-md-8">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15888.116931022736!2d-3.95723835!3d5.4125186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sci!4v1697632176451!5m2!1sfr!2sci" width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class=""> <i class="fa fa-phone" aria-hidden="true"></i>
+                                <h4>(+33) 7 82 80 18 52</h4>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class=""> <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <h6>10 rue des terres au curé <br> 75 013 Paris</h6>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="">
+                                <i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:support@domainname.com">services@dreamteamafrica.com</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <ul class="social_links">
+                              <li><a href="https://www.facebook.com/dreamteamafricaparis"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                              <li><a href="https://twitter.com/foire_dafrique"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                              <li><a href="https://www.linkedin.com/company/dream-team-africa-paris"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                              <li><a href="https://www.instagram.com/foiredafriqueparis"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /Blog -->
 
-{% endblock "body" %}
+
+ 
+
+{% endblock body %} 
+
+
+
+
+

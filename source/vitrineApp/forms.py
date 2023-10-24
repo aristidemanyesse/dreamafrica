@@ -22,3 +22,9 @@ class EvenementForm(ModelForm):
     class Meta:
         model = Evenement
         fields = "__all__"
+        
+# Create the form class.
+class BlogForm(ModelForm):
+    class Meta:
+        model = Blog
+        fields = "__all__"
