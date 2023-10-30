@@ -25,8 +25,8 @@ SECRET_KEY = 'django-insecure-sr-qbh7mk37$6kvl8l=!a-1ume6feq9ta$99gqh1#g7$4b@(s^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
-
+ALLOWED_HOSTS = ["0.0.0.0", "localhost", "fap.manyesse.tech"]
+CSRF_TRUSTED_ORIGINS = ['https://fap.manyesse.tech']
 
 # Application definition
 

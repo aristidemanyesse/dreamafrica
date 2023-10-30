@@ -2,7 +2,7 @@
 from django.shortcuts import redirect
 from django.urls import path
 from django.views.decorators.csrf import csrf_exempt
-from . import ajax, ajax2, views
+from . import ajax, views
 
 app_name = "authApp"
 urlpatterns = [

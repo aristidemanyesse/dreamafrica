@@ -71,7 +71,7 @@
     var token = $("div.token input[type=hidden]").val();
 
 
-    url = "/auth/boutique/article/payement/stripeTokenHandler/";
+    url = "{% url 'boutiqueApp:stripeTokenHandler' %}";
     var formdata = new FormData();
     formdata.append('participation_id', "{{participation.id}}");
     formdata.append('csrfmiddlewaretoken', token);
@@ -113,7 +113,7 @@
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: "http://localhost:8000/auth/boutique/payement_checkout/",
+        return_url: "https://fap.manyesse.tech/auth/boutique/payement_checkout/",
         receipt_email: emailAddress,
       },
     });

@@ -64,5 +64,5 @@ class Blog(BaseModel):
 
 @receiver(pre_save, sender=Participation)
 def _(sender, instance, **kwargs):
-    instance.price = instance.quantite * instance.evenement.price
+    instance.price = round(instance.quantite * instance.evenement.price, 2)
     
