@@ -47,9 +47,13 @@
         	<h5><a href="{% url "boutiqueApp:produit" produit.id %}">{{produit.name}}</a></h5>
 	        <p >{{produit.description|truncatewords:20}}</p>
          </div>
+         {% if produit not in request.panier_produits %}
          <div class="contact-btn-m text-center">
-            <button class="btn btn-md" name="submit"  type="submit"> Ajouter au panier</button>
+            <button class="btn btn-md" onclick="ajouter('{{produit.id}}')" > Ajouter au panier</button>
         </div>
+        {% else %}
+        <h6 class="text-center">Déjà dans le panier</h6>
+        {% endif %}
       </div><br>
       {% endfor %}
 
@@ -92,10 +96,14 @@
 </section>
 <!--/Conference Venue--> 
  
-
 {% endblock body %} 
 
 
 
+{% block scriptjs %}
+  <script>
+    {% include "./produit.js" %}
+  </script>
+{% endblock scriptjs %}
 
 

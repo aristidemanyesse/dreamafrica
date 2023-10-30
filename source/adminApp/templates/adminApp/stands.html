@@ -15,50 +15,68 @@
 			</ol> {% endcomment %}
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">Inscription de demandes de Stand <small>via le site internet</small></h1>
+			<h1 class="page-header">Reservation partiipations <small>via le site internet</small></h1>
 			<!-- end page-header -->
 			
 
 
 			<!-- begin row -->
-			<div class="row">
-			    <!-- begin col-12 -->
-			    <div class="col-md-12">
-			        <div class="result-container">
-                        <br>
-                        <ul class="result-list">
-                            
-                            {% for stand in stands %}
-                                <li>
-                                    <div class="result-image">
-                                        <a href="javascript:;"><img src="assets/img/gallery/gallery-1.jpg" alt="" /></a>
-                                    </div>
-                                    <div class="result-info">
-                                        <h4 class="title"><a href="javascript:;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h4>
-                                        <p class="location">United State, BY 10089</p>
-                                        <p class="desc">
-                                            Nunc et ornare ligula. Aenean commodo lectus turpis, eu laoreet risus lobortis quis. Suspendisse vehicula mollis magna vel aliquet. Donec ac tempor neque, convallis euismod mauris. Integer dictum dictum ipsum quis viverra.
-                                        </p>
-                                        <div class="btn-row">
-                                            <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Analytics"><i class="fa fa-fw fa-bar-chart-o"></i></a>
-                                            <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Tasks"><i class="fa fa-fw fa-tasks"></i></a>
-                                            <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Configuration"><i class="fa fa-fw fa-cog"></i></a>
-                                            <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Performance"><i class="fa fa-fw fa-tachometer"></i></a>
-                                            <a href="javascript:;" data-toggle="tooltip" data-container="body" data-title="Users"><i class="fa fa-fw fa-user"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="result-price">
-                                        $92,101 <small>PER MONTH</small>
-                                        <a href="javascript:;" class="btn btn-inverse btn-block">View Details</a>
-                                    </div>
-                                </li>
-                            {% endfor %}
-
-                        </ul>
+            <div class="row">
+                <!-- begin col-12 -->
+                <div class="col-md-12">
+                    <!-- begin panel -->
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <div class="panel-heading-btn">
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
+                            </div>
+                            <h4 class="panel-title">Toutes les demandes</h4>
+                        </div>
+                        <div class="panel-body">
+                            <table id="data-table" class="table table-striped table-hover">
+                                <thead>
+                                    <tr class="text-uppercase">
+                                        <th>id</th>
+                                        <th>Nom de participant</th>
+                                        <th>Evenement</th>
+                                        <th>Qté</th>
+                                        <th>Prix</th>
+                                        <th>ID Payement</th>
+                                        <th>Status</th>
+                                        <th>Fait le</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for item in participants %}
+                                        <tr class="odd gradeX">
+                                            <td>{{ item.id }}</td>
+                                            <td>{{item.fullname}} <br> {{ item.contact }}</td>
+                                            <td>{{item.evenement.name}} </td>
+                                            <td> x{{ item.quantite }}</td>
+                                            <td>{{ item.price }}</td>
+                                            <td>{{ item.payement_intent }}</td>
+                                            <td>
+                                                {% if item.status %}
+                                                <label class="label label-success">Validée</label>
+                                                {% else %}
+                                                    <label class="label label-warning">En attente</label>
+                                                {% endif %}  
+                                            </td>
+                                            <td>{{ item.created_at }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                  
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-			    </div>
-			    <!-- end col-12 -->
-			</div>
+                    <!-- end panel -->
+                </div>
+                <!-- end col-12 -->
+            </div>
+
+
 			<!-- end row -->
 		</div>
 		<!-- end #content -->

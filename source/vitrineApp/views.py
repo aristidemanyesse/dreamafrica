@@ -115,7 +115,7 @@ def purchase(request, id):
     if request.method == "GET":
         participation = Participation.objects.get(id = id)
         ctx = {
-            "participation": participation
+            "participation": participation,
         }
         return ctx
 

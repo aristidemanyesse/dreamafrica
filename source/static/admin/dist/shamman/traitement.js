@@ -152,7 +152,6 @@ $(function () {
                     Alerter.error('Erreur !', data.message);
                 }
             }, 'json')
-
         })
     }
 

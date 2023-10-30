@@ -25,10 +25,25 @@
   <!--Back to top-->
   <div id="back-top" class="back-top"> <a href="#top"><i class="fa fa-angle-up" aria-hidden="true"></i> </a> </div>
   <!--/Back to top--> 
+
+  <div class="token">{% csrf_token %}</div>
   
 
 
   {% include "../partials/import_js.html" %}
+
+  <script>
+    $(function(){
+        var panier = localStorage.getItem("dreamteam-panier"); 
+        panier = JSON.parse(panier)
+        session("dreamteam-panier", JSON.stringify(panier)); 
+    })
+  </script>
  
+
+  {% block scriptjs %}
+
+  {% endblock scriptjs %} 
+  
 </body>
 </html>

@@ -21,15 +21,17 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 def redir(request):
-    return redirect("/")
+    return redirect("/dreamteam/")
 
 
 urlpatterns = [
-    path('', include('vitrineApp.urls')),
-    path('fap2023/boutique/', include('boutiqueApp.urls')),
-    path('fap2023/shop/', include('boutiqueApp.urls')),
-    path('fap2023/galerie/', include('galerieApp.urls')),
+    path('/', redir),
+    path('', redir),
+    path('dreamteam/', include('vitrineApp.urls')),
+    path('dreamteam/boutique/', include('boutiqueApp.urls')),
+    path('dreamteam/galerie/', include('galerieApp.urls')),
     path('core/', include('coreApp.urls')),
-    path('admin/', include('adminApp.urls')),
-    path('root/', admin.site.urls),
+    path('auth/', include('adminApp.urls')),
+    path('administration/', include('adminApp.urls_admin')),
+    path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

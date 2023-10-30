@@ -1,6 +1,6 @@
-from django.shortcuts import render
+import json
 from annoying.decorators import render_to
-from boutiqueApp.models import  Produit
+from boutiqueApp.models import  LigneCommande, Produit
 
 # Create your views here.
 
@@ -15,16 +15,29 @@ def main(request):
         return ctx
     
     
-# @render_to('boutiqueApp/categorie.html')
-# def categorie(request, id):
-#     if request.method == "GET":
-#         categorie = Categorie.objects.get(deleted = False, id = id)
-#         produits = Produit.objects.filter(deleted = False, categorie = categorie).order_by('?')[:18]
-#         ctx = {
-#             "categorie": categorie,
-#             "produits":produits
-#         }
-#         return ctx
+@render_to('boutiqueApp/panier.html')
+def panier(request):
+    if request.method == "GET":
+        total = 0
+        panier = json.loads(request.session.get("dreamteam-panier", "[]"))
+        produits = Produit.objects.filter(deleted = False, id__in = [key for key in panier])
+        lignes = []
+        for prod in produits:
+            total += prod.price * panier[str(prod.id)]
+            lignes.append(
+                LigneCommande(
+                    produit = prod,
+                    quantite = panier[str(prod.id)]
+                )
+            )
+            
+        produits = Produit.objects.filter(deleted = False)[:4]
+        ctx = {
+            "total":total,
+            "lignes":lignes,
+            "produits":produits,
+        }
+        return ctx
     
     
     

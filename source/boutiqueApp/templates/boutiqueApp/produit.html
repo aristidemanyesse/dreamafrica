@@ -86,7 +86,7 @@
 			</div>
 			<br><br><br>
 			<div class="contact-btn-m text-left">
-			   <button class="btn btn-md" type="submit"><i class="fa fa-cart"></i> Ajouter au panier</button>
+			   <button class="btn btn-md" onclick="ajouter('{{produit.id}}')" ><i class="fa fa-cart"></i> Ajouter au panier</button>
 		   </div>
 		 </div>
 
@@ -147,9 +147,13 @@
 					<h5><a href="{% url "boutiqueApp:produit" produit.id %}">{{produit.name}}</a></h5>
 					<p >{{produit.description|truncatewords:15}}</p>
 				</div>
-				<div class="contact-btn-m text-center">
-					<button class="btn btn-md" name="submit"  type="submit"> Ajouter au panier</button>
-				</div>
+				{% if produit not in request.panier_produits %}
+					<div class="contact-btn-m text-center">
+						<button class="btn btn-md" onclick="ajouter('{{produit.id}}')" > Ajouter au panier</button>
+					</div>
+				{% else %}
+					<h6 class="text-center">Déjà dans le panier</h6>
+				{% endif %}
 			</div>
 		{% endfor %}
     </div>

@@ -22,7 +22,6 @@ def connexion(request):
         logout(request)
         if 'locked' in request.session:
             del request.session['locked']
-            
         return {}
         
         
@@ -33,13 +32,13 @@ def locked(request):
         request.session['locked'] = True
         if "last_url" not in request.session:
             request.session['last_url'] = request.META["HTTP_REFERER"]
-        return render(request, "auth/pages/locked.html")
+        return {}
         
 
 
 def deconnexion(request):
     if request.method == "GET":
-        return redirect("adminApp:login") 
+        return redirect("authApp:login") 
         
         
         
@@ -166,9 +165,9 @@ def events(request):
 @render_to('adminApp/stands.html')
 def stands(request):
     if request.method == "GET":
-        # stands = Stand.objects.filter(deleted = False)
+        participants = Participation.objects.filter(deleted = False)
         ctx = {
-            "stands": stands,
+            "participants": participants,
         }
         return ctx
           
@@ -216,7 +215,13 @@ def test(request):
 @render_to('adminApp/payement_checkout.html')
 def payement_checkout(request):
     if request.method == "GET":
-        print(request.POST)
+        datas = request.GET
+        participation = Participation.objects.get(client_secret = datas["payment_intent_client_secret"])
+        
+        participation.payement_intent = datas["payment_intent"]
+        participation.status = datas["redirect_status"] == "succeeded"
+        participation.save()
+        
         ctx = {
             "test": "test",
         }

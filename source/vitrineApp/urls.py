@@ -16,8 +16,6 @@ urlpatterns = [
     
     path('events/participation/purchase/<uuid:id>/', views.purchase, name='purchase'),
     
-    # path('programme', views.programme, name='programme'),
-    # path('participants', views.participants, name='participants'),
     path('billetterie_exposants/', views.stand, name='stand'),
     path('blogs', views.blogs, name='blogs'),
     path('blog/<uuid:id>', views.blog, name='blog'),

@@ -1,40 +1,200 @@
+from django.contrib.auth.models import User
+from django.http.response import HttpResponse
 from django.shortcuts import render
-from django.contrib.contenttypes.models import ContentType
-from django.http import HttpResponse
-from django.contrib.auth.decorators import login_required, permission_required
-from django.http import JsonResponse
-import json, uuid
-from django.views.decorators.csrf import csrf_exempt
-from django.urls import reverse
-from settings import settings as parametres
-from django.utils.translation import gettext as _
-import stripe
-from vitrineApp.models import Participation
-
+from django.contrib.auth import authenticate, login
+from django.http import  JsonResponse
+import uuid, datetime
+from django.contrib.sessions.backends.db import SessionStore
 # Create your views here.
-@csrf_exempt
-def stripeTokenHandler(request):
+from django.utils.translation import gettext as _
+
+
+def connexion(request):
     if request.method == "POST":
-        datas = json.loads(request.body.decode('utf-8'))
-        try:
-            stripe.api_key = "sk_test_51O11ddBltzuPBBd1JY9carffmwRn2DXMOfc5uw7MabKtZhrbDUrWIPuryZ5qLsJQ9ZGeqlJWIkOmi3HDm0tS8jOz005BTmzl9u"
-            participation = Participation.objects.get(id = datas["items"][0]["participation_id"])
-            # Create a PaymentIntent with the order amount and currency
-            intent = stripe.PaymentIntent.create(
-                amount= int(participation.evenement.price * 100),
-                currency='eur',
-                # In the latest version of the API, specifying the `automatic_payment_methods` parameter is optional because Stripe enables its functionality by default.
-                automatic_payment_methods={
-                    'enabled': True,
-                },
-            )
-            return JsonResponse({
-                'clientSecret': intent['client_secret']
-            })
+        datas = request.POST
+        user = authenticate(request, username=datas["identifiant"], password=datas["password"])
+        if user is not None:
+            try:
+                if user.is_superuser:
+                    request.session["user_id"] = user.id
+                # else:
+                #     respo = ResponsableOfficine.objects.get(pk = user.id)
+                #     if respo.is_never_connected:
+                #         request.session["respo_id"] = respo.id
+                #         return JsonResponse({"status":True, "new":True})
+                login(request, user)
+                return JsonResponse({"status":True})
+            except Exception as e:
+                print("**----------------------------------", e)
+                return JsonResponse({"status":False, "message":_("Une erreur s'est produite lors de l'opération, veuillez recommencer !")})
+        else:
+            return JsonResponse({"status":False, "message":_("Login et/ou mot de passe incorrect !")})
 
+
+
+def unlocked(request):
+    if request.method == "POST":
+        datas = request.POST
+        user = authenticate(request, username=datas["username"], password=datas["password"])
+        if user is not None:
+            try:
+                login(request, user)
+                url = request.session['last_url']
+                if 'locked' in request.session:
+                    del request.session['locked']
+                    del request.session['last_url']
+                return JsonResponse({"status":True, "url":url})
+            except Exception as e:
+                print("-----------------------------------", e)
+                return JsonResponse({"status":False, "message":_("Une erreur s'est produite lors de l'opération, veuillez recommencer !")})
+        else:
+            return JsonResponse({"status":False, "message":_("Mot de passe incorrect !")})
+
+
+
+def unlocked(request):
+    if request.method == "POST":
+        datas = request.POST
+        user = authenticate(request, username=datas["username"], password=datas["password"])
+        if user is not None:
+            try:
+                login(request, user)
+                url = request.session['last_url']
+                if 'locked' in request.session:
+                    del request.session['locked']
+                    del request.session['last_url']
+                return JsonResponse({"status":True, "url":url})
+            except Exception as e:
+                print("-----------------------------------", e)
+                return JsonResponse({"status":False, "message":_("Une erreur s'est produite lors de l'opération, veuillez recommencer !")})
+        else:
+            return JsonResponse({"status":False, "message":_("Mot de passe incorrect !")})
+
+
+
+
+def first_user(request):
+    if request.method == "POST":
+        datas = request.POST
+        if len(datas["password"]) >= 6:
+            if datas["password2"] == datas["password"]:
+                try:
+                    if ResponsableOfficine.objects.filter(deleted=False, username=datas["identifiant"]).exclude(pk = request.session["respo_id"]).count() > 0:
+                        raise Exception(_("Vous ne pouvez pas utiliser ce nom d'utilisateur, veuillez le changer !"))
+                    
+                    respo = ResponsableOfficine.objects.get(pk = request.session["respo_id"])
+                    if User.objects.filter(username=datas["identifiant"]).exclude(pk = respo.user_ptr_id).count() > 0:
+                        raise Exception(_("Vous ne pouvez pas utiliser ce nom d'utilisateur, veuillez le changer !"))
+                    
+                    respo.username = datas["identifiant"]
+                    respo.set_password(datas["password"])
+                    respo.is_never_connected = False
+                    respo.save()
+
+                    respo = authenticate(request, username=datas["identifiant"], password=datas["password"])
+                    login(request, respo)
+                    res = JsonResponse({"status":True})
+
+                except Exception as e:
+                    print("++++----------------------------------", e)
+                    res = JsonResponse({"status":False, "message": str(e)})
+            else:
+                res = JsonResponse({"status":False, "message":_("Les mots de passe ne correspondent pas !")})
+        else:
+            res = JsonResponse({"status":False, "message":_("Le nouveau mot de passe est trop court, minimum 8 caractères !")})
+
+        return res
+
+
+
+
+
+def forgetpassword(request):
+    if request.method == "POST":
+        datas = request.POST
+        try :
+            user = User.objects.get(email = datas["email"])
+            ForgotPassword.objects.create(
+                    email = datas["email"]
+                )
+            return JsonResponse({"status":True, "url":"/auth/reset/"})
         except Exception as e:
-            # Gérez les autres erreurs
-            print("Error: " + str(e))
-            return JsonResponse({"status": False, 'message': str(e)})
+            print(e)
+            return JsonResponse({"status":False, "message":_("Désolé, cette adresse email n'est pas connu par le ssytème !")})
 
-    return JsonResponse({"status": False, 'message': 'Invalid request'})
+
+
+
+def reset(request):
+    if request.method == "POST":
+        datas = request.POST
+        if datas["password"] == datas["confirm"]:
+            try :
+                fp = ForgotPassword.objects.get(pk = id, is_validate = False)
+                if fp.finished_at >= datetime.datetime.now():
+                    user = User.objects.get(email = fp.email)
+                    user.set_password(datas["password"])
+                    user.save()
+
+                    fp.is_validate = True
+                    fp.save()
+                    return JsonResponse({"status":True, "url":"/auth/login/"})
+                else:
+                    return JsonResponse({"status":False, "message":_("La période pour changer le mot de passe avec ce mail a expiré, veuillez recommencer la procédure !")})
+            except Exception as e:
+                print(e)
+                return JsonResponse({"status":False, "message":_("Une erreur s'est produite lors del'opération, veuillez recommencer !")})
+        else:
+            return JsonResponse({"status":False, "message":_("Les mots de passe ne correspondent pas !")})
+
+
+
+
+def logout(request):
+    return render(request, "login.html")
+
+
+
+# def forgetpassword(request):
+#     if request.method == "POST":
+#         datas = request.POST
+#         try :
+#             user = User.objects.get(email = datas["email"])
+#             ForgotPassword.objects.create(
+#                     email = datas["email"]
+#                 )
+#             return JsonResponse({"status":True, "url":"/auth/reset/"})
+#         except Exception as e:
+#             print(e)
+#             return JsonResponse({"status":False, "message":_("Désolé, cette adresse email n'est pas connu par le ssytème !")})
+
+
+
+
+# def reset(request):
+#     if request.method == "POST":
+#         datas = request.POST
+#         if datas["password"] == datas["confirm"]:
+#             try :
+#                 fp = ForgotPassword.objects.get(pk = id, is_validate = False)
+#                 if fp.finished_at >= datetime.datetime.now():
+#                     user = User.objects.get(email = fp.email)
+#                     user.set_password(datas["password"])
+#                     user.save()
+
+#                     fp.is_validate = True
+#                     fp.save()
+#                     return JsonResponse({"status":True, "url":"/auth/login/"})
+#                 else:
+#                     return JsonResponse({"status":False, "message":_("La période pour changer le mot de passe avec ce mail a expiré, veuillez recommencer la procédure !")})
+#             except Exception as e:
+#                 print(e)
+#                 return JsonResponse({"status":False, "message":_("Une erreur s'est produite lors del'opération, veuillez recommencer !")})
+#         else:
+#             return JsonResponse({"status":False, "message":_("Les mots de passe ne correspondent pas !")})
+
+
+
+
+def logout(request):
+    return render(request, "login.html")

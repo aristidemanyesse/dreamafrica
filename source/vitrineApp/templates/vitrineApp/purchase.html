@@ -1,32 +1,29 @@
+{% extends 'base/vitrineBase.html' %}
 {% load static %}
 
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Validation du payement</title>
+{% block "title" %}Validation du payement | Dream Team Africa{% endblock "title" %}
 
-    {% include "../partials/meta.html" %}
-    {% include "../partials/import_css.html" %}
+{% block body %}
+<script src="https://js.stripe.com/v3/"></script>
 
-  </head>
-  <body>
-    <br><br><br>
-
-    <div class="container m-lg-5">
-      <div class="row m-lg-5">
-        <div class="col-sm-6">
-          <div id="header" > 
-            <h1><a href="main"><span class="logo">Dream</span>Team</a></h1>
+<section id="banner" class="banner-section"> 
+  <!-- Banner Tagline -->
+  <div class="banner-fixed">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-7 col-md-7 col-lg-8">
+          <div class="banner-content">
+            <div class="banner-tagline">
+              <h1>{{participation.evenement.name}}</h1>
+              <br><br>
+              <p>{{participation.quantite}} place(s)</p>
+              <h3 style="color:white">{{participation.evenement.price}} x {{participation.quantite}} = {{participation.price}}</h3>
+              <br><br>
+              <p>{{participation.fullname}}</p>
+            </div> 
           </div>
-          <h2>Valider le payement </h2><br><br>
-
-
-          <h5>{{participation.fullname}}</h5>
-          <h6>{{participation.evenement.name}}</h6>
-          <h6>Total = {{participation.evenement.price}} £</h6>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-5 col-md-5 col-lg-4" style="color: white;">
           <form id="payment-form">
             <div id="link-authentication-element">
               <!--Stripe.js injects the Link Authentication Element-->
@@ -34,161 +31,161 @@
             <div id="payment-element">
               <!--Stripe.js injects the Payment Element-->
             </div>
-            <button id="submit" class="btn">
+            <br><br>
+            <button id="submit" class="btn btn-block">
               <div class="spinner hidden" id="spinner"></div>
-              <span id="button-text">Valider le payement</span>
+              <span id="button-text">Valider le payement ({{participation.price}})</span>
             </button>
-            <div id="payment-message" class="hidden"></div>
+            <div id="payment-message" class=""></div>
           </form>
         </div>
       </div>
     </div>
-
-    <hr>
-
-
-  </body>
-    
-  <script src="https://js.stripe.com/v3/"></script>
+  </div>
+  <!-- /Banners Tagline -->
+  <div class="dark-layer"></div>
+</section>
+{% endblock body %}
 
 
 
+{% block scriptjs %}
 <script>
   // This is your test publishable API key.
-const stripe = Stripe("pk_test_51O11ddBltzuPBBd1X8q9wf5sn0YLWqMxNEjht3ww86A3yj6KSuaJjAJCeRS9g2BVkelTbdGZU44ljVLx45gXxhQm00tbRPF5Np");
+  const stripe = Stripe("pk_test_51O11ddBltzuPBBd1X8q9wf5sn0YLWqMxNEjht3ww86A3yj6KSuaJjAJCeRS9g2BVkelTbdGZU44ljVLx45gXxhQm00tbRPF5Np");
 
-// The items the customer wants to buy
-const items = [{ participation_id: "{{participation.id}}" }];
 
-let elements;
+  let elements;
 
-initialize();
-checkStatus();
+  initialize();
+  checkStatus();
 
-document
+
+  document
   .querySelector("#payment-form")
   .addEventListener("submit", handleSubmit);
 
-let emailAddress = '';
-// Fetches a payment intent and captures the client secret
-async function initialize() {
-  const response = await fetch("/admin/boutique/article/payement/stripeTokenHandler/", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ items }),
-  });
-  const { clientSecret } = await response.json();
+  let emailAddress = '';
+  // Fetches a payment intent and captures the client secret
+  async function initialize() {
+    var token = $("div.token input[type=hidden]").val();
 
-  const appearance = {
-    theme: 'stripe',
-  };
-  elements = stripe.elements({ appearance, clientSecret });
 
-  const linkAuthenticationElement = elements.create("linkAuthentication");
-  linkAuthenticationElement.mount("#link-authentication-element");
+    url = "/auth/boutique/article/payement/stripeTokenHandler/";
+    var formdata = new FormData();
+    formdata.append('participation_id', "{{participation.id}}");
+    formdata.append('csrfmiddlewaretoken', token);
+    $.post({ url: url, data: formdata, contentType: false, processData: false }, function (data) {
+        if (data.status) {
+            
+            var clientSecret = data.clientSecret
 
-  linkAuthenticationElement.on('change', (event) => {
-    emailAddress = event.value.email;
-  });
+            const appearance = {
+              theme: 'stripe',
+            };
+            elements = stripe.elements({ appearance, clientSecret });
+        
+            const linkAuthenticationElement = elements.create("linkAuthentication");
+            linkAuthenticationElement.mount("#link-authentication-element");
+        
+            linkAuthenticationElement.on('change', (event) => {
+              emailAddress = event.value.email;
+            });
+        
+            const paymentElementOptions = {
+              layout: "tabs",
+            };
+        
+            const paymentElement = elements.create("payment", paymentElementOptions);
+            paymentElement.mount("#payment-element");
 
-  const paymentElementOptions = {
-    layout: "tabs",
-  };
-
-  const paymentElement = elements.create("payment", paymentElementOptions);
-  paymentElement.mount("#payment-element");
-}
-
-async function handleSubmit(e) {
-  e.preventDefault();
-  setLoading(true);
-
-  const { error } = await stripe.confirmPayment({
-    elements,
-    confirmParams: {
-      // Make sure to change this to your payment completion page
-      return_url: "http://localhost:8011/admin/boutique/payement_checkout/",
-      receipt_email: emailAddress,
-    },
-  });
-
-  // This point will only be reached if there is an immediate error when
-  // confirming the payment. Otherwise, your customer will be redirected to
-  // your `return_url`. For some payment methods like iDEAL, your customer will
-  // be redirected to an intermediate site first to authorize the payment, then
-  // redirected to the `return_url`.
-  if (error.type === "card_error" || error.type === "validation_error") {
-    showMessage(error.message);
-  } else {
-    showMessage("An unexpected error occurred.");
+        } else {
+            Alerter.error('Erreur !', data.message);
+        }
+    }, 'json')
   }
 
-  setLoading(false);
-}
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setLoading(true);
 
-// Fetches the payment intent status after payment submission
-async function checkStatus() {
-  const clientSecret = new URLSearchParams(window.location.search).get(
-    "payment_intent_client_secret"
-  );
+    const { error } = await stripe.confirmPayment({
+      elements,
+      confirmParams: {
+        // Make sure to change this to your payment completion page
+        return_url: "http://localhost:8000/auth/boutique/payement_checkout/",
+        receipt_email: emailAddress,
+      },
+    });
 
-  if (!clientSecret) {
-    return;
+    // This point will only be reached if there is an immediate error when
+    // confirming the payment. Otherwise, your customer will be redirected to
+    // your `return_url`. For some payment methods like iDEAL, your customer will
+    // be redirected to an intermediate site first to authorize the payment, then
+    // redirected to the `return_url`.
+    if (error.type === "card_error" || error.type === "validation_error") {
+      showMessage(error.message);
+    } else {
+      showMessage("An unexpected error occurred.");
+    }
+
+    setLoading(false);
+    }
+
+    // Fetches the payment intent status after payment submission
+    async function checkStatus() {
+    const clientSecret = new URLSearchParams(window.location.search).get(
+      "payment_intent_client_secret"
+    );
+
+    if (!clientSecret) {
+      return;
+    }
+
+    const { paymentIntent } = await stripe.retrievePaymentIntent(clientSecret);
+
+    switch (paymentIntent.status) {
+      case "succeeded":
+        showMessage("Payment succeeded!");
+        break;
+      case "processing":
+        showMessage("Your payment is processing.");
+        break;
+      case "requires_payment_method":
+        showMessage("Your payment was not successful, please try again.");
+        break;
+      default:
+        showMessage("Something went wrong.");
+        break;
+    }
   }
 
-  const { paymentIntent } = await stripe.retrievePaymentIntent(clientSecret);
+  // ------- UI helpers -------
 
-  switch (paymentIntent.status) {
-    case "succeeded":
-      showMessage("Payment succeeded!");
-      break;
-    case "processing":
-      showMessage("Your payment is processing.");
-      break;
-    case "requires_payment_method":
-      showMessage("Your payment was not successful, please try again.");
-      break;
-    default:
-      showMessage("Something went wrong.");
-      break;
+  function showMessage(messageText) {
+    const messageContainer = document.querySelector("#payment-message");
+
+    messageContainer.classList.remove("hidden");
+    messageContainer.textContent = messageText;
+
+    setTimeout(function () {
+      messageContainer.classList.add("hidden");
+      messageContainer.textContent = "";
+    }, 4000);
   }
-}
 
-// ------- UI helpers -------
-
-function showMessage(messageText) {
-  const messageContainer = document.querySelector("#payment-message");
-
-  messageContainer.classList.remove("hidden");
-  messageContainer.textContent = messageText;
-
-  setTimeout(function () {
-    messageContainer.classList.add("hidden");
-    messageContainer.textContent = "";
-  }, 4000);
-}
-
-// Show a spinner on payment submission
-function setLoading(isLoading) {
-  if (isLoading) {
-    // Disable the button and show a spinner
-    document.querySelector("#submit").disabled = true;
-    document.querySelector("#spinner").classList.remove("hidden");
-    document.querySelector("#button-text").classList.add("hidden");
-  } else {
-    document.querySelector("#submit").disabled = false;
-    document.querySelector("#spinner").classList.add("hidden");
-    document.querySelector("#button-text").classList.remove("hidden");
+  // Show a spinner on payment submission
+  function setLoading(isLoading) {
+    if (isLoading) {
+      // Disable the button and show a spinner
+      document.querySelector("#submit").disabled = true;
+      document.querySelector("#spinner").classList.remove("hidden");
+      document.querySelector("#button-text").classList.add("hidden");
+    } else {
+      document.querySelector("#submit").disabled = false;
+      document.querySelector("#spinner").classList.add("hidden");
+      document.querySelector("#button-text").classList.remove("hidden");
+    }
   }
-}
 </script>
-
-<style>
-
-  {% include "./purchase.css" %}
-</style>
-
-</html>
-
-
-
+{% endblock scriptjs %}
