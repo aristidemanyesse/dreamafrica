@@ -43,8 +43,8 @@ def save(request):
                         form.image = image
 
                     item = form.save()
-                    if modelform == "ClientForm":
-                        return JsonResponse({"status":True, "url" : reverse("boutique:clients:client", args=[item.id])})
+                    if modelform == "ReservationStandForm":
+                        return JsonResponse({"status":True, "message" : "Votre demande de stand a bien été pris en compte. Nous vous reviendrons sous peu. Merci !"})
                     if modelform == "ParticipationForm":
                         return JsonResponse({"status":True, "url" : reverse("vitrineApp:purchase", args=[item.id])})
                     return JsonResponse({"status":True, "message": _("Opération effectuée avec succes !")})

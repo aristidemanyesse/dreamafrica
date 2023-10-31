@@ -50,12 +50,18 @@
 					<div class="row" >
 						<div class="col-1">
 							<div class="blog_img">
-								<img src="{{ligne.produit.image2.url}}" style="width: 100px;" alt="image">
+								<a href="{% url 'boutiqueApp:produit' ligne.produit.id %}">
+									<img src="{{ligne.produit.image2.url}}" style="width: 100px;" alt="image">
+								</a>
 							</div>
 						</div>
 						<div class="col-5">
-							<h6 style="margin: 0; font-weight: bold;">{{ligne.produit.name}}</h6>
-							<small>{{ligne.produit.description|truncatewords:15}}</small>
+							<a href="{% url 'boutiqueApp:produit' ligne.produit.id %}">
+								<div>
+									<h6 style="margin: 0; font-weight: bold;">{{ligne.produit.name}}</h6>
+									<small>{{ligne.produit.description|truncatewords:15}}</small>
+								</div>
+							</a>
 						</div>
 						<div class="col-2 text-right" style="text-align: right;" >
 							{{ligne.produit.price}} €
@@ -78,16 +84,17 @@
 					<h4 style="text-align: right; text-transform: uppercase;">Total =</h4>
 				</div>
 				<div class="col-2 text-right" >
-					<h4 style="text-align: right;">{{total}} €</h4>
+					<h4 style="text-align: right;" ><span id="total_price_panier">{{total}}</span>  €</h4>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-12">
 					<div class="contact-btn-m text-center">
 						{% if request.user.is_authenticated %}
-							<button class="btn btn-md" onclick="valider_commande()"> Valider ma commande</button>
+							<button class="btn btn-md" onclick="valider_commande()"> Valider ma commande </button>
+							<br> <small>{{request.user.fullname}}</small>
 						{% else %}
-							<button class="btn btn-md" onclick="valider_commande()"> Connectez-vous pour valider ma commande</button>
+							<button class="btn btn-md" data-toggle="modal" data-target="#modal-connexion"> Connectez-vous pour valider ma commande</button>
 						{% endif %}
 					</div>
 				</div>
@@ -139,6 +146,103 @@
 </section>
 <!--/Conference Venue--> 
  
+
+
+        
+<div class="modal fade" id="modal-inscription">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h4 class="modal-title">Nouvelle Inscription</h4>
+			</div>
+			<form id="formInscription" method="POST">
+				<div class="modal-body" style="padding: 5% ">
+					<p class="text-center" >Bienvenue sur votre espace d'administration., vous devez changer vos paramètres de
+						connexion pour que vous soyez le seul à les connaitre !</p>
+					<br>
+
+					<div class="row">
+						<div class="form-group col-sm-6">
+							<label for="exampleInputEmail1">Votre nom complet</label>
+							<input type="text" name="fullname" class="form-control" required placeholder="Entrez nouvel identifiant" />
+						</div>
+						<div class="form-group col-sm-6">
+							<label for="exampleInputEmail1">Contacts</label>
+							<input type="text" name="contact" class="form-control" required placeholder="Entrez nouvel identifiant" />
+						</div>
+					</div>
+				
+					<br>
+					<div class="form-group">
+						<label for="exampleInputEmail1">Adresse email</label>
+						<input type="text" name="email" class="form-control" required placeholder="Entrez nouvel identifiant" />
+					</div>
+					<br>
+
+					<div class="row">
+						<div class="form-group col-md-6">
+							<label for="exampleInputEmail1">Entrez votre nouveau mot de passe</label>
+							<input type="password" name="password" class="form-control" required minlength="6" placeholder="Entrez votre nouveau mot de passe" />
+						</div>
+						<div class="form-group col-md-6">
+							<label for="exampleInputPassword1">Confirmez le mot de passe</label>
+							<input type="password" name="password2" class="form-control" required minlength="6" placeholder="Confirmez le mot de passe" />
+						</div>
+					</div>
+				</div>
+
+				<div class="text-center">
+					<a href="#" data-dimdiss="modal" data-toggle="modal" data-target="#modal-connexion">J'ai déjà un compte, je veux me connecter !</a>
+				</div><br>
+
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-sm btn-primary">Créer mon compte</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="modal fade" id="modal-connexion">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h4 class="modal-title">Connexion</h4>
+			</div>
+			<form id="formConnexion" method="POST">
+				<div class="modal-body" style="padding: 5% ">
+					<p class="text-center" >Bienvenue sur votre espace d'administration., vous devez changer vos paramètres de
+						connexion pour que vous soyez le seul à les connaitre !</p>
+					<br>
+
+					<div class="form-group">
+						<label for="exampleInputEmail1">Adresse email</label>
+						<input type="text" name="email" class="form-control" required placeholder="Entrez nouvel identifiant" />
+					</div><br>
+					<div class="form-group">
+						<label for="exampleInputEmail1">Entrez votre nouveau mot de passe</label>
+						<input type="password" name="password" class="form-control" required minlength="6" placeholder="Entrez votre nouveau mot de passe" />
+					</div>
+					
+				</div>
+
+				<div class="text-center">
+					<a href="#" data-dimdiss="modal"  data-toggle="modal" data-target="#modal-inscription">Je n'ai pas encore de compte, je veux en créer !</a>
+				</div><br>
+				
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-sm btn-primary">Connexion</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+
 {% endblock body %} 
 
 
@@ -147,6 +251,7 @@
 
 {% block scriptjs %}
 <script>
+	{% include "./panier.js" %}
 	{% include "./produit.js" %}
 </script>
 

@@ -11,6 +11,8 @@ $(function () {
 		localStorage.setItem("dreamteam-panier", JSON.stringify(panier)); 
 		session("dreamteam-panier", JSON.stringify(panier)); 
 		$("#panier_length").text(Object.keys(panier).length);
+		$(".produits button#"+id).parent().html('<h6 class="text-center">Ajouté au panier</h6>')
+		$(".produits button#"+id).hide();
 	}
 	
 	
@@ -46,5 +48,15 @@ $(function () {
 		session("dreamteam-panier", JSON.stringify(panier)); 
 		$("div.produit_panier#"+id).hide(700)
 		$("#panier_length").text(Object.keys(panier).length);
+
+		var url = "/dreamteam/boutique/panier_price/"
+		var formdata = new FormData();
+		$.post({ url: url, data: formdata, contentType: false, processData: false }, function (data) {
+            if (data.status) {
+				$("#total_price_panier").text(data.price);
+            } else {
+                Alerter.error('Erreur !', data.message);
+            }
+        }, 'json')
 	}
 })
