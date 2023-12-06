@@ -7,10 +7,10 @@
         <ul class="nav">
             <li class="nav-profile">
                 <div class="image">
-                    <a href="javascript:;"><img src="{% static 'admin/dist/img/user-13.jpg' %}" alt="" /></a>
+                    <a href="javascript:;"><img src="{% static 'admin/dist/img/admin.png' %}" alt="" /></a>
                 </div>
                 <div class="info">
-                    {{request.respo.first_name}} {{request.respo.last_name}}
+                    {{request.user.first_name}} {{request.user.last_name}}
                     <small>Responsable</small>
                 </div>
             </li>
@@ -38,8 +38,9 @@
                 </ul>
             </li>
             
-            <li page="informations"><a href="{% url 'adminApp:stands' %}"><i class="fa fa-handshake-o"></i> <span>Inscription Stands</span></a></li>
-            {% comment %} <li page="informations"><a href="{% url 'adminApp:dashboard' %}"><i class="fa fa-info"></i> <span>Informations</span></a></li> {% endcomment %}
+            <li page="informations"><a href="{% url 'adminApp:billetterie_visiteurs' %}"><i class="fa fa-ticket"></i> <span>Billetterie des visiteurs</span></a></li>
+            <li page="informations"><a href="{% url 'adminApp:reservation_stands' %}"><i class="fa fa-handshake-o"></i> <span>Reservations de Stands</span></a></li>
+            <li page="informations"><a href="{% url 'adminApp:suggestions' %}"><i class="fa fa-info"></i> <span>Suggestions</span></a></li>
 
             {% comment %} <li page="parametres"><a href="{% url 'produitApp:medicaments' %}"><i class="fa fa-cogs"></i> <span>Paramètres</span></a></li> {% endcomment %}
 

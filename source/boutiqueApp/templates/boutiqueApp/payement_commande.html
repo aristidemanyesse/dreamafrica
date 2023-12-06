@@ -14,12 +14,19 @@
         <div class="col-sm-7 col-md-7 col-lg-8">
           <div class="banner-content">
             <div class="banner-tagline">
-              <h1>{{participation.evenement.name}}</h1>
+              <h1>{{commande.evenement.name}}</h1>
               <br><br>
-              <p>{{participation.quantite}} place(s)</p>
-              <h3 style="color:white">{{participation.evenement.price}} x {{participation.quantite}} = {{participation.price}}</h3>
-              <br><br>
-              <p>{{participation.fullname}}</p>
+              <table >
+                {% for ligne in commande.ligne_commande.filter  %}
+                  <tr >
+                    <td style="border: none; color:white;">{{ligne.produit.name}}</td>
+                    <td style="border: none; color:white;">x{{ligne.quantite}}</td>
+                    <td style="border: none; color:white;">=  {{ligne.price}}</td>
+                  </tr>
+                {% endfor %}
+              </table>
+                <p>  </p>
+              <h3 style="color:white">Total = {{commande.price}}</h3>
             </div> 
           </div>
         </div>
@@ -34,7 +41,7 @@
             <br><br>
             <button id="submit" class="btn btn-block">
               <div class="spinner hidden" id="spinner"></div>
-              <span id="button-text">Valider le payement ({{participation.price}})</span>
+              <span id="button-text">Valider le payement ({{commande.price}})</span>
             </button>
             <div id="payment-message" class=""></div>
           </form>
@@ -71,9 +78,9 @@
     var token = $("div.token input[type=hidden]").val();
 
 
-    url = "{% url 'vitrineApp:stripeTokenHandler' %}";
+    url = "{% url 'boutiqueApp:stripeTokenHandler' %}";
     var formdata = new FormData();
-    formdata.append('participation_id', "{{participation.id}}");
+    formdata.append('commande_id', "{{commande.id}}");
     formdata.append('csrfmiddlewaretoken', token);
     $.post({ url: url, data: formdata, contentType: false, processData: false }, function (data) {
         if (data.status) {

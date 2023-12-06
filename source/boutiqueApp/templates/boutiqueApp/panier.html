@@ -19,7 +19,7 @@
   <div class="banner-fixed">
     <div class="container">
       <div class="row">
-        <div class="col-sm-7 col-md-7 col-lg-8">
+        <div class="col-sm-10 col-md-8 col-lg-8">
           <div class="banner-content">
             <div class="banner-tagline">
               <h1>Mon panier</h1>
@@ -43,6 +43,7 @@
 <section id="blog" class="section-padding">
 	{% if lignes|length > 0 %}
 	<div class="container">
+		<h3>Les produits dans mon panier ({{ lignes|length }})</h3>
 		<div>
 			<hr>
 			{% for ligne in lignes %}
@@ -94,7 +95,10 @@
 							<button class="btn btn-md" onclick="valider_commande()"> Valider ma commande </button>
 							<br> <small>{{request.user.fullname}}</small>
 						{% else %}
-							<button class="btn btn-md" data-toggle="modal" data-target="#modal-connexion"> Connectez-vous pour valider ma commande</button>
+							<br>
+							<h5 class="text-center" >Connectez-vous pour continuer</h5>
+							<button class="btn btn-sm" data-toggle="modal" data-target="#modal-connexion"> Se connecter</button>
+							<button class="btn btn-sm" data-toggle="modal" data-target="#modal-inscription"> S'inscrire</button>
 						{% endif %}
 					</div>
 				</div>
@@ -158,25 +162,22 @@
 			</div>
 			<form id="formInscription" method="POST">
 				<div class="modal-body" style="padding: 5% ">
-					<p class="text-center" >Bienvenue sur votre espace d'administration., vous devez changer vos paramètres de
-						connexion pour que vous soyez le seul à les connaitre !</p>
-					<br>
-
+					
 					<div class="row">
 						<div class="form-group col-sm-6">
 							<label for="exampleInputEmail1">Votre nom complet</label>
-							<input type="text" name="fullname" class="form-control" required placeholder="Entrez nouvel identifiant" />
+							<input type="text" name="fullname" class="form-control" required placeholder="Entrez votre nom complet" />
 						</div>
 						<div class="form-group col-sm-6">
-							<label for="exampleInputEmail1">Contacts</label>
-							<input type="text" name="contact" class="form-control" required placeholder="Entrez nouvel identifiant" />
+							<label for="exampleInputEmail1">Contact</label>
+							<input type="text" name="contact" class="form-control" required placeholder="Entrez votre nom contact" />
 						</div>
 					</div>
 				
 					<br>
 					<div class="form-group">
 						<label for="exampleInputEmail1">Adresse email</label>
-						<input type="text" name="email" class="form-control" required placeholder="Entrez nouvel identifiant" />
+						<input type="text" name="email" class="form-control" required placeholder="Entrez votre adresse email" />
 					</div>
 					<br>
 
@@ -191,11 +192,6 @@
 						</div>
 					</div>
 				</div>
-
-				<div class="text-center">
-					<a href="#" data-dimdiss="modal" data-toggle="modal" data-target="#modal-connexion">J'ai déjà un compte, je veux me connecter !</a>
-				</div><br>
-
 				<div class="modal-footer">
 					<button type="submit" class="btn btn-sm btn-primary">Créer mon compte</button>
 				</div>
@@ -215,9 +211,6 @@
 			</div>
 			<form id="formConnexion" method="POST">
 				<div class="modal-body" style="padding: 5% ">
-					<p class="text-center" >Bienvenue sur votre espace d'administration., vous devez changer vos paramètres de
-						connexion pour que vous soyez le seul à les connaitre !</p>
-					<br>
 
 					<div class="form-group">
 						<label for="exampleInputEmail1">Adresse email</label>
@@ -227,13 +220,8 @@
 						<label for="exampleInputEmail1">Entrez votre nouveau mot de passe</label>
 						<input type="password" name="password" class="form-control" required minlength="6" placeholder="Entrez votre nouveau mot de passe" />
 					</div>
-					
 				</div>
 
-				<div class="text-center">
-					<a href="#" data-dimdiss="modal"  data-toggle="modal" data-target="#modal-inscription">Je n'ai pas encore de compte, je veux en créer !</a>
-				</div><br>
-				
 				<div class="modal-footer">
 					<button type="submit" class="btn btn-sm btn-primary">Connexion</button>
 				</div>

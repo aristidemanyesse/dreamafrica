@@ -19,7 +19,7 @@ class Participation(BaseModel):
     contact           = models.CharField(max_length = 255, default="", null = True, blank=True)
     description       = models.TextField(default="", null = True, blank=True)
     evenement         = models.ForeignKey(Evenement, on_delete = models.CASCADE, null = True, blank=True, related_name="type_participant")
-    price             = models.TextField(default="", null = True, blank=True)
+    price             = models.FloatField(default=0.0, null=True, blank=True)
     payement_intent   = models.TextField(default="", null = True, blank=True)
     client_secret     = models.TextField(default="", null = True, blank=True)
     status            = models.BooleanField(default=False)
@@ -30,7 +30,7 @@ class Participation(BaseModel):
 
 
 class ReservationStand(BaseModel):
-    fullname        = models.CharField(max_length = 255, default="", null = True, blank=True)
+    fullname    = models.CharField(max_length = 255, default="", null = True, blank=True)
     email       = models.EmailField(null = True, blank=True)
     contact     = models.CharField(max_length = 255, default="")
     domaine     = models.CharField(max_length = 255, default="", null = True, blank=True)
@@ -56,6 +56,18 @@ class Blog(BaseModel):
     
     def __str__(self):
         return self.title
+    
+
+class Suggestion(BaseModel):
+    fullname    = models.CharField(default="", max_length = 255, null = True, blank=True)
+    contact     = models.CharField(default="", max_length = 255, null = True, blank=True)
+    email       = models.EmailField(null = True, blank=True)
+    objet       = models.CharField(default="", max_length = 255,)
+    message     = models.TextField(default= "")
+
+    
+    def __str__(self):
+        return self.objet
     
     
     

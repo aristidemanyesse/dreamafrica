@@ -17,7 +17,10 @@ urlpatterns = [
     
     path('events/', views.events, name="events"),
     
-    path('stands/', views.stands, name="stands"),
+    path('billetterie_visiteurs/', views.visiteurs, name="billetterie_visiteurs"),
+    path('reservation_stands/', views.reservations, name="reservation_stands"),
+    
+    path('suggestions/', views.suggestions, name="suggestions"),
     
     path('boutique/produits/', views.produits, name="produits"),
     path('boutique/commandes/', views.commandes, name="commandes"),

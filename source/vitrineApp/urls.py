@@ -1,6 +1,6 @@
 from django.urls import path
-
-from . import views
+from django.views.decorators.csrf import csrf_exempt
+from . import views, ajax
 
 app_name = "vitrineApp"
 urlpatterns = [
@@ -15,7 +15,8 @@ urlpatterns = [
     path('fica/', views.fica, name='fica'),
     
     path('events/participation/purchase/<uuid:id>/', views.purchase, name='purchase'),
-    
+    path('payement/stripeTokenHandler/', csrf_exempt(ajax.stripeTokenHandler), name="stripeTokenHandler"),
+
     path('billetterie_exposants/', views.stand, name='stand'),
     path('blogs', views.blogs, name='blogs'),
     path('blog/<uuid:id>', views.blog, name='blog'),

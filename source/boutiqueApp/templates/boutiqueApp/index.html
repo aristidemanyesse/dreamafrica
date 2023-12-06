@@ -44,15 +44,19 @@
     	    <div class="blog_meta">
                 <p>{{produit.price}} €</p>
             </div>
-        	<h5><a href="{% url "boutiqueApp:produit" produit.id %}">{{produit.name}}</a></h5>
-	        <p >{{produit.description|truncatewords:20}}</p>
+        	<h6 style="margin-bottom: 0;" ><a style="color: black" href="{% url "boutiqueApp:produit" produit.id %}">{{produit.name|truncatewords:10}}</a></h6>
+	        <div style="height: 100px; margin: 0;">
+            <p >{{produit.description|truncatewords:18}}.</p>
+          </div>
          </div>
          {% if produit not in request.panier_produits %}
          <div class="contact-btn-m text-center">
-            <button class="btn btn-md" id="{{produit.id}}" onclick="ajouter('{{produit.id}}')" > Ajouter au panier</button>
+            <a href="{% url "boutiqueApp:produit" produit.id %}" class="btn btn-md btn-block"  >Voir le produit</a>
+            {% comment %} <a href="{% url "boutiqueApp:produit" produit.id %}" class="btn btn-md" id="{{produit.id}}" onclick="ajouter('{{produit.id}}')" > Ajouter au panier</a> {% endcomment %}
         </div>
         {% else %}
-        <h6 class="text-center">Déjà dans le panier</h6>
+        <a href="{% url "boutiqueApp:produit" produit.id %}" class="btn btn-md btn-block"  >Déjà dans le panier</a>
+
         {% endif %}
       </div><br>
       {% endfor %}

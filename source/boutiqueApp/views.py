@@ -1,6 +1,6 @@
 import json
 from annoying.decorators import render_to
-from boutiqueApp.models import  LigneCommande, Produit
+from boutiqueApp.models import Commande, LigneCommande, Produit
 
 # Create your views here.
 
@@ -14,13 +14,35 @@ def main(request):
         }
         return ctx
     
+
+
+@render_to('boutiqueApp/acompte.html')
+def acompte(request):
+    if request.method == "GET":
+        produits = Produit.objects.filter(deleted = False)
+        ctx = {
+            "produits": produits
+        }
+        return ctx
+    
+
+
+def deconnexion(request):
+    if request.method == "GET":
+        logout(request)
+        if 'locked' in request.session:
+            del request.session['locked']
+        return redirect("boutiqueApp:main") 
+    
+    
+    
     
 @render_to('boutiqueApp/panier.html')
 def panier(request):
     if request.method == "GET":
         total = 0
         panier = json.loads(request.session.get("dreamteam-panier", "[]"))
-        produits = Produit.objects.filter(deleted = False, id__in = [key for key in panier])
+        produits = Produit.objects.filter(deleted = False, id__in = [key for key in panier]) if panier is not None else []
         lignes = []
         for prod in produits:
             total += prod.price * panier[str(prod.id)]
@@ -52,4 +74,14 @@ def produit(request, id):
             "produits":produits
         }
         return ctx
-    
+
+
+
+@render_to('boutiqueApp/payement_commande.html')
+def payement_commande(request, id):
+    if request.method == "GET":
+        commande = Commande.objects.get(id = id)
+        ctx = {
+            "commande": commande,
+        }
+        return ctx

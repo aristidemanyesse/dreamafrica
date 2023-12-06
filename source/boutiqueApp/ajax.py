@@ -7,6 +7,7 @@ from django.utils.translation import gettext as _
 import stripe
 from boutiqueApp.models import Produit
 from vitrineApp.models import Participation
+from boutiqueApp.models import Commande, LigneCommande
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 
@@ -17,10 +18,10 @@ def stripeTokenHandler(request):
         datas = request.POST
         try:
             stripe.api_key = "sk_test_51O11ddBltzuPBBd1JY9carffmwRn2DXMOfc5uw7MabKtZhrbDUrWIPuryZ5qLsJQ9ZGeqlJWIkOmi3HDm0tS8jOz005BTmzl9u"
-            participation = Participation.objects.get(id = datas["participation_id"])
+            commande = Commande.objects.get(id = datas["commande_id"])
             # Create a PaymentIntent with the order amount and currency
             intent = stripe.PaymentIntent.create(
-                amount= int(float(participation.price) * 100),
+                amount= int(float(commande.price) * 100),
                 currency='eur',
                 # In the latest version of the API, specifying the `automatic_payment_methods` parameter is optional because Stripe enables its functionality by default.
                 automatic_payment_methods={
@@ -28,8 +29,8 @@ def stripeTokenHandler(request):
                 },
             )
             
-            participation.client_secret = intent["client_secret"]
-            participation.save()
+            commande.client_secret = intent["client_secret"]
+            commande.save()
             
             return JsonResponse({
                 "status": True,
@@ -68,6 +69,49 @@ def panier_price(request):
     return JsonResponse({"status": False, 'message': 'Invalid request'})
 
 
+
+def valider_commande(request):
+    if request.method == "POST":
+        try:
+            if not request.user.is_authenticated:
+                JsonResponse({"status": False, 'message': 'Veuillez vous connecter pour valider cette commande !'})
+                
+            total = 0
+            panier = json.loads(request.session.get("dreamteam-panier", "[]"))
+            produits = Produit.objects.filter(deleted = False, id__in = [key for key in panier])
+            
+            if len(produits) < 1:
+                JsonResponse({"status": False, 'message': "Vous n'avez pas de produit dans votre panier !"})
+            
+            for prod in produits:
+                total += prod.price * panier[str(prod.id)]
+                
+            
+            commande = Commande.objects.create(
+                client = request.user,
+                price = total
+            )
+            
+            for prod in produits:
+                ligne = LigneCommande.objects.create(
+                    commande = commande,
+                    produit = prod,
+                    quantite = panier[str(prod.id)],
+                    price = prod.price * panier[str(prod.id)]
+                )
+
+            
+            return JsonResponse({
+                "status": True,
+                "id": commande.id,
+            })
+
+        except Exception as e:
+            # Gérez les autres erreurs
+            print("Error: " + str(e))
+            return JsonResponse({"status": False, 'message': str(e)})
+        
+        
 
 def connexion(request):
     if request.method == "POST":
@@ -111,6 +155,7 @@ def inscription(request):
             )
             user.set_password(datas["password"])
             user.save()
+            login(request, user)
             return JsonResponse({"status":True, "message":_("ok")})
     
         except Exception as e:

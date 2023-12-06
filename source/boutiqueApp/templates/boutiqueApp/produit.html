@@ -45,49 +45,68 @@
     <div class="row">
 
 		<div class="col-md-6 col-sm-8">
-			<div class="blog_wrap">
-				<div class="blog_img margin-btm-20">
-					<img src="{{produit.image1.url}}" style="width: 100%;" alt="image">
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-6">
-					<div class="blog_wrap">
-						<div class="blog_img margin-btm-20">
-							<img src="{{produit.image2.url}}" style="width: 100%;" alt="image">
-						</div>
+			<div id="demo" class="carousel slide" data-ride="carousel">
+				<!-- Indicators -->
+				<ul class="carousel-indicators">
+				  <li data-target="#demo" data-slide-to="0" class="active"></li>
+				  <li data-target="#demo" data-slide-to="1"></li>
+				  <li data-target="#demo" data-slide-to="2"></li>
+				</ul>
+			  
+				<!-- The slideshow -->
+				<div class="carousel-inner text-center">
+					<div class="carousel-item active">
+						<img src="{{produit.image1.url}}" style="width: 100%; height: 400px;"  alt="image de {{produit.name}}">
+					</div>
+					<div class="carousel-item ">
+						<img src="{{produit.image2.url}}" style="width: 100%; height: 400px;"  alt="image de {{produit.name}}">
+					</div>
+					<div class="carousel-item ">
+						<img src="{{produit.image3.url}}" style="width: 100%; height: 400px;"  alt="image de {{produit.name}}">
 					</div>
 				</div>
-				<div class="col-sm-6">
-					<div class="blog_wrap">
-						<div class="blog_img margin-btm-20">
-							<img src="{{produit.image3.url}}" style="width: 100%;" alt="image">
-						</div>
+				<!-- Left and right controls -->
+				<a class="carousel-control-prev" href="#demo" data-slide="prev">
+					<div style="border: 1px solid black; border-radius: 100%; height: 40px; width: 40px; background-color: rgba(0,0,0, 0.8);">
+				  		<span class="carousel-control-prev-icon"></span>
 					</div>
-				</div>
+				</a>
+				<a class="carousel-control-next" href="#demo" data-slide="next">
+				  <div style="border: 1px solid black; border-radius: 100%; height: 40px; width: 40px; background-color: rgba(0,0,0, 0.8);">
+					<span class="carousel-control-next-icon"></span>
+				  </div>
+				</a>
 			</div>
 		</div>
 		
-		 <div class="col-md-6 col-sm-4">
+		 <div class="col-md-6 col-sm-4 produits">
 			<div class="blog_meta about-m-content">
 				<h4>{{produit.name}}</h4>
-				<h6 style="line-height: 30px; font-weight: w200;">{{produit.description|truncatewords:110}}</h6>
+				<h6 style="line-height: 30px; font-weight: w100; text-align: justify;">{{produit.description|truncatewords:110}}</h6>
 				<br><br>
 				<div class="row">
-					<div class="col-4">
+					<div class="col-5">
 						<h4>{{produit.price}} €</h4>
 					</div>
-					<div class="col-8">
-						<button class="btn btn-sm" onclick="remove('{{produit.id}}')" type="button"><i class="fa fa-minus"></i></button>
-						<input class="text-center" style="width:  100px; height: 55px; font-size: 25px; font-weight: bold; margin: auto 3%" type="number" id="{{produit.id}}" name="quantite" min="1" value="1" >
-						<button class="btn btn-sm" onclick="add('{{produit.id}}')" type="button"><i class="fa fa-add"></i></button>
+					<div class="col-7 text-right">
+						{% if produit not in request.panier_produits %}
+							<div class="text-right">
+								<button class="btn btn-md" id="{{produit.id}}" onclick="ajouter('{{produit.id}}')" > Ajouter au panier</button>
+							</div>
+						{% else %}
+							<div>
+								{% comment %} <h6 class="text-right">Le produit est déjà dans votre panier</h6> {% endcomment %}
+								<button  style="vertical-align: top;"class="btn btn-sm" onclick="remove('{{produit.id}}')" type="button"><i class="fa fa-minus"></i></button>
+								<input class="text-center" style="width: 100px; height: 55px; font-size: 25px; font-weight: bold; margin: auto 1%; vertical-align: top;" type="number" id="{{produit.id}}" name="quantite" min="1" value="1" >
+								<button style="vertical-align: top;" class="btn btn-sm" onclick="add('{{produit.id}}')" type="button"><i class="fa fa-add"></i></button>
+							</div>
+						{% endif %}
+
+						
 					</div>
 				</div>
 			</div>
-			<br><br><br>
-			<div class="contact-btn-m text-left">
-			   <button class="btn btn-md" onclick="ajouter('{{produit.id}}')" ><i class="fa fa-cart"></i> Ajouter au panier</button>
-		   </div>
+			
 		 </div>
 
 	</div>
@@ -134,7 +153,7 @@
 
 
 	<br><br><br><hr><br><br><br>
-	<div class="row">
+	<div class="row produits">
 		{% for produit in produits %}
 			<div class="col-md-3 col-sm-4">
 				<div class="blog_wrap">
@@ -144,15 +163,22 @@
 					<div class="blog_meta">
 						<p>{{produit.price}} €</p>
 					</div>
-					<h5><a href="{% url "boutiqueApp:produit" produit.id %}">{{produit.name}}</a></h5>
-					<p >{{produit.description|truncatewords:15}}</p>
+					<h6 style="margin-bottom: 0;" ><a style="color: black" href="{% url "boutiqueApp:produit" produit.id %}">{{produit.name|truncatewords:10}}</a></h6>
+					<div style="height: 100px; margin: 0;">
+						<p >{{produit.description|truncatewords:18}}.</p>
+					  </div>
 				</div>
 				{% if produit not in request.panier_produits %}
 					<div class="contact-btn-m text-center">
-						<button class="btn btn-md" onclick="ajouter('{{produit.id}}')" > Ajouter au panier</button>
+						<a href="{% url "boutiqueApp:produit" produit.id %}" class="btn btn-md"  >Voir le produit</a>
 					</div>
 				{% else %}
-					<h6 class="text-center">Déjà dans le panier</h6>
+					<div>
+						{% comment %} <h6 class="text-right">Le produit est déjà dans votre panier</h6> {% endcomment %}
+						<button  style="vertical-align: top;"class="btn btn-sm" onclick="remove('{{produit.id}}')" type="button"><i class="fa fa-minus"></i></button>
+						<input class="text-center" style="width: 100px; height: 55px; font-size: 25px; font-weight: bold; margin: auto 1%; vertical-align: top;" type="number" id="{{produit.id}}" name="quantite" min="1" value="1" >
+						<button style="vertical-align: top;" class="btn btn-sm" onclick="add('{{produit.id}}')" type="button"><i class="fa fa-add"></i></button>
+					</div>
 				{% endif %}
 			</div>
 		{% endfor %}
@@ -192,17 +218,23 @@
   </div>
   <div class="dark-layer"></div>
 </section>
-<!--/Conference Venue--> 
+<!--/Conference Venue-->
+
+
+<style>
+	.text-right{
+		text-align: right !important;
+	}
+</style>
  
-
-<script>
-	{% include "./produit.js" %}
-</script>
-
-
 {% endblock body %} 
 
 
+{% block scriptjs %}
+  <script>
+    {% include "./produit.js" %}
+  </script>
+{% endblock scriptjs %}
 
 
 

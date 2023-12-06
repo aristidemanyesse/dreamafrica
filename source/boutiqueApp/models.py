@@ -1,7 +1,7 @@
 from django.db import models
 from django.db.models import  Q
 from coreApp.models import BaseModel, Etat
-
+from django.contrib.auth.models import User
 
 
 class Produit(BaseModel):
@@ -45,16 +45,18 @@ class Client(BaseModel):
 
 
 class Commande(BaseModel):
-    client = models.ForeignKey(Client, on_delete = models.CASCADE, null = True, blank=True, related_name="client_commande")
+    client = models.ForeignKey(User, on_delete = models.CASCADE, null = True, blank=True, related_name="client_commande")
     state = models.ForeignKey(Etat, on_delete = models.CASCADE, null = True, blank=True, related_name="etat_commande")
+    price   = models.FloatField(default = 0.0, null = True, blank=True)
+    client_secret   = models.TextField(default = "", null = True, blank=True)
         
         
 
 class LigneCommande(BaseModel):
-    produit       = models.ForeignKey(Produit, on_delete = models.CASCADE, related_name="edition_team")
-    commande   = models.ForeignKey(Commande, on_delete = models.CASCADE, related_name="competition_edition")
-    quantite    = models.DateField(null = True, blank=True)
-    price   = models.DateField(null = True, blank=True)
+    produit       = models.ForeignKey(Produit, on_delete = models.CASCADE, related_name="ligne_produit")
+    commande   = models.ForeignKey(Commande, on_delete = models.CASCADE, related_name="ligne_commande")
+    quantite    = models.IntegerField(default = 1, null = True, blank=True)
+    price   = models.FloatField(default = 0.0, null = True, blank=True)
     is_finished   = models.BooleanField(default=False, null = True, blank=True)
 
 

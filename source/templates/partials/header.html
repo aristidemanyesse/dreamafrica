@@ -39,7 +39,14 @@
               <li><a href="{% url "vitrineApp:blogs" %}" class="js-target-scroll">Blogs</a></li>
               <li><a href="{% url "vitrineApp:contacts" %}" class="js-target-scroll">Contacts</a></li>
               <li><a href="{% url "boutiqueApp:panier" %}" class="js-target-scroll"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span id="panier_length">{{request.panier_produits|length}}</span></a></li>
-              {% if request.panier_produits|length > 0 %}
+              {% if request.user.is_authenticated %}
+                <li class="dropdown">
+                  <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"> <i class="fa fa-user" aria-hidden="true"></i> </a>
+                  <ul class="dropdown-menu"> 
+                    <li><a class="js-target-scroll" href="{% url "boutiqueApp:acompte" %}">Mon compte</a></li>
+                    <li><a class="js-target-scroll" href="{% url "boutiqueApp:deconnexion" %}">Déconnexion</a></li>
+                  </ul>
+                </li>
               {% endif %}
               </ul>
           </div>

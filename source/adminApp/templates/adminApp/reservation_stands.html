@@ -4,91 +4,80 @@
 {% load i18n %} 
 
 {% block "content" %}
+	
 		<!-- begin #content -->
 		<div id="content" class="content">
 			<!-- begin breadcrumb -->
 			{% comment %} <ol class="breadcrumb pull-right">
 				<li><a href="javascript:;">Home</a></li>
-				<li class="active">Gallery</li>
+				<li><a href="javascript:;">Extra</a></li>
+				<li class="active">Search Results</li>
 			</ol> {% endcomment %}
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">Articles de la boutique <small>Toutes vos articles...</small></h1>
+			<h1 class="page-header">Reservation de stands <small>via le site internet</small></h1>
 			<!-- end page-header -->
 			
-            {% comment %} <div id="options" class="m-b-10">
-                <span class="gallery-option-set" id="filter" data-option-key="filter">
-                    <a href="#show-all" class="btn btn-default btn-sm active" data-option-value="*">
-                        Voir Tous
-                    </a>
-                    {% for categorie in categories %}
-                        <div class="btn-group">
-                            <a href="#{{categorie.id}}" type="button" class="btn btn-default btn-sm" data-option-value=".{{categorie.id}}">{{categorie.name}}</a>
-                            <button type="button" onclick="delete_password('categorie', '{{categorie.id}}')" class="btn btn-danger btn-xs" style="margin-left: -5px;"><i class="fa fa-close"></i></button>
-                            <button type="button" data-toggle="modal" data-target="#modal-update-type-{{categorie.id}}" class="btn btn-primary btn-xs" style="margin-left: -5px;"><i class="fa fa-pencil"></i></button>
-                        </div>
-                    {% endfor %}
-                   
 
-                    <button data-toggle="modal" data-target="#modal-add-type" class="btn btn-success btn-sm pull-right">
-                        <i class="fa fa-plus"></i> Ajouter une catégorie
-                    </button>
-                </span>
-            </div> {% endcomment %}
-            <div id="gallery" class="gallery">
 
-                {% for produit in produits %}
-                    <div class="image {{produit.categorie.id}}">
-                        <div class="image-inner">
-                            <a href="{{produit.image1.url}}" data-lightbox="{{produit.categorie.id}}">
-                                <img src="{{produit.image1.url}}" style="height: 200px" alt="" />
-                            </a>
-                            <p class="image-caption">
-                                #{{produit.categorie.name}}
-                            </p>
-                        </div>
-                        <div class="image-info">
-                            <div class="row m-a-3">
-                                <div class="col-xs-6">
-                                    <a href="{{produit.image2.url}}" data-lightbox="{{produit.categorie.id}}">
-                                        <img src="{{produit.image2.url}}" style="height: 90px" alt="" />
-                                    </a>
-                                </div>
-                                <div class="col-xs-6">
-                                    <a href="{{produit.image3.url}}" data-lightbox="{{produit.categorie.id}}">
-                                        <img src="{{produit.image3.url}}" style="height: 90px" alt="" />
-                                    </a>
-                                </div>
-                            </div><br>
-
-                            <h5 class="title m-b-0">{{produit.name}}</h5>
-                            <p class="">{{produit.price}} $</p><br>
-                            <div class="desc">{{produit.description}}</div>
-                            <br>
-                            <div class="text-right">
-                                <div class="btn-group">
-                                    <button type="button" onclick="delete_password('produit', '{{produit.id}}')" class="btn btn-danger btn-sm"><i class="fa fa-close"></i></button>
-                                    <a href="{% url 'adminApp:update_produit' produit.id %}">
-                                        <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></button>
-                                    </a>
-                                </div>
+			<!-- begin row -->
+            <div class="row">
+                <!-- begin col-12 -->
+                <div class="col-md-12">
+                    <!-- begin panel -->
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <div class="panel-heading-btn">
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
                             </div>
+                            <h4 class="panel-title">Toutes les demandes</h4>
+                        </div>
+                        <div class="panel-body">
+                            <table id="data-table" class="table table-striped table-hover">
+                                <thead>
+                                    <tr class="text-uppercase">
+                                        <th>Nom de participant</th>
+                                        <th>Contacts</th>
+                                        <th>Evenement</th>
+                                        <th>Domaine d'activité</th>
+                                        <th>Description</th>
+                                        <th>Status</th>
+                                        <th>Fait le</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for item in reservations %}
+                                        <tr class="odd gradeX">
+                                            <td>{{item.fullname}}</td>
+                                            <td>{{ item.email }} <br> {{ item.contact }}</td>
+                                            <td>{{item.evenement.name}} </td>
+                                            <td>{{ item.domaine }}</td>
+                                            <td>{{ item.description }}</td>
+                                            <td>
+                                                {% if item.status %}
+                                                <label class="label label-success">Validée</label>
+                                                {% else %}
+                                                    <label class="label label-warning">En attente</label>
+                                                {% endif %}  
+                                            </td>
+                                            <td>{{ item.created_at }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                  
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-                {% endfor %}
-
-                <div class="image {% for produit in produits %}{{produit.categorie.id}} {% endfor %} *">
-                    <a href="{% url 'adminApp:new' %}">
-                        <div class="bouton btn btn-default text-center">
-                            <i class="fa fa-plus"></i>
-                        </div>
-                    </a>
+                    <!-- end panel -->
                 </div>
+                <!-- end col-12 -->
             </div>
+
+
+			<!-- end row -->
 		</div>
 		<!-- end #content -->
-
-
 
 
         <div class="modal fade" id="modal-add-type" >
@@ -230,6 +219,84 @@
 
 
 
+        {% for element in produits %}
+        <div class="modal fade" id="modal-update-produit-{{element.id}}" >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title">Modification de l'oeuvre</h4>
+                    </div>
+                    <form method="POST" class="formShamman" classname="ProduitForm">
+                        {% csrf_token %}
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>{% translate "Nom de la catégorie" %} </label>
+                                    <div class="form-group">
+                                        {% include 'extra/select.html' with obj=element.categorie name='categorie' instances=categories  %}   
+                                    </div>
+                                </div>    
+                                <div class="col-sm-6">
+                                    <label>{% translate "Nom de l'article" %} </label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" value="{{element.name}}" name="name" required>
+                                    </div>
+                                </div>                  
+                            </div><br>
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <label>{% translate "Prix" %} </label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" value="{{element.price}}" name="price" required>
+                                    </div>
+                                </div>    
+                                <div class="col-sm-7">
+                                    <label>{% translate "Description" %} </label>
+                                    <textarea class="form-control" rows="4" name="description">{{element.description}}</textarea>
+                                </div>              
+                            </div><br>
+                            <div class="row">
+                                <div class="col-sm-6 m-b-md">
+                                    <div class="">
+                                        <img style="height: 100px;" src="{{element.image1.url}}" class="img-thumbnail logo">
+                                        <input class="hide" type="file" name="image1">
+                                        <button type="button" class="btn btn-sm bg-purple pull-right btn_image"><i class="fa fa-image"></i> {% translate "Image 1" %}</button>
+                                    </div>
+                                </div>  
+                                <div class="col-sm-6 m-b-md">
+                                    <div class="">
+                                        <img style="height: 100px;" src="{{element.image2.url}}" class="img-thumbnail logo">
+                                        <input class="hide" type="file" name="image2">
+                                        <button type="button" class="btn btn-sm bg-purple pull-right btn_image"><i class="fa fa-image"></i> {% translate "Image 2" %}</button>
+                                    </div>
+                                </div>  
+                                <div class="col-sm-6">
+                                    <div class="">
+                                        <img style="height: 100px;" src="{{element.image3.url}}" class="img-thumbnail logo">
+                                        <input class="hide" type="file" name="image3">
+                                        <button type="button" class="btn btn-sm bg-purple pull-right btn_image"><i class="fa fa-image"></i> {% translate "Image 3" %}</button>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="">
+                                        <img style="height: 100px;" src="{{element.image4.url}}" class="img-thumbnail logo">
+                                        <input class="hide" type="file" name="image4">
+                                        <button type="button" class="btn btn-sm bg-purple pull-right btn_image"><i class="fa fa-image"></i> {% translate "Image 4" %}</button>
+                                    </div>
+                                </div>
+                            </div><br>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="hidden" value="{{element.id}}" name="id">
+                            <button class="btn dim btn-primary"><i class="fa fa-refresh"></i> {% translate "Valider le formulaire" %}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
         <style>
             .bouton{
                 width: 100px;
@@ -243,7 +310,6 @@
         </style>
 
 {% endblock "content" %}
-
 
 
 {% block "scriptjs" %}

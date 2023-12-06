@@ -7,7 +7,7 @@ from django.contrib.auth import authenticate, logout
 
 from galerieApp.models import CategorieItem, Item
 from boutiqueApp.models import  Produit
-from vitrineApp.models import  Blog, Evenement, Participation, ReservationStand
+from vitrineApp.models import  Blog, Evenement, Participation, ReservationStand, Suggestion
 from .models import *
 from datetime import datetime, timedelta
 # Create your views here.
@@ -49,17 +49,15 @@ def dashboard(request):
         # return redirect("adminApp:dashboard_officine", request.officine.id)
         
     if request.method == "GET":
-        # officines = Officine.objects.filter(deleted = False, type  = TypeOfficine.objects.get(etiquette = TypeOfficine.PHARMACIE))
-        # markers = json.loads(serialize("geojson", officines))
-        # produits = Produit.objects.filter(deleted = False, type = TypeProduit.objects.get(etiquette = TypeProduit.MEDICAMENT))
-        # users = Utilisateur.objects.filter(deleted = False)
-        # demandes = Demande.objects.filter(deleted = False, created_at__date= datetime.today())
+        events = Evenement.objects.filter(deleted = False)
+        produits = Produit.objects.filter(deleted = False)
+        articles = Blog.objects.filter(deleted = False)
+        stands = ReservationStand.objects.filter(deleted = False, created_at__date= datetime.today())
         ctx = {
-            # "officines": officines,
-            # # "produits": produits,
-            # # "users": users,
-            # # "demandes": demandes,
-            # "markers": markers
+            "events": events,
+            "produits": produits,
+            "articles": articles,
+            "stands": stands,
         }
         return ctx
         
@@ -89,6 +87,17 @@ def participants(request):
         ctx = {
             "types": types,
             "participants": participants,
+        }
+        return ctx
+          
+        
+        
+@render_to('adminApp/suggestions.html')
+def suggestions(request):
+    if request.method == "GET":
+        suggestions = Suggestion.objects.filter(deleted = False)
+        ctx = {
+            "suggestions": suggestions,
         }
         return ctx
         
@@ -162,8 +171,19 @@ def events(request):
         
         
         
-@render_to('adminApp/stands.html')
-def stands(request):
+@render_to('adminApp/reservation_stands.html')
+def reservations(request):
+    if request.method == "GET":
+        reservations = ReservationStand.objects.filter(deleted = False)
+        ctx = {
+            "reservations": reservations,
+        }
+        return ctx
+          
+
+        
+@render_to('adminApp/billetterie_visiteurs.html')
+def visiteurs(request):
     if request.method == "GET":
         participants = Participation.objects.filter(deleted = False)
         ctx = {

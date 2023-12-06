@@ -28,3 +28,9 @@ class BlogForm(ModelForm):
     class Meta:
         model = Blog
         fields = "__all__"
+        
+# Create the form class.
+class SuggestionForm(ModelForm):
+    class Meta:
+        model = Suggestion
+        fields = "__all__"

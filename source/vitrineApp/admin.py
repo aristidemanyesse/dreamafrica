@@ -47,3 +47,11 @@ class BlogAdmin(admin.ModelAdmin):
         ('created_at', DateFieldListFilter),
     )
     list_display = ["title", "subtitle", "created_at"]
+
+@admin.register(Suggestion)
+class SuggestionAdmin(admin.ModelAdmin):
+    empty_value_display = '-'
+    list_filter = (
+        ('created_at', DateFieldListFilter),
+    )
+    list_display = ["fullname", "email", "contact", "objet", "created_at"]

@@ -33,4 +33,24 @@ $(function () {
     });
 
 
+    valider_commande = function (table, id) {
+        url = "/dreamteam/boutique/valider_commande/";
+        var token = $("div.token input[type=hidden]").val();
+        alerty.confirm("Voulez-vous vraiment valider cette commande ?", {
+            title: "Validation de votre commande",
+            cancelLabel: "Non",
+            okLabel: "OUI, Valider",
+        }, function () {
+            Loader.start()
+            $.post(url, {'csrfmiddlewaretoken' :token}, (data) => {
+                if (data.status) {
+                    window.location.href = "/dreamteam/boutique/payement_commande/"+data.id+"/"
+                } else {
+                    Alerter.error('Erreur !', data.message);
+                }
+            }, "json");
+        })
+    }
+
+
 })
