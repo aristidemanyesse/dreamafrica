@@ -42,8 +42,8 @@
 <!-- Blog -->
 <section id="blog" class="section-padding">
 	{% if lignes|length > 0 %}
-	<div class="container">
-		<h3>Les produits dans mon panier ({{ lignes|length }})</h3>
+	<div class="container panier-container">
+		<h3>Les produits dans mon panier (<span class="panier_length">{{ lignes|length }}</span>) </h3>
 		<div>
 			<hr>
 			{% for ligne in lignes %}

@@ -49,15 +49,12 @@
             <p >{{produit.description|truncatewords:18}}.</p>
           </div>
          </div>
-         {% if produit not in request.panier_produits %}
+
          <div class="contact-btn-m text-center">
             <a href="{% url "boutiqueApp:produit" produit.id %}" class="btn btn-md btn-block"  >Voir le produit</a>
             {% comment %} <a href="{% url "boutiqueApp:produit" produit.id %}" class="btn btn-md" id="{{produit.id}}" onclick="ajouter('{{produit.id}}')" > Ajouter au panier</a> {% endcomment %}
         </div>
-        {% else %}
-        <a href="{% url "boutiqueApp:produit" produit.id %}" class="btn btn-md btn-block"  >Déjà dans le panier</a>
-
-        {% endif %}
+     
       </div><br>
       {% endfor %}
 

@@ -89,17 +89,18 @@
 						<h4>{{produit.price}} €</h4>
 					</div>
 					<div class="col-7 text-right">
+						<div>
+							{% comment %} <h6 class="text-right">Le produit est déjà dans votre panier</h6> {% endcomment %}
+							<button  style="vertical-align: top;"class="btn btn-sm" onclick="remove('{{produit.id}}')" type="button"><i class="fa fa-minus"></i></button>
+							<input class="text-center" style="width: 100px; height: 55px; font-size: 25px; font-weight: bold; margin: auto 1%; vertical-align: top;" type="number" id="{{produit.id}}" name="quantite" min="1" value="1" >
+							<button style="vertical-align: top;" class="btn btn-sm" onclick="add('{{produit.id}}')" type="button"><i class="fa fa-add"></i></button>
+						</div>
+
 						{% if produit not in request.panier_produits %}
+							<br>
 							<div class="text-right">
 								<button class="btn btn-md" id="{{produit.id}}" onclick="ajouter('{{produit.id}}')" > Ajouter au panier</button>
-							</div>
-						{% else %}
-							<div>
-								{% comment %} <h6 class="text-right">Le produit est déjà dans votre panier</h6> {% endcomment %}
-								<button  style="vertical-align: top;"class="btn btn-sm" onclick="remove('{{produit.id}}')" type="button"><i class="fa fa-minus"></i></button>
-								<input class="text-center" style="width: 100px; height: 55px; font-size: 25px; font-weight: bold; margin: auto 1%; vertical-align: top;" type="number" id="{{produit.id}}" name="quantite" min="1" value="1" >
-								<button style="vertical-align: top;" class="btn btn-sm" onclick="add('{{produit.id}}')" type="button"><i class="fa fa-add"></i></button>
-							</div>
+							</div>							
 						{% endif %}
 
 						
@@ -168,18 +169,9 @@
 						<p >{{produit.description|truncatewords:18}}.</p>
 					  </div>
 				</div>
-				{% if produit not in request.panier_produits %}
-					<div class="contact-btn-m text-center">
-						<a href="{% url "boutiqueApp:produit" produit.id %}" class="btn btn-md"  >Voir le produit</a>
-					</div>
-				{% else %}
-					<div>
-						{% comment %} <h6 class="text-right">Le produit est déjà dans votre panier</h6> {% endcomment %}
-						<button  style="vertical-align: top;"class="btn btn-sm" onclick="remove('{{produit.id}}')" type="button"><i class="fa fa-minus"></i></button>
-						<input class="text-center" style="width: 100px; height: 55px; font-size: 25px; font-weight: bold; margin: auto 1%; vertical-align: top;" type="number" id="{{produit.id}}" name="quantite" min="1" value="1" >
-						<button style="vertical-align: top;" class="btn btn-sm" onclick="add('{{produit.id}}')" type="button"><i class="fa fa-add"></i></button>
-					</div>
-				{% endif %}
+				<div class="contact-btn-m text-center">
+					<a href="{% url "boutiqueApp:produit" produit.id %}" class="btn btn-md"  >Voir le produit</a>
+				</div>
 			</div>
 		{% endfor %}
     </div>

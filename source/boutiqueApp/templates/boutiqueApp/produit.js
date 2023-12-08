@@ -10,9 +10,8 @@ $(function () {
 		panier[id] = 1
 		localStorage.setItem("dreamteam-panier", JSON.stringify(panier)); 
 		session("dreamteam-panier", JSON.stringify(panier)); 
-		$("#panier_length").text(Object.keys(panier).length);
-		$(".produits button#"+id).parent().html('<h6 class="text-center">Ajouté au panier</h6>')
-		$(".produits button#"+id).hide();
+		$(".panier_length").text(Object.keys(panier).length);
+		$(".produits").find("button#"+id).hide();
 	}
 	
 	
@@ -46,11 +45,22 @@ $(function () {
 		delete panier[id]
 		localStorage.setItem("dreamteam-panier", JSON.stringify(panier)); 
 		session("dreamteam-panier", JSON.stringify(panier)); 
-		$("div.produit_panier#"+id).hide(700)
-		$("#panier_length").text(Object.keys(panier).length);
+		$("div.produit_panier#"+id).hide(500)
+		$(".panier_length").text(Object.keys(panier).length);
+
+		if (Object.keys(panier).length == 0){
+			$("div.panier-container").html(`
+				<div class='container'>
+					<div class='text-center'>
+						<h4 >Aucun article dans votre panier pour le moment !</h4>
+						<i class='fa fa-shopping-cart fa-4x' aria-hidden='true'></i>
+					</div>
+				</div>
+			`)
+		}
 
 		var url = "/dreamteam/boutique/panier_price/"
-		var formdata = new FormData();
+		var formdata = new FormData();	
 		$.post({ url: url, data: formdata, contentType: false, processData: false }, function (data) {
             if (data.status) {
 				$("#total_price_panier").text(data.price);
