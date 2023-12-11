@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect, reverse
 from django.shortcuts import get_object_or_404
 from annoying.decorators import render_to
-import json
+from django.http import JsonResponse
+
 from django.core.serializers import serialize
 from django.contrib.auth import authenticate, logout
 
 from galerieApp.models import CategorieItem, Item
-from boutiqueApp.models import  Produit
+from boutiqueApp.models import  Commande, Produit
 from vitrineApp.models import  Blog, Evenement, Participation, ReservationStand, Suggestion
 from .models import *
 from datetime import datetime, timedelta
@@ -79,18 +80,6 @@ def galerie(request):
           
         
         
-@render_to('adminApp/participants.html')
-def participants(request):
-    if request.method == "GET":
-        types = TypeParticipant.objects.filter(deleted = False)
-        participants = Participant.objects.filter(deleted = False)
-        ctx = {
-            "types": types,
-            "participants": participants,
-        }
-        return ctx
-          
-        
         
 @render_to('adminApp/suggestions.html')
 def suggestions(request):
@@ -137,8 +126,7 @@ def write_blog(request, id):
     
     
     
-    
-    
+
     
 @render_to('adminApp/write.html')
 def new(request):
@@ -197,17 +185,28 @@ def visiteurs(request):
 @render_to('adminApp/commandes.html')
 def commandes(request):
     if request.method == "GET":
-        # types = TypeParticipant.objects.filter(deleted = False)
-        # participants = Participant.objects.filter(deleted = False)
+        commandes = Commande.objects.filter()
         ctx = {
-            # "types": types,
-            # "participants": participants,
-            # "officinedemandes": demandes,
+            "commandes": commandes,
         }
         return ctx
           
           
-        
+             
+@render_to('adminApp/commandes.html')
+def valider_commande(request):
+    if request.method == "POST":
+        try :
+            datas = request.POST
+            
+            Commande.objects.filter(id = datas["id"]).update(status = True)
+            return JsonResponse({"status":True})
+
+        except Exception as e:
+            print("erreur save :", e)
+            return JsonResponse({"status":False, "message": "Erreur lors du processus. Veuillez recommencer : "+str(e)})
+    
+       
         
 @render_to('adminApp/produits.html')
 def produits(request):

@@ -35,10 +35,10 @@
                     </button>
                 </span>
             </div> {% endcomment %}
-            <div id="gallery" class="gallery">
+            <div id="gallery" class="gallery row">
 
                 {% for produit in produits %}
-                    <div class="image {{produit.categorie.id}}">
+                    <div class="image col-lg-4 col-md-4 col-sm-6  {{produit.categorie.id}}">
                         <div class="image-inner">
                             <a href="{{produit.image1.url}}" data-lightbox="{{produit.categorie.id}}">
                                 <img src="{{produit.image1.url}}" style="height: 200px" alt="" />
@@ -62,7 +62,11 @@
                             </div><br>
 
                             <h5 class="title m-b-0">{{produit.name}}</h5>
-                            <p class="">{{produit.price}} $</p><br>
+                            <div>
+                                <div class="col-sm-6">{{produit.price}} $</div>
+                                <div class="col-sm-6 text-right">Reduction : {{produit.price_reduction}} $</div>
+                            </div>
+                          
                             <div class="desc">{{produit.description}}</div>
                             <br>
                             <div class="text-right">
@@ -243,14 +247,3 @@
         </style>
 
 {% endblock "content" %}
-
-
-
-{% block "scriptjs" %}
-    <script>
-        $(document).ready(function() {
-            Gallery.init();
-    
-        });
-    </script>
-{% endblock "scriptjs" %}

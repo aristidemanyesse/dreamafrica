@@ -1,7 +1,10 @@
 import json
 from annoying.decorators import render_to
 from boutiqueApp.models import Commande, LigneCommande, Produit
+from django.shortcuts import redirect
+from django.contrib.auth import authenticate, logout, login
 
+from coreApp.models import Etat
 # Create your views here.
 
 
@@ -19,12 +22,18 @@ def main(request):
 @render_to('boutiqueApp/acompte.html')
 def acompte(request):
     if request.method == "GET":
-        produits = Produit.objects.filter(deleted = False)
+        if not request.user.is_authenticated:
+            return redirect("boutiqueApp:main") 
+        
+        attentes = Commande.objects.filter(client = request.user, status = False)
+        finis = Commande.objects.filter(client = request.user, status = True, deleted = False)
         ctx = {
-            "produits": produits
+            "attentes": attentes,
+            "finis": finis,
         }
         return ctx
     
+
 
 
 def deconnexion(request):

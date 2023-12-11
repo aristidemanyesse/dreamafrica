@@ -45,25 +45,26 @@ $(function () {
 		delete panier[id]
 		localStorage.setItem("dreamteam-panier", JSON.stringify(panier)); 
 		session("dreamteam-panier", JSON.stringify(panier)); 
-		$("div.produit_panier#"+id).hide(500)
-		$(".panier_length").text(Object.keys(panier).length);
-
-		if (Object.keys(panier).length == 0){
-			$("div.panier-container").html(`
-				<div class='container'>
-					<div class='text-center'>
-						<h4 >Aucun article dans votre panier pour le moment !</h4>
-						<i class='fa fa-shopping-cart fa-4x' aria-hidden='true'></i>
-					</div>
-				</div>
-			`)
-		}
 
 		var url = "/dreamteam/boutique/panier_price/"
 		var formdata = new FormData();	
 		$.post({ url: url, data: formdata, contentType: false, processData: false }, function (data) {
             if (data.status) {
+				$("div.produit_panier#"+id).hide(500)
+				$(".panier_length").text(Object.keys(panier).length);
 				$("#total_price_panier").text(data.price);
+
+				if (Object.keys(panier).length == 0){
+					$("div.panier-container").html(`
+						<div class='container'>
+							<div class='text-center'>
+								<h4 >Aucun article dans votre panier pour le moment !</h4>
+								<i class='fa fa-shopping-cart fa-4x' aria-hidden='true'></i>
+							</div>
+						</div>
+					`)
+				}
+				
             } else {
                 Alerter.error('Erreur !', data.message);
             }

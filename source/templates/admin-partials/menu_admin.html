@@ -23,8 +23,6 @@
 
             <li page="informations"><a href="{% url 'adminApp:events' %}"><i class="fa fa-info"></i> <span>Evenements</span></a></li>
             <li page="informations"><a href="{% url 'adminApp:blogs' %}"><i class="fa fa-file"></i> <span>Blogs</span></a></li>
-            {% comment %} <li page="informations"><a href="{% url 'adminApp:participants' %}"><i class="fa fa-users"></i> <span>Participants</span></a></li> {% endcomment %}
-            {% comment %} <li page="informations"><a href="{% url 'adminApp:galerie' %}"><i class="fa fa-image"></i> <span>Galerie</span></a></li> {% endcomment %}
 
             <li class="has-sub " module="adminApp">
                 <a href="javascript:;">
@@ -34,7 +32,7 @@
                 </a>
                 <ul class="sub-menu">
                     <li class="" page="liste"><a href="{% url 'adminApp:produits' %}">Produits</a></li>
-                    <li page="map"><a href="{% url 'adminApp:dashboard' %}">Commandes</a></li>
+                    <li page="map"><a href="{% url 'adminApp:commandes' %}">Commandes</a></li>
                 </ul>
             </li>
             

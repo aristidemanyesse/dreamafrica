@@ -1,0 +1,175 @@
+{% extends 'base/adminBase.html' %}
+{% load myfilters %}
+{% load static %}
+{% load i18n %} 
+
+{% block "content" %}
+	
+		<!-- begin #content -->
+		<div id="content" class="content">
+			<!-- begin breadcrumb -->
+			{% comment %} <ol class="breadcrumb pull-right">
+				<li><a href="javascript:;">Home</a></li>
+				<li><a href="javascript:;">Extra</a></li>
+				<li class="active">Search Results</li>
+			</ol> {% endcomment %}
+			<!-- end breadcrumb -->
+			<!-- begin page-header -->
+			<h1 class="page-header">Commandes de produits <small>via le site internet</small></h1>
+			<!-- end page-header -->
+			
+
+
+			<!-- begin row -->
+            <div class="row">
+                <!-- begin col-12 -->
+                <div class="col-md-12">
+                    <!-- begin panel -->
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <div class="panel-heading-btn">
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
+                            </div>
+                            <h4 class="panel-title">Toutes les commandes</h4>
+                        </div>
+                        <div class="panel-body">
+                            <table id="data-table" class="table table-striped table-hover">
+                                <thead>
+                                    <tr class="text-uppercase">
+                                        <th>id</th>
+                                        <th>Nom du client</th>
+                                        <th>Qté</th>
+                                        <th>Prix</th>
+                                        <th>ID Payement</th>
+                                        <th>Status</th>
+                                        <th>Fait le</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for commande in commandes %}
+                                        <tr class="odd gradeX">
+                                            <td>{{ commande.id }}</td>
+                                            <td>{{commande.client.first_name}} {{commande.client.last_name}} <br> {{ commande.client.contact }}</td>
+                                            <td> {{ commande.ligne_commande.filter.count }} produits</td>
+                                            <td>{{ commande.price }} $</td>
+                                            <td>{{ commande.payement_intent }}</td>
+                                            <td>
+                                                {% if commande.deleted %}
+                                                <label class="label label-danger">Annulé</label>
+                                                {% elif commande.status %}
+                                                <label class="label label-success">Validée</label>
+                                                {% else %}
+                                                    <label class="label label-warning">En attente</label>
+                                                {% endif %}  
+                                            </td>
+                                            <td>{{ commande.created_at }}</td>
+                                            <td><a href="#" data-toggle="modal" data-target="#commande-{{ commande.id }}"><i class="fa fa-eye"></i> Voir</a></td>
+                                        </tr>
+                                    {% endfor %}
+                                  
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- end panel -->
+                </div>
+                <!-- end col-12 -->
+            </div>
+
+
+			<!-- end row -->
+		</div>
+		<!-- end #content -->
+
+
+
+        {% for commande in commandes %}
+            <div class="modal fade" id="commande-{{ commande.id }}">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h4 class="modal-title">Commande N°{{ commande.id }}</h4>
+                        </div>
+                        <div class="modal-body">
+                            <table class="table table-striped">
+                                <thead>
+                                    <th colspan="2">Désignation</th>
+                                    <th>Qté</th>
+                                    <th>Prix</th>
+                                </thead>
+                                <tbody>
+                                    {% for ligne in commande.ligne_commande.filter %}
+                                        <tr>
+                                            <td>
+                                                <img src="{{ligne.produit.image2.url}}" style="height: 40px;" alt="image">
+                                            </td>
+                                            <td><h5>{{ligne.produit.name}}</h5> <p>{{ligne.produit.descrription|truncatewords:15}}</p></td>
+                                            <td>x{{ligne.quantite}}</td>
+                                            <td>{{ligne.price}} $</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            {% if not commande.deleted and not commande.status %}
+                            <button class="btn dim btn-danger float-left" onclick="delete_password('commande', '{{commande.id}}')" ><i class="fa fa-trash"></i> {% translate "Annuler le commande" %}</button>
+                            <button class="btn dim btn-primary" onclick="validation('{{commande.id}}')"><i class="fa fa-check"></i> {% translate "Valider le commande" %}</button>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+
+
+
+        <style>
+            .bouton{
+                width: 100px;
+                height: 100px;
+                font-size: 50px;
+                padding-top: 15px;
+                border-radius: 10px;
+                margin: 10px 0 0 10px;
+                cursor: pointer;
+            }
+        </style>
+
+        <div class="token">{% csrf_token %}</div>
+{% endblock "content" %}
+
+
+{% block "scriptjs" %}
+    <script>
+        $(document).ready(function() {
+
+            validation = function(id){
+                var token = $("div.token input[type=hidden]").val();
+                url = "/administration/boutique/commandes/valider/";
+                alerty.confirm("Voulez-vous vraiment valider cette commande ?", {
+                    title: "Validation de la commande",
+                    cancelLabel: "Non",
+                    okLabel: "OUI, valider",
+                }, function () {
+                    Loader.start();
+                    var formdata = new FormData();
+                    formdata.append('id', id);
+                    formdata.append('csrfmiddlewaretoken', token);
+                    $.post({ url: url, data: formdata, contentType: false, processData: false }, function (data) {
+                        if (data.status) {
+                            window.location.reload()
+                        } else {
+                            Alerter.error('Erreur !', data.message);
+                        }
+                    }, 'json')
+                })
+            }
+        });
+    </script>
+{% endblock "scriptjs" %}
+

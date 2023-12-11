@@ -16,7 +16,7 @@
 			<h1 class="page-header">Evenement de la #DreamTeam <small>...</small></h1>
 			<!-- end page-header -->
 			
-            <div id="options" class="m-b-10">
+            {% comment %} <div id="options" class="m-b-10">
                 <span class="gallery-option-set" id="filter" data-option-key="filter">
                     <a href="#show-all" class="btn btn-default btn-sm active" data-option-value="*">
                         Voir Tous
@@ -27,7 +27,7 @@
                         </div>
                     {% endfor %}
                 </span>
-            </div>
+            </div> {% endcomment %}
             <div id="gallery" class="gallery">
 
                 {% for event in events %}
@@ -120,7 +120,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h4 class="modal-title">Modification de l'oeuvre</h4>
+                        <h4 class="modal-title">Modification de l'evenement</h4>
                     </div>
                     <form method="POST" class="formShamman" classname="EvenementForm">
                         {% csrf_token %}

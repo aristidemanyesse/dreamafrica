@@ -1,0 +1,278 @@
+{% extends 'base/vitrineBase.html' %}
+{% load static %}
+
+
+{% block body %}
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<!-- Banners -->
+<section id="banner" class="banner-section"> 
+  <!-- Banner Tagline -->
+  <div class="banner-fixed">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-10 col-md-8 col-lg-8">
+          <div class="banner-content">
+            <div class="banner-tagline">
+              <h1>Mon compte</h1>
+			  <h4 style="color: orangered;">{{request.user.first_name}} {{request.user.last_name}}</h4>
+              </div>
+            
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- /Banners Tagline -->
+  <div class="dark-layer"></div>
+</section>
+<!-- /Banners --> 
+
+
+<br><br>  
+<!-- Blog -->
+<section id="blog" class="">
+	
+	<div class="container panier-container">
+
+		<ul class="nav nav-tabs">
+			<li class="nav-item">
+			  <a class="nav-link active" data-toggle="tab" href="#infos">Mes commandes en attente</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" data-toggle="tab" href="#recettes">Mes commandes validées</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" data-toggle="tab" href="#avis">Infos du compte</a>
+			</li>
+		</ul>
+		  
+		  <!-- Tab panes -->
+		<div class="tab-content" style="background-color: white; color:black">
+
+			<div class="tab-pane container active" id="infos">
+				<h4>Vous avez {{attentes|length}} commande(s) en attente</h4>
+
+				{% if attentes|length > 0 %}
+				<table class="table table-striped">
+					<thead>
+						<th>Id de commande</th>
+						<th>Date de validation</th>
+						<th>Nombre de produits</th>
+						<th>Prix total</th>
+						<th>Etat</th>
+						<th>Actions</th>
+					</thead>
+					<tbody>
+						{% for commande in attentes %}
+							<tr>
+								<td>{{commande.id}}</td>
+								<td>{{commande.created_at}}</td>
+								<td>{{commande.ligne_commande.filter.count}} produits</td>
+								<td>{{commande.price}} $</td>
+								<td>
+									{% if commande.deleted %}
+									<label class="label label-danger">Annulé</label>
+									{% elif commande.status %}
+									<label class="label label-success">Validée</label>
+									{% else %}
+										<label class="label label-warning">En attente</label>
+									{% endif %}  
+								</td>
+								<td><a href="#" data-toggle="modal" data-target="#commande-{{ commande.id }}"><i class="fa fa-eye"></i> Voir</a></td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+				{% endif %}
+			</div>
+
+
+			<div class="tab-pane container fade" id="recettes">
+				<h4>Vous avez {{finis|length}} commande(s) validées</h4>
+
+				{% if finis|length > 0 %}
+				<table class="table table-striped">
+					<thead>
+						<th>Id de commande</th>
+						<th>Date de validation</th>
+						<th>Nombre de produits</th>
+						<th>Prix total</th>
+						<th>Etat</th>
+						<th>Actions</th>
+					</thead>
+					<tbody>
+						{% for commande in finis %}
+							<tr>
+								<td>{{commande.id}}</td>
+								<td>{{commande.created_at}}</td>
+								<td>{{commande.ligne_commande.filter.count}} produits</td>
+								<td>{{commande.price}} $</td>
+								<td>
+									{% if commande.deleted %}
+									<label class="label label-danger">Annulé</label>
+									{% elif commande.status %}
+									<label class="label label-success">Validée</label>
+									{% else %}
+										<label class="label label-warning">En attente</label>
+									{% endif %}  
+								</td>
+								<td><a href="#" data-toggle="modal" data-target="#commande-{{ commande.id }}"><i class="fa fa-eye"></i> Voir</a></td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+				{% endif %}
+			</div>
+
+
+			<div class="tab-pane container fade" id="avis">
+
+
+			</div>
+		</div>
+
+		
+	</div>
+</section>
+<!-- /Blog -->
+
+<!--Conference Venue-->
+<section id="venue" class="section-padding parallex-bg white_text">
+  <div class="container">
+    <div class="div_zindex">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="heading-sec clearfix">
+            <div class="section-header text-center">
+              <h2>Fashion Week Africa</h2>
+              <p>Venez soutenir les artisans de la diversité culturel africaine !</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+          <div class="venue_info_box"> <i class="fa fa-phone" aria-hidden="true"></i>
+            <p>(+33) 7 82 80 18 52</p>
+          </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+          <div class="venue_info_box"> <i class="fa fa-map-marker" aria-hidden="true"></i>
+            <p>10 rue des terres au curé <br> 75 013 Paris </p>
+          </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+          <div class="venue_info_box"> <i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:support@domainname.com">services@dreamteamafrica.com</a> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dark-layer"></div>
+</section>
+<!--/Conference Venue--> 
+ 
+
+
+        
+{% for commande in attentes %}
+<div class="modal fade" id="commande-{{ commande.id }}">
+	<div class="modal-dialog model-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h6 class="modal-title">Commande N°{{ commande.id }}</h6>
+			</div>
+			<div class="modal-body">
+				<table class="table table-striped">
+					<thead>
+						<th colspan="2">Désignation</th>
+						<th>Qté</th>
+						<th>Prix</th>
+					</thead>
+					<tbody>
+						{% for ligne in commande.ligne_commande.filter %}
+							<tr>
+								<td>
+									<img src="{{ligne.produit.image2.url}}" style="height: 40px;" alt="image">
+								</td>
+								<td><h5>{{ligne.produit.name}}</h5> <p>{{ligne.produit.descrription|truncatewords:15}}</p></td>
+								<td>x{{ligne.quantite}}</td>
+								<td>{{ligne.price}} $</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+			{% comment %} <div class="modal-footer">
+				<button class="btn dim btn-danger float-left" onclick="delete_password('commande', '{{commande.id}}')" ><i class="fa fa-trash"></i> {% translate "Annuler le commande" %}</button>
+				<button class="btn dim btn-primary" onclick="validation('{{commande.id}}')"><i class="fa fa-check"></i> {% translate "Valider le commande" %}</button>
+			</div> {% endcomment %}
+		</div>
+	</div>
+</div>
+{% endfor %}
+
+
+{% for commande in finis %}
+<div class="modal fade" id="commande-{{ commande.id }}">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h6 class="modal-title">Commande N°{{ commande.id }}</h6>
+			</div>
+			<div class="modal-body">
+				<table class="table table-striped">
+					<thead>
+						<th colspan="2">Désignation</th>
+						<th>Qté</th>
+						<th>Prix</th>
+					</thead>
+					<tbody>
+						{% for ligne in commande.ligne_commande.filter %}
+							<tr>
+								<td>
+									<img src="{{ligne.produit.image2.url}}" style="height: 40px;" alt="image">
+								</td>
+								<td><h6>{{ligne.produit.name}}</h6> <p>{{ligne.produit.descrription|truncatewords:15}}</p></td>
+								<td>x{{ligne.quantite}}</td>
+								<td>{{ligne.price}} $</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+			{% comment %} <div class="modal-footer">
+				<button class="btn dim btn-danger float-left" onclick="delete_password('commande', '{{commande.id}}')" ><i class="fa fa-trash"></i> {% translate "Annuler le commande" %}</button>
+				<button class="btn dim btn-primary" onclick="validation('{{commande.id}}')"><i class="fa fa-check"></i> {% translate "Valider le commande" %}</button>
+			</div> {% endcomment %}
+		</div>
+	</div>
+</div>
+{% endfor %}
+
+
+
+{% endblock body %} 
+
+
+
+
+
+{% block scriptjs %}
+<script>
+	{% include "./panier.js" %}
+	{% include "./produit.js" %}
+</script>
+
+{% endblock scriptjs %} 
+
+

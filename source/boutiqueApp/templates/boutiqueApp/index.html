@@ -41,9 +41,14 @@
 	      	<div class="blog_img margin-btm-20">
               <a href="{% url "boutiqueApp:produit" produit.id %}"><img src="{{produit.image1.url}}" style="height:200px;" alt="image"></a>
           </div>
-    	    <div class="blog_meta">
-                <p>{{produit.price}} €</p>
-            </div>
+    	    <div class="">
+            {% if produit.price_reduction > 0 %}
+            <span style="text-decoration : line-through; color: red">{{produit.price}} €</span> <span style="margin-bottom: 0; margin-left: 5%; font-size:22px; font-weight: bold;">{{produit.price_reduction}} €</span>
+            {% else %}
+            <span style="font-size:22px; font-weight: bold;">{{produit.price}} €</span>
+            {% endif %}
+          </div><br>
+          
         	<h6 style="margin-bottom: 0;" ><a style="color: black" href="{% url "boutiqueApp:produit" produit.id %}">{{produit.name|truncatewords:10}}</a></h6>
 	        <div style="height: 100px; margin: 0;">
             <p >{{produit.description|truncatewords:18}}.</p>

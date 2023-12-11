@@ -25,9 +25,9 @@
             </div>
 
 			<!-- begin row -->
-			<div id="gallery" class="gallery">
+			<div id="gallery" class="gallery row">
                     {% for blog in blogs %}
-                    <div class="image">
+                    <div class="image col-lg-4 col-md-4 col-sm-6">
                         <div class="image-inner">
                             <a href="{{blog.image.url}}">
                                 <img src="{{blog.image.url}}" style="height: 200px" alt="" />

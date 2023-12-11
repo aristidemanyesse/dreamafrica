@@ -5,17 +5,18 @@ from django.contrib.auth.models import User
 
 
 class Produit(BaseModel):
-    name          = models.CharField(max_length = 255, default="", null = True, blank=True)
-    infos          = models.TextField(default="", null = True, blank=True)
+    name              = models.CharField(max_length = 255, default="", null = True, blank=True)
+    infos             = models.TextField(default="", null = True, blank=True)
     recettes          = models.TextField(default="", null = True, blank=True)
-    avis          = models.TextField(default="", null = True, blank=True)
-    faq          = models.TextField(default="", null = True, blank=True)
-    price         = models.IntegerField(default = 0)
-    description   = models.TextField(default = "", null = True, blank=True)
-    image1        = models.ImageField(max_length = 255, upload_to = "images/produits/", default='images/produits/default.png', null = True, blank=True)
-    image2        = models.ImageField(max_length = 255, upload_to = "images/produits/", default='images/produits/default.png', null = True, blank=True)
-    image3        = models.ImageField(max_length = 255, upload_to = "images/produits/", default='images/produits/default.png', null = True, blank=True)
-    image4        = models.ImageField(max_length = 255, upload_to = "images/produits/", default='images/produits/default.png', null = True, blank=True)
+    avis              = models.TextField(default="", null = True, blank=True)
+    faq               = models.TextField(default="", null = True, blank=True)
+    price             = models.IntegerField(default = 0)
+    price_reduction   = models.IntegerField(default = 0)
+    description       = models.TextField(default = "", null = True, blank=True)
+    image1            = models.ImageField(max_length = 255, upload_to = "images/produits/", default='images/produits/default.png', null = True, blank=True)
+    image2            = models.ImageField(max_length = 255, upload_to = "images/produits/", default='images/produits/default.png', null = True, blank=True)
+    image3            = models.ImageField(max_length = 255, upload_to = "images/produits/", default='images/produits/default.png', null = True, blank=True)
+    image4            = models.ImageField(max_length = 255, upload_to = "images/produits/", default='images/produits/default.png', null = True, blank=True)
     
     class Meta:
         ordering = ['name']
@@ -46,9 +47,9 @@ class Client(BaseModel):
 
 class Commande(BaseModel):
     client = models.ForeignKey(User, on_delete = models.CASCADE, null = True, blank=True, related_name="client_commande")
-    state = models.ForeignKey(Etat, on_delete = models.CASCADE, null = True, blank=True, related_name="etat_commande")
     price   = models.FloatField(default = 0.0, null = True, blank=True)
     client_secret   = models.TextField(default = "", null = True, blank=True)
+    status   = models.BooleanField(default=False, null = True, blank=True)
         
         
 

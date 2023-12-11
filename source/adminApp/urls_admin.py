@@ -9,7 +9,6 @@ urlpatterns = [
     path('', views.dashboard, name="dashboard"),
     path('main/dashboard/', views.dashboard, name="dashboard"),
     path('galerie/', views.galerie, name="galerie"),
-    path('participants/', views.participants, name="participants"),
     
     path('blogs/', views.blogs, name="blogs"),
     path('blogs/<uuid:id>/', views.blog, name="blog"),
@@ -24,6 +23,7 @@ urlpatterns = [
     
     path('boutique/produits/', views.produits, name="produits"),
     path('boutique/commandes/', views.commandes, name="commandes"),
+    path('boutique/commandes/valider/', views.valider_commande, name="valider_commande"),
     path('boutique/article/new/', views.new, name="new"),
     path('boutique/article/update_produit/<uuid:id>/', views.update_produit, name="update_produit"),
     path('boutique/test/', views.test, name="test"),

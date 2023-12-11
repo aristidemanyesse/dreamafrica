@@ -24,8 +24,7 @@
 			
 			<!-- begin #content -->
 			{% block "content" %}
-			hello world   ! ldfdogiodg  gdfkgjnjkfdnjgndf
-			<br> dkgd
+		
 			{% endblock "content" %}
 			<!-- end #content -->
 			
@@ -36,18 +35,19 @@
 			<!-- end scroll to top btn -->
 		</div>
 		<!-- end page container -->
-		
-	{% include "../admin-partials/import_js.html" %}
-		
-	<script>
-		$(document).ready(function() {
-			App.init();
-		});
-	</script>
+		<div class="token">{% csrf_token %}</div>
 
-	{% block "scriptjs" %}
-	
-	{% endblock "scriptjs" %}
+		{% include "../admin-partials/import_js.html" %}
+			
+		<script>
+			$(document).ready(function() {
+				App.init();
+			});
+		</script>
+
+		{% block "scriptjs" %}
+		
+		{% endblock "scriptjs" %}
 
 
 	<style>
@@ -56,10 +56,8 @@
 		{% endblock "style" %}
 	</style>
 
-	{% include "../admin-partials/loader.html" %}
 
-
-	<div class="token">{% csrf_token %}</div>
+	
 </body>
 </html>
 
